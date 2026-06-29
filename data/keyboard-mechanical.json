@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "คีย์บอร์ด Mechanical งบ 500-1,500 บาท 2026 รุ่นไหนดี เปรียบเทียบ 5 รุ่น",
+    "description": "รวม 5 คีย์บอร์ด Mechanical งบ 500-1,500 บาท ทั้งมีสายและไร้สาย เปรียบเทียบสเปคจริง บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
+    "slug": "keyboard-mechanical-500-1500",
+    "updatedDate": "มิถุนายน 2026",
+    "breadcrumb": [
+      { "label": "หน้าแรก", "href": "/" },
+      { "label": "อุปกรณ์ WFH", "href": "/wfh" }
+    ]
+  },
+  "products": [
+    {
+      "rank": 1,
+      "name": "FANTECH MK889 Mechanical Keyboard RGB",
+      "price": "543 บาท",
+      "image": "images/th-11134207-7ra0t-mchgzs0a4kat07.webp",
+      "shopeeUrl": "https://s.shopee.co.th/8V6wcgQKPQ",
+      "summary": "คีย์บอร์ด Mechanical มีสายราคาเริ่มต้นที่คุ้มมาก ไฟ RGB ปรับได้ถึง 13 โหมด เหมาะกับคนที่อยากลอง Mechanical ครั้งแรกโดยไม่ต้องเสียเงินเยอะ",
+      "specs": [
+        { "label": "ประเภท", "value": "มีสาย (Wired)" },
+        { "label": "สวิตช์", "value": "Mechanical" },
+        { "label": "ไฟ RGB", "value": "13 โหมด ปรับได้" },
+        { "label": "แบรนด์", "value": "FANTECH" }
+      ],
+      "pros": ["ราคาถูกสุดในลิสต์", "ไฟ RGB สวย 13 โหมด", "แบรนด์ที่รู้จักในไทย"],
+      "cons": ["มีสายเท่านั้น", "ไม่มี Hotswap"],
+      "bestFor": "คนที่อยากลอง Mechanical ครั้งแรก งบไม่เกิน 600 บาท",
+      "tableTag": "ถูกสุด RGB 13 โหมด",
+      "tableWho": "มือใหม่ Mechanical"
+    },
+    {
+      "rank": 2,
+      "name": "NUBWO X803 Mechanical MINI RGB ไร้สาย Bluetooth",
+      "price": "920 บาท",
+      "image": "images/sg-11134201-8261e-mjpflgxhb5z768.webp",
+      "shopeeUrl": "https://s.shopee.co.th/AKYao9FLO6",
+      "summary": "คีย์บอร์ด Mechanical ขนาด 98% ใช้ได้ทั้งไร้สายและ Bluetooth มี Knob หมุนปรับเสียงได้ ดีไซน์สีสันสวยงาม เหมาะกับคน WFH ที่ต้องการทั้ง Wireless และ RGB",
+      "specs": [
+        { "label": "ประเภท", "value": "ไร้สาย / Bluetooth" },
+        { "label": "ขนาด", "value": "98% Mini" },
+        { "label": "พิเศษ", "value": "Knob ปรับเสียง" },
+        { "label": "ไฟ RGB", "value": "มี" }
+      ],
+      "pros": ["ไร้สาย + Bluetooth ในตัวเดียว", "Knob ปรับเสียงสะดวก", "ขนาดกะทัดรัด 98%", "ดีไซน์สวย"],
+      "cons": ["ต้องชาร์จแบต", "ราคากลางๆ แข่งกับหลายรุ่น"],
+      "bestFor": "คน WFH ที่อยากได้ไร้สายพร้อม Knob ในงบไม่เกิน 1,000 บาท",
+      "tableTag": "ไร้สาย Bluetooth Knob",
+      "tableWho": "WFH ไม่อยากมีสาย"
+    },
+    {
+      "rank": 3,
+      "name": "AULA F75 Mechanical Keyboard 75% Bluetooth 2.4G",
+      "price": "1,443 บาท",
+      "image": "images/cn-11134207-820l4-mlvrfcofj8cgd6.webp",
+      "shopeeUrl": "https://s.shopee.co.th/4VanrcGLHI",
+      "summary": "คีย์บอร์ด Mechanical 75% เชื่อมต่อได้ 3 แบบ ทั้งมีสาย Bluetooth และ 2.4G ใน 1 ตัว 80 คีย์กะทัดรัด เป็น <b>ม้ามืด</b> ของลิสต์ที่ให้ฟีเจอร์มากที่สุดในราคาสูงสุด",
+      "specs": [
+        { "label": "ประเภท", "value": "มีสาย / BT / 2.4G (3-in-1)" },
+        { "label": "ขนาด", "value": "75% (80 คีย์)" },
+        { "label": "สวิตช์", "value": "Mechanical RGB" },
+        { "label": "เชื่อมต่อ", "value": "USB-C / Bluetooth / 2.4GHz" }
+      ],
+      "pros": ["เชื่อมต่อ 3 แบบในตัวเดียว", "ขนาด 75% พกพาง่าย", "ครบที่สุดในลิสต์"],
+      "cons": ["ราคาสูงสุดในลิสต์", "แบรนด์ไม่คุ้นเคยมาก"],
+      "bestFor": "คนที่ต้องการคีย์บอร์ดเดียวใช้ได้ทุกสถานการณ์ ทั้งบ้านและออฟฟิศ",
+      "tableTag": "3-in-1 มีสาย+BT+2.4G",
+      "tableWho": "คนต้องการครบในตัวเดียว"
+    },
+    {
+      "rank": 4,
+      "name": "Ajazz AK821 82Key Gasket Hotswap Mechanical Keyboard",
+      "price": "941 บาท",
+      "image": "images/th-11134207-81ztj-mfwbocm3wqa7d4.webp",
+      "shopeeUrl": "https://s.shopee.co.th/60PbeUJd1Y",
+      "summary": "คีย์บอร์ด Mechanical ที่มีฟีเจอร์ระดับสูงในราคากลาง รองรับ Hotswap เปลี่ยนสวิตช์ได้ และใช้โครงสร้าง Gasket mount ลดการสั่นสะเทือน เสียงพิมพ์นุ่มนวลกว่ารุ่นทั่วไป รับประกัน 1 ปี",
+      "specs": [
+        { "label": "ประเภท", "value": "มีสาย (Wired)" },
+        { "label": "ขนาด", "value": "82 คีย์" },
+        { "label": "Hotswap", "value": "รองรับ เปลี่ยนสวิตช์ได้" },
+        { "label": "โครงสร้าง", "value": "Gasket Mount" },
+        { "label": "รับประกัน", "value": "1 ปี" }
+      ],
+      "pros": ["Hotswap เปลี่ยนสวิตช์ได้ไม่ต้องบัดกรี", "Gasket mount เสียงนุ่ม", "รับประกัน 1 ปี", "คุ้มราคามาก"],
+      "cons": ["มีสายเท่านั้น", "แบรนด์ไม่คุ้นเคยในไทย"],
+      "bestFor": "คนที่อยากได้ Hotswap และ Gasket mount ในงบไม่เกิน 1,000 บาท",
+      "tableTag": "Hotswap + Gasket Mount",
+      "tableWho": "คนชอบ customize สวิตช์"
+    },
+    {
+      "rank": 5,
+      "name": "Ajazz AK992 Retro 99Key Red Switch Gasket Mechanical Keyboard",
+      "price": "897 บาท",
+      "image": "images/th-11134207-7r98v-lq36pf5mkroa16.webp",
+      "shopeeUrl": "https://s.shopee.co.th/AAFAcMPOWD",
+      "summary": "คีย์บอร์ด Mechanical สไตล์ Retro ดีไซน์โดดเด่นต่างจากรุ่นอื่นในลิสต์ ใช้ Red Switch ลื่นเบา เหมาะกับพิมพ์เยอะและเล่นเกม โครงสร้าง Gasket mount เสียงนุ่ม 99 คีย์ครบทุกปุ่ม",
+      "specs": [
+        { "label": "ประเภท", "value": "มีสาย (Wired)" },
+        { "label": "ขนาด", "value": "99 คีย์ (Full-size)" },
+        { "label": "สวิตช์", "value": "Red Switch (เบา ลื่น)" },
+        { "label": "โครงสร้าง", "value": "Gasket Mount" },
+        { "label": "สไตล์", "value": "Retro Design" }
+      ],
+      "pros": ["ดีไซน์ Retro สวยโดดเด่น", "Red Switch ลื่นเบาพิมพ์สบาย", "Gasket mount เสียงนุ่ม", "99 คีย์ครบ"],
+      "cons": ["มีสายเท่านั้น", "ดีไซน์ Retro อาจไม่ถูกใจทุกคน"],
+      "bestFor": "คนที่อยากได้คีย์บอร์ดดีไซน์แตกต่าง พิมพ์สบาย เสียงนุ่ม",
+      "tableTag": "Retro Design Red Switch",
+      "tableWho": "คนชอบดีไซน์โดดเด่น"
+    }
+  ],
+  "verdict": [
+    { "condition": "งบน้อยสุด อยากลอง Mechanical ครั้งแรก", "pick": "FANTECH MK889" },
+    { "condition": "WFH อยากได้ไร้สาย + Knob", "pick": "NUBWO X803" },
+    { "condition": "อยาก Hotswap เปลี่ยนสวิตช์ได้", "pick": "Ajazz AK821" },
+    { "condition": "ดีไซน์สวย พิมพ์สบาย เสียงนุ่ม", "pick": "Ajazz AK992 Retro" },
+    { "condition": "ต้องการครบทั้งมีสาย BT และ 2.4G", "pick": "AULA F75" }
+  ]
+}
