@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">no-os.com</title>
 <meta name="description" id="page-desc" content="">
+<link rel="canonical" id="canonical" href="https://pick.no-os.com/">
+<meta property="og:title" id="og-title" content="">
+<meta property="og:description" id="og-desc" content="">
+<meta property="og:url" id="og-url" content="https://pick.no-os.com/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="no-os.com">
+<meta name="robots" content="index, follow">
 <style>
   :root{
     --charcoal:#111111; --dark-grey:#484848; --white:#FFFFFF;
@@ -338,6 +345,10 @@ async function render(jsonPath) {
 
   document.getElementById('page-title').textContent = `${meta.title} | no-os.com`;
   document.getElementById('page-desc').content = meta.description;
+  document.getElementById('og-title').content = `${meta.title} | no-os.com`;
+  document.getElementById('og-desc').content = meta.description;
+  document.getElementById('og-url').content = `https://pick.no-os.com/?data=${dataFile}`;
+  document.getElementById('canonical').href = `https://pick.no-os.com/?data=${dataFile}`;
 
   const content = document.getElementById('content');
   const pageLabel = meta.title.split(' ').slice(0, 4).join(' ');
