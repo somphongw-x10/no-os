@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">no-os.com</title>
+<meta name="description" id="page-desc" content="">
+<style>
+  :root{
+    --charcoal:#111111; --dark-grey:#484848; --white:#FFFFFF;
+    --bg-secondary:#F5F5F5; --border-subtle:#DFDFDF; --border-medium:#CCCCCC;
+    --accent-teal:#AADDDD; --accent-red:#CC0008;
+    --s4:4px; --s8:8px; --s12:12px; --s16:16px; --s20:20px;
+    --s24:24px; --s32:32px; --s40:40px; --s48:48px; --s64:64px;
+    --r-badge:2px; --r-card:4px; --r-pill:64px;
+    --maxw:1024px;
+    --font:'Noto Sans Thai',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--font);color:var(--charcoal);background:var(--white);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s20);}
+
+  .topbar{border-bottom:1px solid var(--border-subtle);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .logo{font-weight:700;font-size:18px;letter-spacing:-0.5px;}
+  .logo span{color:var(--dark-grey);font-weight:400;}
+  .nav a{font-size:14px;color:var(--dark-grey);text-decoration:none;margin-left:var(--s24);}
+  .nav a:hover{color:var(--charcoal);}
+
+  .crumb{font-size:12px;color:var(--dark-grey);padding:var(--s16) 0;}
+  .crumb a{color:var(--charcoal);text-decoration:none;}
+  .crumb .sep{color:var(--border-medium);margin:0 var(--s8);}
+
+  .hero{padding:var(--s24) 0 var(--s40);}
+  .hero h1{font-size:40px;line-height:1.25;font-weight:700;letter-spacing:-0.5px;}
+  .hero .lead{font-size:18px;color:var(--dark-grey);margin-top:var(--s16);max-width:680px;}
+  .updated{display:inline-block;background:var(--accent-teal);color:var(--charcoal);font-size:12px;font-weight:700;padding:var(--s4) var(--s8);border-radius:var(--r-badge);margin-top:var(--s20);}
+
+  .section{padding:var(--s40) 0;}
+  .section>h2{font-size:28px;line-height:1.25;font-weight:700;margin-bottom:var(--s24);}
+
+  .qtable{width:100%;border-collapse:collapse;font-size:14px;}
+  .qtable th,.qtable td{text-align:left;padding:var(--s12) var(--s16);border-bottom:1px solid var(--border-subtle);}
+  .qtable th{font-weight:700;background:var(--bg-secondary);}
+  .qtable td:first-child{font-weight:700;}
+  .pricetag{color:var(--accent-red);font-weight:700;}
+
+  .card{background:var(--bg-secondary);border:1px solid transparent;border-radius:var(--r-card);padding:var(--s24);margin-bottom:var(--s24);transition:background .15s,box-shadow .15s;}
+  .card:hover{background:var(--white);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  .card-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:var(--s8);}
+  .card-head h3{font-size:20px;font-weight:700;}
+  .rank{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--charcoal);color:var(--white);border-radius:50%;font-size:14px;font-weight:700;margin-right:var(--s12);flex:none;}
+  .card .price{font-size:14px;color:var(--dark-grey);}
+  .card .price b{color:var(--accent-red);}
+  .card p.desc{color:var(--dark-grey);margin:var(--s16) 0;font-size:16px;}
+
+  .specs{list-style:none;font-size:14px;margin:var(--s16) 0;}
+  .specs li{padding:var(--s4) 0;border-bottom:1px dashed var(--border-subtle);display:flex;justify-content:space-between;gap:var(--s16);}
+  .specs li span:first-child{color:var(--dark-grey);}
+  .specs li span:last-child{font-weight:700;text-align:right;}
+
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:var(--s16);margin:var(--s16) 0;}
+  .pros-cons div{font-size:14px;}
+  .pros-cons .t{font-weight:700;margin-bottom:var(--s4);}
+  .pros .t{color:#1a7a3a;} .cons .t{color:var(--accent-red);}
+  .pros ul,.cons ul{padding-left:var(--s16);}
+  .pros li,.cons li{margin-bottom:2px;}
+
+  .fit{background:var(--white);border-left:3px solid var(--accent-teal);padding:var(--s12) var(--s16);font-size:14px;margin:var(--s16) 0;}
+  .card:hover .fit{background:var(--bg-secondary);}
+
+  .btn{display:block;font-family:var(--font);cursor:pointer;text-decoration:none;height:56px;line-height:56px;padding:0 var(--s32);border-radius:var(--r-pill);font-size:14px;text-align:center;border:0;background:var(--charcoal);color:var(--white);font-weight:700;transition:background .15s;}
+  .btn:hover{background:var(--dark-grey);}
+
+  .verdict{background:var(--bg-secondary);border-radius:var(--r-card);padding:var(--s32);}
+  .verdict h2{margin-bottom:var(--s16);}
+  .verdict ul{list-style:none;}
+  .verdict li{padding:var(--s12) 0;border-bottom:1px solid var(--border-subtle);font-size:16px;}
+  .verdict li:last-child{border:0;}
+
+  .disclaim{font-size:12px;color:var(--dark-grey);padding:var(--s24) 0;border-top:1px solid var(--border-subtle);margin-top:var(--s40);}
+
+  footer{background:var(--charcoal);color:var(--white);padding:var(--s40) 0;margin-top:var(--s40);font-size:14px;}
+  footer a{color:var(--white);}
+
+  #loading{text-align:center;padding:var(--s64);color:var(--dark-grey);}
+
+  @media(max-width:599px){
+    .hero h1{font-size:24px;} .section>h2{font-size:20px;}
+    .pros-cons{grid-template-columns:1fr;} .nav{display:none;}
+    .qtable{font-size:12px;} .qtable th,.qtable td{padding:var(--s8);}
+    .card{padding:var(--s16);}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo">no-os<span>.com</span></div>
+    <nav class="nav">
+      <a href="#">เมาส์</a>
+      <a href="#">คีย์บอร์ด</a>
+      <a href="#">หูฟัง</a>
+      <a href="#">จัด Setup</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div id="loading">กำลังโหลด...</div>
+  <div id="content" style="display:none"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    no-os.com — เปรียบเทียบอุปกรณ์ WFH สเปคคุ้มราคา &nbsp;·&nbsp; <a href="#">เกี่ยวกับเรา</a> &nbsp;·&nbsp; <a href="#">นโยบาย affiliate</a>
+  </div>
+</footer>
+
+<script>
+// ---- Helpers ----
+function el(tag, cls, html) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html !== undefined) e.innerHTML = html;
+  return e;
+}
+
+// ---- Renderers ----
+function renderBreadcrumb(items, currentLabel) {
+  const div = el('div', 'crumb');
+  items.forEach(b => {
+    const a = el('a', '', b.label);
+    a.href = b.href;
+    div.appendChild(a);
+    div.appendChild(el('span', 'sep', '/'));
+  });
+  div.appendChild(document.createTextNode(currentLabel));
+  return div;
+}
+
+function renderHero(meta) {
+  const h = el('header', 'hero');
+  h.appendChild(el('h1', '', meta.title));
+  h.appendChild(el('p', 'lead', meta.description));
+  h.appendChild(el('span', 'updated', `อัปเดต ${meta.updatedDate}`));
+  return h;
+}
+
+function renderTable(products) {
+  const sec = el('section', 'section');
+  sec.appendChild(el('h2', '', 'สรุปเร็ว ถ้าไม่อยากอ่านทั้งหมด'));
+  const table = el('table', 'qtable');
+  table.innerHTML = `<thead><tr><th>รุ่น</th><th>ราคา</th><th>เด่น</th><th>เหมาะกับ</th></tr></thead>`;
+  const tbody = el('tbody');
+  products.forEach(p => {
+    tbody.innerHTML += `<tr>
+      <td>${p.name}</td>
+      <td class="pricetag">${p.price}</td>
+      <td>${p.tableTag}</td>
+      <td>${p.tableWho}</td>
+    </tr>`;
+  });
+  table.appendChild(tbody);
+  sec.appendChild(table);
+  return sec;
+}
+
+function renderCard(p) {
+  const card = el('article', 'card');
+
+  // Head
+  const head = el('div', 'card-head');
+  head.innerHTML = `<h3><span class="rank">${p.rank}</span>${p.name}</h3>
+    <div class="price">ราคา Shopee: <b>${p.price}</b></div>`;
+  card.appendChild(head);
+
+  // Description
+  card.appendChild(el('p', 'desc', p.summary));
+
+  // Specs
+  const ul = el('ul', 'specs');
+  p.specs.forEach(s => {
+    ul.innerHTML += `<li><span>${s.label}</span><span>${s.value}</span></li>`;
+  });
+  card.appendChild(ul);
+
+  // Pros / Cons
+  const pc = el('div', 'pros-cons');
+  pc.innerHTML = `
+    <div class="pros">
+      <div class="t">ข้อดี</div>
+      <ul>${p.pros.map(x => `<li>${x}</li>`).join('')}</ul>
+    </div>
+    <div class="cons">
+      <div class="t">ข้อเสีย</div>
+      <ul>${p.cons.map(x => `<li>${x}</li>`).join('')}</ul>
+    </div>`;
+  card.appendChild(pc);
+
+  // Best for
+  card.appendChild(el('div', 'fit', `<b>เหมาะสำหรับ:</b> ${p.bestFor}`));
+
+  // CTA
+  const btn = el('a', 'btn', 'ดูราคาล่าสุดบน Shopee →');
+  btn.href = p.shopeeUrl;
+  btn.target = '_blank';
+  btn.rel = 'noopener';
+  card.appendChild(btn);
+
+  return card;
+}
+
+function renderProducts(products) {
+  const sec = el('section', 'section');
+  products.forEach(p => sec.appendChild(renderCard(p)));
+  return sec;
+}
+
+function renderVerdict(items) {
+  const sec = el('section', 'section');
+  const v = el('div', 'verdict');
+  v.appendChild(el('h2', '', 'สรุป — ซื้อรุ่นไหนดี?'));
+  const ul = el('ul');
+  items.forEach(i => {
+    ul.innerHTML += `<li><b>${i.condition}</b> → ${i.pick}</li>`;
+  });
+  v.appendChild(ul);
+  sec.appendChild(v);
+  sec.innerHTML += `<p class="disclaim">ราคาอาจเปลี่ยนแปลงตามโปรโมชั่นและคูปอง Shopee — เช็คหน้าร้านก่อนซื้อเสมอ • บทความนี้มีลิงก์ affiliate เมื่อคุณซื้อผ่านลิงก์ เราอาจได้รับค่าคอมมิชชั่นโดยที่คุณไม่ต้องจ่ายเพิ่ม</p>`;
+  return sec;
+}
+
+// ---- Main ----
+async function render(jsonPath) {
+  const res = await fetch(jsonPath);
+  const data = await res.json();
+  const { meta, products, verdict } = data;
+
+  document.getElementById('page-title').textContent = `${meta.title} | no-os.com`;
+  document.getElementById('page-desc').content = meta.description;
+
+  const content = document.getElementById('content');
+
+  // Get page title from last breadcrumb segment in title (first sentence)
+  const pageLabel = meta.title.split(' ').slice(0, 4).join(' ');
+
+  content.appendChild(renderBreadcrumb(meta.breadcrumb, pageLabel));
+  content.appendChild(renderHero(meta));
+  content.appendChild(renderTable(products));
+  content.appendChild(renderProducts(products));
+  content.appendChild(renderVerdict(verdict));
+
+  document.getElementById('loading').style.display = 'none';
+  content.style.display = 'block';
+}
+
+// อ่าน ?data= จาก URL หรือใช้ default
+const params = new URLSearchParams(location.search);
+const dataFile = params.get('data') || 'data/wireless-mouse.json';
+render(dataFile).catch(err => {
+  document.getElementById('loading').textContent = 'โหลดข้อมูลไม่ได้ กรุณาตรวจสอบไฟล์ JSON';
+  console.error(err);
+});
+</script>
+
+</body>
+</html>

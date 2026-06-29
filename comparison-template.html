@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เมาส์ไร้สายราคาไม่เกิน 500 บาท 2026 | no-os.com</title>
+<meta name="description" content="เปรียบเทียบเมาส์ไร้สาย 5 รุ่น งบไม่เกิน 500 บาท สเปคคุ้มราคา ซื้อผ่าน Shopee ใช้คูปองถูกกว่า">
+<style>
+  :root{
+    /* Color tokens (IKEA-inspired) */
+    --charcoal:#111111;
+    --dark-grey:#484848;
+    --white:#FFFFFF;
+    --bg-secondary:#F5F5F5;
+    --border-subtle:#DFDFDF;
+    --border-medium:#CCCCCC;
+    --accent-teal:#AADDDD;
+    --accent-yellow:#FFEB3B;
+    --accent-red:#CC0008;
+
+    /* Spacing scale (4px base) */
+    --s4:4px;  --s8:8px;  --s12:12px; --s16:16px; --s20:20px;
+    --s24:24px; --s32:32px; --s40:40px; --s48:48px; --s64:64px;
+
+    /* Radius */
+    --r-badge:2px; --r-card:4px; --r-pill:64px;
+
+    --maxw:1024px;
+    --font:'Noto Sans Thai',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:var(--font);
+    color:var(--charcoal);
+    background:var(--white);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s20);}
+
+  /* ---- Top bar ---- */
+  .topbar{border-bottom:1px solid var(--border-subtle);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .logo{font-weight:700;font-size:18px;letter-spacing:-0.5px;}
+  .logo span{color:var(--dark-grey);font-weight:400;}
+  .nav a{font-size:14px;color:var(--dark-grey);text-decoration:none;margin-left:var(--s24);}
+  .nav a:hover{color:var(--charcoal);}
+
+  /* ---- Breadcrumb ---- */
+  .crumb{font-size:12px;color:var(--dark-grey);padding:var(--s16) 0;}
+  .crumb a{color:var(--charcoal);text-decoration:none;}
+  .crumb .sep{color:var(--border-medium);margin:0 var(--s8);}
+
+  /* ---- Hero ---- */
+  .hero{padding:var(--s24) 0 var(--s40);}
+  .hero h1{font-size:40px;line-height:1.25;font-weight:700;letter-spacing:-0.5px;}
+  .hero .lead{font-size:18px;color:var(--dark-grey);margin-top:var(--s16);max-width:680px;}
+  .updated{display:inline-block;background:var(--accent-teal);color:var(--charcoal);
+    font-size:12px;font-weight:700;padding:var(--s4) var(--s8);border-radius:var(--r-badge);margin-top:var(--s20);}
+
+  /* ---- Quick table ---- */
+  .section{padding:var(--s40) 0;}
+  .section > h2{font-size:28px;line-height:1.25;font-weight:700;margin-bottom:var(--s24);}
+  .qtable{width:100%;border-collapse:collapse;font-size:14px;}
+  .qtable th,.qtable td{text-align:left;padding:var(--s12) var(--s16);border-bottom:1px solid var(--border-subtle);}
+  .qtable th{font-weight:700;background:var(--bg-secondary);}
+  .qtable td:first-child{font-weight:700;}
+  .pricetag{color:var(--accent-red);font-weight:700;}
+
+  /* ---- Product card ---- */
+  .card{
+    background:var(--bg-secondary);
+    border:1px solid transparent;
+    border-radius:var(--r-card);
+    padding:var(--s24);
+    margin-bottom:var(--s24);
+    transition:background .15s, box-shadow .15s;
+  }
+  .card:hover{background:var(--white);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  .card-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:var(--s8);}
+  .card-head h3{font-size:20px;font-weight:700;}
+  .rank{display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;background:var(--charcoal);color:var(--white);
+    border-radius:50%;font-size:14px;font-weight:700;margin-right:var(--s12);flex:none;}
+  .card .price{font-size:14px;color:var(--dark-grey);}
+  .card .price b{color:var(--accent-red);}
+  .card p.desc{color:var(--dark-grey);margin:var(--s16) 0;font-size:16px;}
+
+  .specs{list-style:none;font-size:14px;margin:var(--s16) 0;}
+  .specs li{padding:var(--s4) 0;border-bottom:1px dashed var(--border-subtle);display:flex;justify-content:space-between;gap:var(--s16);}
+  .specs li span:first-child{color:var(--dark-grey);}
+  .specs li span:last-child{font-weight:700;text-align:right;}
+
+  .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:var(--s16);margin:var(--s16) 0;}
+  .pros-cons div{font-size:14px;}
+  .pros-cons .t{font-weight:700;margin-bottom:var(--s4);}
+  .pros .t{color:#1a7a3a;} .cons .t{color:var(--accent-red);}
+
+  .fit{background:var(--white);border-left:3px solid var(--accent-teal);
+    padding:var(--s12) var(--s16);font-size:14px;margin:var(--s16) 0;}
+  .card:hover .fit{background:var(--bg-secondary);}
+
+  /* ---- Buttons ---- */
+  .btn{display:inline-block;font-family:var(--font);cursor:pointer;text-decoration:none;
+    height:56px;line-height:56px;padding:0 var(--s32);border-radius:var(--r-pill);
+    font-size:14px;text-align:center;border:0;}
+  .btn-primary{background:var(--charcoal);color:var(--white);font-weight:700;}
+  .btn-primary:hover{background:var(--dark-grey);}
+  .btn-block{display:block;}
+
+  /* ---- Verdict ---- */
+  .verdict{background:var(--bg-secondary);border-radius:var(--r-card);padding:var(--s32);}
+  .verdict h2{margin-bottom:var(--s16);}
+  .verdict ul{list-style:none;}
+  .verdict li{padding:var(--s12) 0;border-bottom:1px solid var(--border-subtle);font-size:16px;}
+  .verdict li:last-child{border:0;}
+  .verdict b{color:var(--charcoal);}
+
+  .disclaim{font-size:12px;color:var(--dark-grey);padding:var(--s24) 0;border-top:1px solid var(--border-subtle);margin-top:var(--s40);}
+
+  footer{background:var(--charcoal);color:var(--white);padding:var(--s40) 0;margin-top:var(--s40);font-size:14px;}
+  footer a{color:var(--white);}
+
+  @media(max-width:599px){
+    .hero h1{font-size:24px;}
+    .section > h2{font-size:20px;}
+    .pros-cons{grid-template-columns:1fr;}
+    .nav{display:none;}
+    .qtable{font-size:12px;}
+    .qtable th,.qtable td{padding:var(--s8);}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo">no-os<span>.com</span></div>
+    <nav class="nav">
+      <a href="#">เมาส์</a>
+      <a href="#">คีย์บอร์ด</a>
+      <a href="#">หูฟัง</a>
+      <a href="#">จัด Setup</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- BREADCRUMB -->
+  <div class="crumb">
+    <a href="#">หน้าแรก</a><span class="sep">/</span>
+    <a href="#">อุปกรณ์ WFH</a><span class="sep">/</span>
+    เมาส์ไร้สาย
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>เมาส์ไร้สาย งบไม่เกิน 500 บาท เปรียบเทียบ 5 รุ่น ซื้อ Shopee คุ้มสุด</h1>
+    <p class="lead">เราเปรียบเทียบ 5 รุ่นที่ขายดีจริงใน Shopee โดยดูจากสเปค การใช้งานจริง และความคุ้มค่า — ไม่ต้องเสียเวลาอ่านรีวิวหลายที่ ใช้คูปอง Shopee ให้ถูกกว่าเดิม</p>
+    <span class="updated">อัปเดต มิถุนายน 2026</span>
+  </header>
+
+  <!-- QUICK TABLE -->
+  <section class="section">
+    <h2>สรุปเร็ว ถ้าไม่อยากอ่านทั้งหมด</h2>
+    <table class="qtable">
+      <thead>
+        <tr><th>รุ่น</th><th>ราคา</th><th>เด่น</th><th>เหมาะกับ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Logitech M240 Silent</td><td class="pricetag">ใส่ราคา</td><td>คลิกเงียบ 90% Bluetooth</td><td>WFH ประชุมบ่อย</td></tr>
+        <tr><td>Logitech M185</td><td class="pricetag">ใส่ราคา</td><td>แบตอึด รับประกัน 3 ปี</td><td>ใช้งานทั่วไป</td></tr>
+        <tr><td>Neolution ILLUSION</td><td class="pricetag">ใส่ราคา</td><td>4800 DPI เบา 57g</td><td>เล่นเกมงบน้อย</td></tr>
+        <tr><td>Nubwo NM-098</td><td class="pricetag">ใส่ราคา</td><td>Dual Mode ชาร์จได้</td><td>คนชอบ wireless ครบ</td></tr>
+        <tr><td>Rapoo M10 Plus</td><td class="pricetag">ใส่ราคา</td><td>ถูกสุด ใช้ได้จริง</td><td>งบจำกัดสุด</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section">
+
+    <!-- CARD 1 -->
+    <article class="card">
+      <div class="card-head">
+        <h3><span class="rank">1</span>Logitech M240 Silent</h3>
+        <div class="price">ราคา Shopee: <b>ใส่ราคา</b></div>
+      </div>
+      <p class="desc">รุ่นใหม่ของ Logitech ที่ใช้เทคโนโลยี Silent Touch ลดเสียงคลิกได้ถึง 90% เหมาะกับคนทำงาน WFH ที่ประชุม video call บ่อย ไม่อยากให้เสียงคลิกรบกวนไมค์</p>
+      <ul class="specs">
+        <li><span>การเชื่อมต่อ</span><span>Bluetooth</span></li>
+        <li><span>ปุ่ม</span><span>Silent Touch ลดเสียง 90%</span></li>
+        <li><span>ดีไซน์</span><span>ถนัดมือทั้งซ้าย-ขวา</span></li>
+        <li><span>รับประกัน</span><span>Logitech</span></li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros"><div class="t">ข้อดี</div>เงียบจริง, ไม่กินพอร์ต USB, แบรนด์น่าเชื่อถือ, กระทัดรัด</div>
+        <div class="cons"><div class="t">ข้อเสีย</div>ใช้ BT ล้วน เครื่องที่ไม่มี BT ต้องซื้อตัวรับเพิ่ม</div>
+      </div>
+      <div class="fit"><b>เหมาะสำหรับ:</b> คนทำงาน WFH ที่ต้องการความเงียบและความน่าเชื่อถือของแบรนด์</div>
+      <a href="#" class="btn btn-primary btn-block">ดูราคาล่าสุดบน Shopee →</a>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card">
+      <div class="card-head">
+        <h3><span class="rank">2</span>Logitech M185</h3>
+        <div class="price">ราคา Shopee: <b>ใส่ราคา</b></div>
+      </div>
+      <p class="desc">รุ่นคลาสสิกที่ขายดีมานานหลายปี จุดเด่นคือแบต AA 1 ก้อนอยู่ได้นาน + รับประกันยาว 3 ปี เหมาะกับคนที่ไม่อยากชาร์จบ่อยและต้องการความชัวร์</p>
+      <ul class="specs">
+        <li><span>Sensor</span><span>Optical 1000 DPI</span></li>
+        <li><span>การเชื่อมต่อ</span><span>USB Nano 2.4GHz</span></li>
+        <li><span>แบต</span><span>AA 1 ก้อน อยู่ได้นาน</span></li>
+        <li><span>รับประกัน</span><span>3 ปี</span></li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros"><div class="t">ข้อดี</div>แบตอึด, รับประกันนานสุดในลิสต์, ใช้ได้ทุก OS</div>
+        <div class="cons"><div class="t">ข้อเสีย</div>ปุ่มมีเสียงคลิก, ดีไซน์เรียบ</div>
+      </div>
+      <div class="fit"><b>เหมาะสำหรับ:</b> คนที่ต้องการเมาส์ไว้ใช้ทุกวัน เน้นทน ไม่อยากชาร์จบ่อย</div>
+      <a href="#" class="btn btn-primary btn-block">ดูราคาล่าสุดบน Shopee →</a>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card">
+      <div class="card-head">
+        <h3><span class="rank">3</span>Neolution E-Sport ILLUSION</h3>
+        <div class="price">ราคา Shopee: <b>ใส่ราคา</b></div>
+      </div>
+      <p class="desc">ตัวนี้คือ <b>ม้ามืด</b> ของลิสต์ — เมาส์เกมมิ่งราคาไม่ถึง 500 บาท แต่ให้สเปคเกินราคา DPI สูงถึง 4800 และเบามาก เหมาะกับคนที่อยากได้เมาส์ทำงาน + เล่นเกมในตัวเดียว</p>
+      <ul class="specs">
+        <li><span>Sensor</span><span>PAW3212 สูงสุด 4800 DPI</span></li>
+        <li><span>น้ำหนัก</span><span>เบาเพียง 57g</span></li>
+        <li><span>อายุปุ่ม</span><span>กดได้ 10 ล้านครั้ง</span></li>
+        <li><span>ดีไซน์</span><span>Ergonomic สมมาตร</span></li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros"><div class="t">ข้อดี</div>DPI สูงสุดในลิสต์, เบามาก, ปุ่มทนทาน, คุ้มราคา</div>
+        <div class="cons"><div class="t">ข้อเสีย</div>แบรนด์เน้นสายเกม อาจดูไม่ทางการสำหรับงานออฟฟิศ</div>
+      </div>
+      <div class="fit"><b>เหมาะสำหรับ:</b> คนที่อยากได้เมาส์ทำงาน + เล่นเกมในงบเดียว</div>
+      <a href="#" class="btn btn-primary btn-block">ดูราคาล่าสุดบน Shopee →</a>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card">
+      <div class="card-head">
+        <h3><span class="rank">4</span>Nubwo NM-098</h3>
+        <div class="price">ราคา Shopee: <b>ใส่ราคา</b></div>
+      </div>
+      <p class="desc">จุดเด่นคือเชื่อมต่อได้ 2 แบบ สลับระหว่าง 2.4GHz และ Bluetooth 5.1 ได้ และมีแบตในตัวชาร์จได้ ไม่ต้องคอยซื้อถ่าน</p>
+      <ul class="specs">
+        <li><span>การเชื่อมต่อ</span><span>Dual Mode 2.4GHz + BT 5.1</span></li>
+        <li><span>แบต</span><span>ในตัว 650mAh ชาร์จได้</span></li>
+        <li><span>อายุปุ่ม</span><span>กดได้ 10 ล้านครั้ง</span></li>
+        <li><span>สี</span><span>มีให้เลือก 3 สี</span></li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros"><div class="t">ข้อดี</div>เชื่อมต่อ 2 แบบ, ชาร์จได้ไม่ต้องใช้ถ่าน, มีสีให้เลือก</div>
+        <div class="cons"><div class="t">ข้อเสีย</div>ต้องชาร์จเมื่อแบตหมด, after-sales สู้ Logitech ไม่ได้</div>
+      </div>
+      <div class="fit"><b>เหมาะสำหรับ:</b> คนที่ใช้หลายอุปกรณ์ อยากสลับเชื่อมต่อ และไม่อยากซื้อถ่าน</div>
+      <a href="#" class="btn btn-primary btn-block">ดูราคาล่าสุดบน Shopee →</a>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card">
+      <div class="card-head">
+        <h3><span class="rank">5</span>Rapoo M10 Plus</h3>
+        <div class="price">ราคา Shopee: <b>ใส่ราคา</b></div>
+      </div>
+      <p class="desc">ถ้างบจำกัดจริงๆ Rapoo M10 Plus คือคำตอบ ราคาต่ำสุดในลิสต์ แต่ใช้งานพื้นฐานได้ครบ เหมาะเป็นเมาส์สำรองหรือสำหรับคนงบน้อยสุด</p>
+      <ul class="specs">
+        <li><span>Sensor</span><span>Optical 1000 DPI</span></li>
+        <li><span>การเชื่อมต่อ</span><span>USB Nano 2.4GHz</span></li>
+        <li><span>แบต</span><span>AA 1 ก้อน</span></li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros"><div class="t">ข้อดี</div>ราคาถูกที่สุด, หาซื้อง่าย</div>
+        <div class="cons"><div class="t">ข้อเสีย</div>Build quality สู้ Logitech ไม่ได้, ฟีเจอร์พื้นฐาน</div>
+      </div>
+      <div class="fit"><b>เหมาะสำหรับ:</b> คนที่ต้องการเมาส์สำรอง หรืองบจำกัดสุดจริงๆ</div>
+      <a href="#" class="btn btn-primary btn-block">ดูราคาล่าสุดบน Shopee →</a>
+    </article>
+
+  </section>
+
+  <!-- VERDICT -->
+  <section class="section">
+    <div class="verdict">
+      <h2>สรุป — ซื้อรุ่นไหนดี?</h2>
+      <ul>
+        <li><b>WFH ประชุมบ่อย เน้นเงียบ</b> → Logitech M240 Silent</li>
+        <li><b>เน้นทน แบตอึด ปลอดภัยสุด</b> → Logitech M185</li>
+        <li><b>อยากได้เมาส์เล่นเกมด้วยงบน้อย</b> → Neolution ILLUSION</li>
+        <li><b>อยากได้ฟีเจอร์ครบ ชาร์จได้</b> → Nubwo NM-098</li>
+        <li><b>งบน้อยที่สุด</b> → Rapoo M10 Plus</li>
+      </ul>
+    </div>
+    <p class="disclaim">ราคาอาจเปลี่ยนแปลงตามโปรโมชั่นและคูปอง Shopee — เช็คหน้าร้านก่อนซื้อเสมอ • บทความนี้มีลิงก์ affiliate เมื่อคุณซื้อผ่านลิงก์ เราอาจได้รับค่าคอมมิชชั่นโดยที่คุณไม่ต้องจ่ายเพิ่ม</p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    no-os.com — เปรียบเทียบอุปกรณ์ WFH สเปคคุ้มราคา &nbsp;·&nbsp; <a href="#">เกี่ยวกับเรา</a> &nbsp;·&nbsp; <a href="#">นโยบาย affiliate</a>
+  </div>
+</footer>
+
+</body>
+</html>
