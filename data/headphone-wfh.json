@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "title": "หูฟังไร้สาย WFH ตัดเสียง ไมค์ชัด 2026 รุ่นไหนดี เปรียบเทียบ 5 รุ่น",
+    "description": "รวม 5 หูฟังไร้สายสำหรับ WFH ตัดเสียงรบกวน ไมค์ชัด ใช้ประชุม Zoom ได้สบาย เปรียบเทียบสเปคจริง ซื้อผ่าน Shopee ราคาถูกกว่า",
+    "slug": "headphone-wfh-2026",
+    "updatedDate": "มิถุนายน 2026",
+    "breadcrumb": [
+      { "label": "หน้าแรก", "href": "/" },
+      { "label": "อุปกรณ์ WFH", "href": "/wfh" }
+    ]
+  },
+  "products": [
+    {
+      "rank": 1,
+      "name": "Solohour ST1 TWS Adaptive ANC ENC",
+      "price": "383 บาท",
+      "image": "images/th-11134207-81ztq-mo81cx1fyyv802.webp",
+      "shopeeUrl": "https://s.shopee.co.th/50X4y71EED",
+      "summary": "ถูกสุดในลิสต์แต่มาพร้อม Adaptive ANC และ ENC ตัดเสียงรบกวนได้จริง เหมาะกับคนงบน้อยที่อยากได้หูฟังตัดเสียงสำหรับประชุม WFH โดยไม่ต้องจ่ายแพง",
+      "specs": [
+        { "label": "ประเภท", "value": "TWS Earbuds" },
+        { "label": "ANC", "value": "Adaptive ANC" },
+        { "label": "ไมค์", "value": "ENC ตัดเสียงรบกวน" },
+        { "label": "การเชื่อมต่อ", "value": "Bluetooth" }
+      ],
+      "pros": ["ราคาถูกสุดในลิสต์", "มี ANC และ ENC ในราคานี้", "เหมาะประชุมออนไลน์"],
+      "cons": ["แบรนด์ไม่คุ้นเคย", "after-sales อาจจำกัด"],
+      "bestFor": "คนงบน้อยที่อยากได้หูฟังตัดเสียงสำหรับประชุม WFH",
+      "tableTag": "ANC+ENC ถูกสุด",
+      "tableWho": "งบน้อย ประชุมบ่อย"
+    },
+    {
+      "rank": 2,
+      "name": "Edifier X2 Plus TWS",
+      "price": "576 บาท",
+      "image": "images/th-11134207-7rask-m9fqrfy0j0953e.webp",
+      "shopeeUrl": "https://s.shopee.co.th/2g9ABUaKZJ",
+      "summary": "หูฟัง TWS จากแบรนด์ Edifier ที่มีชื่อเสียงด้านเสียง ราคาเข้าถึงได้ง่าย เสียงดีกว่าราคา เหมาะกับคนที่เน้นคุณภาพเสียงดีพอสำหรับใช้ทำงานทั้งวัน",
+      "specs": [
+        { "label": "ประเภท", "value": "TWS Earbuds" },
+        { "label": "แบรนด์", "value": "Edifier" },
+        { "label": "การเชื่อมต่อ", "value": "Bluetooth" },
+        { "label": "ดีไซน์", "value": "In-ear" }
+      ],
+      "pros": ["แบรนด์น่าเชื่อถือด้านเสียง", "ราคาคุ้มค่า", "เสียงดีกว่าราคา"],
+      "cons": ["ไม่มี ANC", "ฟีเจอร์พื้นฐาน"],
+      "bestFor": "คนที่เน้นเสียงดีและแบรนด์น่าเชื่อถือในงบไม่เกิน 600 บาท",
+      "tableTag": "Edifier เสียงดี",
+      "tableWho": "เน้นคุณภาพเสียง"
+    },
+    {
+      "rank": 3,
+      "name": "Baseus Bowie AS01 Open-Ear TWS Earbuds",
+      "price": "599 บาท",
+      "image": "images/th-11134201-7rasi-m4hkz715nx5621.webp",
+      "shopeeUrl": "https://s.shopee.co.th/5q6BxwHSTM",
+      "summary": "หูฟังแบบ Open-Ear เกี่ยวหูไม่ต้องสอดเข้าหูช่วยให้รับเสียงรอบข้างได้ด้วย ใส่สบายนานทั้งวันไม่ปวดหู เหมาะกับคนที่ไม่ชอบหูฟังแบบ in-ear",
+      "specs": [
+        { "label": "ประเภท", "value": "Open-Ear เกี่ยวหู" },
+        { "label": "แบรนด์", "value": "Baseus" },
+        { "label": "การเชื่อมต่อ", "value": "Bluetooth TWS" },
+        { "label": "ดีไซน์", "value": "ไม่สอดเข้าหู" }
+      ],
+      "pros": ["ใส่สบายนานไม่ปวดหู", "รับเสียงรอบข้างได้", "แบรนด์น่าเชื่อถือ"],
+      "cons": ["เสียงรั่วออกรอบข้าง", "ไม่มี ANC"],
+      "bestFor": "คนที่ไม่ชอบหูฟัง in-ear อยากใส่สบายทั้งวันระหว่างทำงาน",
+      "tableTag": "Open-Ear ใส่สบาย",
+      "tableWho": "ไม่ชอบ in-ear"
+    },
+    {
+      "rank": 4,
+      "name": "ANKER Soundcore R60i NC",
+      "price": "1,259 บาท",
+      "image": "images/cn-11134207-820l4-mpvotaafmx3h4d.webp",
+      "shopeeUrl": "https://s.shopee.co.th/9zvkv84eHA",
+      "summary": "หูฟัง TWS จาก Anker Soundcore ที่มี Noise Cancelling จริงจัง เหมาะกับคนที่ประชุมออนไลน์บ่อยและอยู่ในพื้นที่มีเสียงดัง แบรนด์ระดับโลกรับประกันคุณภาพ",
+      "specs": [
+        { "label": "ประเภท", "value": "TWS Earbuds" },
+        { "label": "ANC", "value": "Noise Cancelling" },
+        { "label": "แบรนด์", "value": "Anker Soundcore" },
+        { "label": "การเชื่อมต่อ", "value": "Bluetooth" }
+      ],
+      "pros": ["ANC จริงจัง ตัดเสียงดีมาก", "แบรนด์ระดับโลก", "ไมค์ชัดสำหรับประชุม"],
+      "cons": ["ราคาสูงกว่ากลุ่ม", "อาจแพงเกินสำหรับคนงบน้อย"],
+      "bestFor": "คนประชุมออนไลน์บ่อย อยู่ในพื้นที่เสียงดัง ต้องการ ANC จริงจัง",
+      "tableTag": "ANC จริงจัง Anker",
+      "tableWho": "ประชุมบ่อย เสียงดัง"
+    },
+    {
+      "rank": 5,
+      "name": "Baseus Bowie MC1 หูฟังบลูทูธไร้สาย",
+      "price": "1,599 บาท",
+      "image": "images/cn-11134207-7ras8-mc05qgrgjv7h1f.webp",
+      "shopeeUrl": "https://s.shopee.co.th/6pyj9dzHgV",
+      "summary": "ตัวท็อปของลิสต์จาก Baseus ฟีเจอร์ครบที่สุด คุณภาพเสียงสูงสุด เหมาะกับคนที่ต้องการหูฟังคุณภาพดีสำหรับทั้งประชุม WFH และฟังเพลงในตัวเดียว",
+      "specs": [
+        { "label": "ประเภท", "value": "TWS Earbuds" },
+        { "label": "แบรนด์", "value": "Baseus" },
+        { "label": "การเชื่อมต่อ", "value": "Bluetooth" },
+        { "label": "ฟีเจอร์", "value": "ครบที่สุดในลิสต์" }
+      ],
+      "pros": ["คุณภาพสูงสุดในลิสต์", "ฟีเจอร์ครบ", "แบรนด์น่าเชื่อถือ"],
+      "cons": ["ราคาสูงสุดในลิสต์", "อาจเกินงบสำหรับบางคน"],
+      "bestFor": "คนที่ต้องการหูฟังคุณภาพสูงสำหรับ WFH และฟังเพลงในตัวเดียว",
+      "tableTag": "ครบที่สุด คุณภาพสูง",
+      "tableWho": "ต้องการคุณภาพสูงสุด"
+    }
+  ],
+  "verdict": [
+    { "condition": "งบน้อยสุด อยากได้ ANC", "pick": "Solohour ST1" },
+    { "condition": "เน้นคุณภาพเสียง แบรนด์น่าเชื่อถือ", "pick": "Edifier X2 Plus" },
+    { "condition": "ไม่ชอบ in-ear ใส่สบายทั้งวัน", "pick": "Baseus AS01 Open-Ear" },
+    { "condition": "ประชุมบ่อย ANC จริงจัง", "pick": "ANKER Soundcore R60i NC" },
+    { "condition": "ต้องการคุณภาพสูงสุดในลิสต์", "pick": "Baseus Bowie MC1" }
+  ]
+}
