@@ -350,6 +350,59 @@ async function render(jsonPath) {
   document.getElementById('og-url').content = `https://pick.no-os.com/?data=${dataFile}`;
   document.getElementById('canonical').href = `https://pick.no-os.com/?data=${dataFile}`;
 
+  // JSON-LD structured data
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          ...meta.breadcrumb.map((b, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": b.label,
+            "item": `https://pick.no-os.com${b.href}`
+          })),
+          {
+            "@type": "ListItem",
+            "position": meta.breadcrumb.length + 1,
+            "name": meta.title
+          }
+        ]
+      },
+      {
+        "@type": "Article",
+        "headline": meta.title,
+        "description": meta.description,
+        "dateModified": new Date().toISOString().split('T')[0],
+        "publisher": {
+          "@type": "Organization",
+          "name": "no-os.com",
+          "url": "https://pick.no-os.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://pick.no-os.com/?data=${dataFile}`
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": meta.title,
+        "numberOfItems": products.length,
+        "itemListElement": products.map((p, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": p.name,
+          "url": p.shopeeUrl
+        }))
+      }
+    ]
+  };
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(jsonLd);
+  document.head.appendChild(script);
+
   const content = document.getElementById('content');
   const pageLabel = meta.title.split(' ').slice(0, 4).join(' ');
 
