@@ -178,7 +178,7 @@ async function loadArticles() {
   filtered.forEach(a => {
     const card = document.createElement('a');
     card.className = 'acard';
-    card.href = `article.html?data=${a.data}`;
+    card.href = a.url || `article.html?data=${a.data}`;
 
     const imgHtml = a.image
       ? `<img class="acard-img" src="${a.image}" alt="${a.title}" loading="lazy" onerror="this.style.display='none'">`

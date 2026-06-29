@@ -4,6 +4,7 @@
     "description": "รวม 5 เมาส์ไร้สายราคาไม่เกิน 500 บาท เปรียบเทียบสเปคจริง บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
     "image": "images/th-11134207-7qul5-lhiiwvkpu8lv26.webp",
     "data": "data/wireless-mouse.json",
+    "url": "wireless-mouse-under-500",
     "category": "เมาส์",
     "updatedDate": "มิถุนายน 2026"
   },
@@ -12,14 +13,16 @@
     "description": "รวม 5 คีย์บอร์ด Mechanical งบ 500-1,500 บาท ทั้งมีสายและไร้สาย เปรียบเทียบสเปคจริง บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
     "image": "images/th-11134207-7ra0t-mchgzs0a4kat07.webp",
     "data": "data/keyboard-mechanical.json",
+    "url": "keyboard-mechanical-500-1500",
     "category": "คีย์บอร์ด",
     "updatedDate": "มิถุนายน 2026"
-  }
-  ,{
+  },
+  {
     "title": "หูฟังไร้สาย WFH ตัดเสียง ไมค์ชัด 2026 รุ่นไหนดี เปรียบเทียบ 5 รุ่น",
     "description": "รวม 5 หูฟังไร้สายสำหรับ WFH ตัดเสียงรบกวน ไมค์ชัด ใช้ประชุม Zoom ได้สบาย เปรียบเทียบสเปคจริง ซื้อผ่าน Shopee ราคาถูกกว่า",
     "image": "images/cn-11134207-820l4-mpvotaafmx3h4d.webp",
     "data": "data/headphone-wfh.json",
+    "url": "headphone-wfh-2026",
     "category": "หูฟัง",
     "updatedDate": "มิถุนายน 2026"
   }
