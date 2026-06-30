@@ -4,7 +4,10 @@
     "description": "รวม 5 มอนิเตอร์ 4K งบไม่เกิน 13,000 บาท เปรียบเทียบสเปคจริง IPS สีสวย รีเฟรชสูง บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
     "updatedDate": "มิถุนายน 2026",
     "breadcrumb": [
-      { "label": "หน้าแรก", "href": "/" }
+      {
+        "label": "หน้าแรก",
+        "href": "/"
+      }
     ],
     "canonicalUrl": "https://pick.no-os.com/monitor-2k-4k"
   },
@@ -19,12 +22,30 @@
       "tableTag": "4K ถูกที่สุด",
       "tableWho": "งาน Office / ดูหนัง",
       "specs": [
-        { "label": "ขนาด", "value": "27 นิ้ว" },
-        { "label": "ความละเอียด", "value": "3840×2160 (4K)" },
-        { "label": "แผงจอ", "value": "IPS" },
-        { "label": "รีเฟรชเรต", "value": "60Hz" },
-        { "label": "เวลาตอบสนอง", "value": "5ms" },
-        { "label": "พอร์ต", "value": "HDMI ×2, DisplayPort, USB-C" }
+        {
+          "label": "ขนาด",
+          "value": "27 นิ้ว"
+        },
+        {
+          "label": "ความละเอียด",
+          "value": "3840×2160 (4K)"
+        },
+        {
+          "label": "แผงจอ",
+          "value": "IPS"
+        },
+        {
+          "label": "รีเฟรชเรต",
+          "value": "60Hz"
+        },
+        {
+          "label": "เวลาตอบสนอง",
+          "value": "5ms"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "HDMI ×2, DisplayPort, USB-C"
+        }
       ],
       "pros": [
         "ราคา 4K ถูกที่สุดในกลุ่ม",
@@ -48,12 +69,30 @@
       "tableTag": "4K + 160Hz ถูกสุด",
       "tableWho": "WFH + เล่นเกมด้วย",
       "specs": [
-        { "label": "ขนาด", "value": "27 นิ้ว" },
-        { "label": "ความละเอียด", "value": "3840×2160 (4K)" },
-        { "label": "แผงจอ", "value": "IPS" },
-        { "label": "รีเฟรชเรต", "value": "160Hz" },
-        { "label": "เวลาตอบสนอง", "value": "1ms" },
-        { "label": "พอร์ต", "value": "HDMI 2.1 ×2, DisplayPort 1.4" }
+        {
+          "label": "ขนาด",
+          "value": "27 นิ้ว"
+        },
+        {
+          "label": "ความละเอียด",
+          "value": "3840×2160 (4K)"
+        },
+        {
+          "label": "แผงจอ",
+          "value": "IPS"
+        },
+        {
+          "label": "รีเฟรชเรต",
+          "value": "160Hz"
+        },
+        {
+          "label": "เวลาตอบสนอง",
+          "value": "1ms"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "HDMI 2.1 ×2, DisplayPort 1.4"
+        }
       ],
       "pros": [
         "4K + 160Hz ราคาต่ำกว่า 8,000 บาท",
@@ -77,12 +116,30 @@
       "tableTag": "ดีไซน์สวย",
       "tableWho": "สายครีเอทีฟ / WFH",
       "specs": [
-        { "label": "ขนาด", "value": "27 นิ้ว" },
-        { "label": "ความละเอียด", "value": "3840×2160 (4K)" },
-        { "label": "แผงจอ", "value": "IPS" },
-        { "label": "รีเฟรชเรต", "value": "60Hz" },
-        { "label": "เวลาตอบสนอง", "value": "6ms" },
-        { "label": "พอร์ต", "value": "HDMI 2.0 ×2, USB-C" }
+        {
+          "label": "ขนาด",
+          "value": "27 นิ้ว"
+        },
+        {
+          "label": "ความละเอียด",
+          "value": "3840×2160 (4K)"
+        },
+        {
+          "label": "แผงจอ",
+          "value": "IPS"
+        },
+        {
+          "label": "รีเฟรชเรต",
+          "value": "60Hz"
+        },
+        {
+          "label": "เวลาตอบสนอง",
+          "value": "6ms"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "HDMI 2.0 ×2, USB-C"
+        }
       ],
       "pros": [
         "ดีไซน์บางสวย ขอบบางสามด้าน",
@@ -106,12 +163,30 @@
       "tableTag": "Gaming + Office",
       "tableWho": "สาย Gaming WFH",
       "specs": [
-        { "label": "ขนาด", "value": "27 นิ้ว" },
-        { "label": "ความละเอียด", "value": "3840×2160 (4K)" },
-        { "label": "แผงจอ", "value": "IPS" },
-        { "label": "รีเฟรชเรต", "value": "160Hz" },
-        { "label": "เวลาตอบสนอง", "value": "1ms GtG" },
-        { "label": "พอร์ต", "value": "HDMI 2.1 ×2, DisplayPort 1.4 ×2" }
+        {
+          "label": "ขนาด",
+          "value": "27 นิ้ว"
+        },
+        {
+          "label": "ความละเอียด",
+          "value": "3840×2160 (4K)"
+        },
+        {
+          "label": "แผงจอ",
+          "value": "IPS"
+        },
+        {
+          "label": "รีเฟรชเรต",
+          "value": "160Hz"
+        },
+        {
+          "label": "เวลาตอบสนอง",
+          "value": "1ms GtG"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "HDMI 2.1 ×2, DisplayPort 1.4 ×2"
+        }
       ],
       "pros": [
         "4K 160Hz IPS สำหรับ Gaming",
@@ -135,12 +210,30 @@
       "tableTag": "Premium สีแม่นยำ",
       "tableWho": "Content Creator / Designer",
       "specs": [
-        { "label": "ขนาด", "value": "27 นิ้ว" },
-        { "label": "ความละเอียด", "value": "3840×2160 (4K)" },
-        { "label": "แผงจอ", "value": "IPS" },
-        { "label": "รีเฟรชเรต", "value": "60Hz" },
-        { "label": "ความสว่าง", "value": "400 nit / HDR10" },
-        { "label": "พอร์ต", "value": "HDMI 2.1, DisplayPort, USB-C (90W PD), USB Hub" }
+        {
+          "label": "ขนาด",
+          "value": "27 นิ้ว"
+        },
+        {
+          "label": "ความละเอียด",
+          "value": "3840×2160 (4K)"
+        },
+        {
+          "label": "แผงจอ",
+          "value": "IPS"
+        },
+        {
+          "label": "รีเฟรชเรต",
+          "value": "60Hz"
+        },
+        {
+          "label": "ความสว่าง",
+          "value": "400 nit / HDR10"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "HDMI 2.1, DisplayPort, USB-C (90W PD), USB Hub"
+        }
       ],
       "pros": [
         "DCI-P3 95% สีแม่นยำสำหรับ Creative Work",
@@ -157,10 +250,42 @@
     }
   ],
   "verdict": [
-    { "condition": "อยากได้ 4K ราคาถูกที่สุด", "pick": "VIEWSONIC VA2708-4K-MHD (7,359 บาท)" },
-    { "condition": "อยากได้ 4K + รีเฟรชสูง งบน้อย", "pick": "DAHUA DHI-LM27-E431A (7,780 บาท) — คุ้มสุด!" },
-    { "condition": "ดีไซน์สวย ทำงานกราฟิก", "pick": "Xiaomi A27Ui 4K (8,890 บาท)" },
-    { "condition": "WFH + เล่นเกมด้วย", "pick": "AOC U27G4 (8,980 บาท)" },
-    { "condition": "สายครีเอทีฟ ต้องการสีแม่นยำ", "pick": "BenQ EW2790U (12,000 บาท)" }
+    {
+      "condition": "อยากได้ 4K ราคาถูกที่สุด",
+      "pick": "VIEWSONIC VA2708-4K-MHD (7,359 บาท)"
+    },
+    {
+      "condition": "อยากได้ 4K + รีเฟรชสูง งบน้อย",
+      "pick": "DAHUA DHI-LM27-E431A (7,780 บาท) — คุ้มสุด!"
+    },
+    {
+      "condition": "ดีไซน์สวย ทำงานกราฟิก",
+      "pick": "Xiaomi A27Ui 4K (8,890 บาท)"
+    },
+    {
+      "condition": "WFH + เล่นเกมด้วย",
+      "pick": "AOC U27G4 (8,980 บาท)"
+    },
+    {
+      "condition": "สายครีเอทีฟ ต้องการสีแม่นยำ",
+      "pick": "BenQ EW2790U (12,000 บาท)"
+    }
+  ],
+  "related": [
+    {
+      "title": "USB Hub Type-C รุ่นไหนดี HDMI + ชาร์จ + LAN",
+      "url": "/usb-hub-type-c",
+      "category": "อุปกรณ์เสริม"
+    },
+    {
+      "title": "โต๊ะปรับระดับ ราคาประหยัด รุ่นไหนดี",
+      "url": "/desk-standing-2026",
+      "category": "โต๊ะ"
+    },
+    {
+      "title": "เก้าอี้ Ergonomic ราคาประหยัด รุ่นไหนดี",
+      "url": "/chair-ergonomic-2026",
+      "category": "เก้าอี้"
+    }
   ]
 }

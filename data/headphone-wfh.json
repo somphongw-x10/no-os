@@ -5,8 +5,14 @@
     "slug": "headphone-wfh-2026",
     "updatedDate": "มิถุนายน 2026",
     "breadcrumb": [
-      { "label": "หน้าแรก", "href": "/" },
-      { "label": "อุปกรณ์ WFH", "href": "/wfh" }
+      {
+        "label": "หน้าแรก",
+        "href": "/"
+      },
+      {
+        "label": "อุปกรณ์ WFH",
+        "href": "/wfh"
+      }
     ]
   },
   "products": [
@@ -18,13 +24,32 @@
       "shopeeUrl": "https://s.shopee.co.th/50X4y71EED",
       "summary": "ถูกสุดในลิสต์แต่มาพร้อม Adaptive ANC และ ENC ตัดเสียงรบกวนได้จริง เหมาะกับคนงบน้อยที่อยากได้หูฟังตัดเสียงสำหรับประชุม WFH โดยไม่ต้องจ่ายแพง",
       "specs": [
-        { "label": "ประเภท", "value": "TWS Earbuds" },
-        { "label": "ANC", "value": "Adaptive ANC" },
-        { "label": "ไมค์", "value": "ENC ตัดเสียงรบกวน" },
-        { "label": "การเชื่อมต่อ", "value": "Bluetooth" }
+        {
+          "label": "ประเภท",
+          "value": "TWS Earbuds"
+        },
+        {
+          "label": "ANC",
+          "value": "Adaptive ANC"
+        },
+        {
+          "label": "ไมค์",
+          "value": "ENC ตัดเสียงรบกวน"
+        },
+        {
+          "label": "การเชื่อมต่อ",
+          "value": "Bluetooth"
+        }
       ],
-      "pros": ["ราคาถูกสุดในลิสต์", "มี ANC และ ENC ในราคานี้", "เหมาะประชุมออนไลน์"],
-      "cons": ["แบรนด์ไม่คุ้นเคย", "after-sales อาจจำกัด"],
+      "pros": [
+        "ราคาถูกสุดในลิสต์",
+        "มี ANC และ ENC ในราคานี้",
+        "เหมาะประชุมออนไลน์"
+      ],
+      "cons": [
+        "แบรนด์ไม่คุ้นเคย",
+        "after-sales อาจจำกัด"
+      ],
       "bestFor": "คนงบน้อยที่อยากได้หูฟังตัดเสียงสำหรับประชุม WFH",
       "tableTag": "ANC+ENC ถูกสุด",
       "tableWho": "งบน้อย ประชุมบ่อย"
@@ -37,13 +62,32 @@
       "shopeeUrl": "https://s.shopee.co.th/2g9ABUaKZJ",
       "summary": "หูฟัง TWS จากแบรนด์ Edifier ที่มีชื่อเสียงด้านเสียง ราคาเข้าถึงได้ง่าย เสียงดีกว่าราคา เหมาะกับคนที่เน้นคุณภาพเสียงดีพอสำหรับใช้ทำงานทั้งวัน",
       "specs": [
-        { "label": "ประเภท", "value": "TWS Earbuds" },
-        { "label": "แบรนด์", "value": "Edifier" },
-        { "label": "การเชื่อมต่อ", "value": "Bluetooth" },
-        { "label": "ดีไซน์", "value": "In-ear" }
+        {
+          "label": "ประเภท",
+          "value": "TWS Earbuds"
+        },
+        {
+          "label": "แบรนด์",
+          "value": "Edifier"
+        },
+        {
+          "label": "การเชื่อมต่อ",
+          "value": "Bluetooth"
+        },
+        {
+          "label": "ดีไซน์",
+          "value": "In-ear"
+        }
       ],
-      "pros": ["แบรนด์น่าเชื่อถือด้านเสียง", "ราคาคุ้มค่า", "เสียงดีกว่าราคา"],
-      "cons": ["ไม่มี ANC", "ฟีเจอร์พื้นฐาน"],
+      "pros": [
+        "แบรนด์น่าเชื่อถือด้านเสียง",
+        "ราคาคุ้มค่า",
+        "เสียงดีกว่าราคา"
+      ],
+      "cons": [
+        "ไม่มี ANC",
+        "ฟีเจอร์พื้นฐาน"
+      ],
       "bestFor": "คนที่เน้นเสียงดีและแบรนด์น่าเชื่อถือในงบไม่เกิน 600 บาท",
       "tableTag": "Edifier เสียงดี",
       "tableWho": "เน้นคุณภาพเสียง"
@@ -56,13 +100,32 @@
       "shopeeUrl": "https://s.shopee.co.th/5q6BxwHSTM",
       "summary": "หูฟังแบบ Open-Ear เกี่ยวหูไม่ต้องสอดเข้าหูช่วยให้รับเสียงรอบข้างได้ด้วย ใส่สบายนานทั้งวันไม่ปวดหู เหมาะกับคนที่ไม่ชอบหูฟังแบบ in-ear",
       "specs": [
-        { "label": "ประเภท", "value": "Open-Ear เกี่ยวหู" },
-        { "label": "แบรนด์", "value": "Baseus" },
-        { "label": "การเชื่อมต่อ", "value": "Bluetooth TWS" },
-        { "label": "ดีไซน์", "value": "ไม่สอดเข้าหู" }
+        {
+          "label": "ประเภท",
+          "value": "Open-Ear เกี่ยวหู"
+        },
+        {
+          "label": "แบรนด์",
+          "value": "Baseus"
+        },
+        {
+          "label": "การเชื่อมต่อ",
+          "value": "Bluetooth TWS"
+        },
+        {
+          "label": "ดีไซน์",
+          "value": "ไม่สอดเข้าหู"
+        }
       ],
-      "pros": ["ใส่สบายนานไม่ปวดหู", "รับเสียงรอบข้างได้", "แบรนด์น่าเชื่อถือ"],
-      "cons": ["เสียงรั่วออกรอบข้าง", "ไม่มี ANC"],
+      "pros": [
+        "ใส่สบายนานไม่ปวดหู",
+        "รับเสียงรอบข้างได้",
+        "แบรนด์น่าเชื่อถือ"
+      ],
+      "cons": [
+        "เสียงรั่วออกรอบข้าง",
+        "ไม่มี ANC"
+      ],
       "bestFor": "คนที่ไม่ชอบหูฟัง in-ear อยากใส่สบายทั้งวันระหว่างทำงาน",
       "tableTag": "Open-Ear ใส่สบาย",
       "tableWho": "ไม่ชอบ in-ear"
@@ -75,13 +138,32 @@
       "shopeeUrl": "https://s.shopee.co.th/9zvkv84eHA",
       "summary": "หูฟัง TWS จาก Anker Soundcore ที่มี Noise Cancelling จริงจัง เหมาะกับคนที่ประชุมออนไลน์บ่อยและอยู่ในพื้นที่มีเสียงดัง แบรนด์ระดับโลกรับประกันคุณภาพ",
       "specs": [
-        { "label": "ประเภท", "value": "TWS Earbuds" },
-        { "label": "ANC", "value": "Noise Cancelling" },
-        { "label": "แบรนด์", "value": "Anker Soundcore" },
-        { "label": "การเชื่อมต่อ", "value": "Bluetooth" }
+        {
+          "label": "ประเภท",
+          "value": "TWS Earbuds"
+        },
+        {
+          "label": "ANC",
+          "value": "Noise Cancelling"
+        },
+        {
+          "label": "แบรนด์",
+          "value": "Anker Soundcore"
+        },
+        {
+          "label": "การเชื่อมต่อ",
+          "value": "Bluetooth"
+        }
       ],
-      "pros": ["ANC จริงจัง ตัดเสียงดีมาก", "แบรนด์ระดับโลก", "ไมค์ชัดสำหรับประชุม"],
-      "cons": ["ราคาสูงกว่ากลุ่ม", "อาจแพงเกินสำหรับคนงบน้อย"],
+      "pros": [
+        "ANC จริงจัง ตัดเสียงดีมาก",
+        "แบรนด์ระดับโลก",
+        "ไมค์ชัดสำหรับประชุม"
+      ],
+      "cons": [
+        "ราคาสูงกว่ากลุ่ม",
+        "อาจแพงเกินสำหรับคนงบน้อย"
+      ],
       "bestFor": "คนประชุมออนไลน์บ่อย อยู่ในพื้นที่เสียงดัง ต้องการ ANC จริงจัง",
       "tableTag": "ANC จริงจัง Anker",
       "tableWho": "ประชุมบ่อย เสียงดัง"
@@ -94,23 +176,74 @@
       "shopeeUrl": "https://s.shopee.co.th/6pyj9dzHgV",
       "summary": "ตัวท็อปของลิสต์จาก Baseus ฟีเจอร์ครบที่สุด คุณภาพเสียงสูงสุด เหมาะกับคนที่ต้องการหูฟังคุณภาพดีสำหรับทั้งประชุม WFH และฟังเพลงในตัวเดียว",
       "specs": [
-        { "label": "ประเภท", "value": "TWS Earbuds" },
-        { "label": "แบรนด์", "value": "Baseus" },
-        { "label": "การเชื่อมต่อ", "value": "Bluetooth" },
-        { "label": "ฟีเจอร์", "value": "ครบที่สุดในลิสต์" }
+        {
+          "label": "ประเภท",
+          "value": "TWS Earbuds"
+        },
+        {
+          "label": "แบรนด์",
+          "value": "Baseus"
+        },
+        {
+          "label": "การเชื่อมต่อ",
+          "value": "Bluetooth"
+        },
+        {
+          "label": "ฟีเจอร์",
+          "value": "ครบที่สุดในลิสต์"
+        }
       ],
-      "pros": ["คุณภาพสูงสุดในลิสต์", "ฟีเจอร์ครบ", "แบรนด์น่าเชื่อถือ"],
-      "cons": ["ราคาสูงสุดในลิสต์", "อาจเกินงบสำหรับบางคน"],
+      "pros": [
+        "คุณภาพสูงสุดในลิสต์",
+        "ฟีเจอร์ครบ",
+        "แบรนด์น่าเชื่อถือ"
+      ],
+      "cons": [
+        "ราคาสูงสุดในลิสต์",
+        "อาจเกินงบสำหรับบางคน"
+      ],
       "bestFor": "คนที่ต้องการหูฟังคุณภาพสูงสำหรับ WFH และฟังเพลงในตัวเดียว",
       "tableTag": "ครบที่สุด คุณภาพสูง",
       "tableWho": "ต้องการคุณภาพสูงสุด"
     }
   ],
   "verdict": [
-    { "condition": "งบน้อยสุด อยากได้ ANC", "pick": "Solohour ST1" },
-    { "condition": "เน้นคุณภาพเสียง แบรนด์น่าเชื่อถือ", "pick": "Edifier X2 Plus" },
-    { "condition": "ไม่ชอบ in-ear ใส่สบายทั้งวัน", "pick": "Baseus AS01 Open-Ear" },
-    { "condition": "ประชุมบ่อย ANC จริงจัง", "pick": "ANKER Soundcore R60i NC" },
-    { "condition": "ต้องการคุณภาพสูงสุดในลิสต์", "pick": "Baseus Bowie MC1" }
+    {
+      "condition": "งบน้อยสุด อยากได้ ANC",
+      "pick": "Solohour ST1"
+    },
+    {
+      "condition": "เน้นคุณภาพเสียง แบรนด์น่าเชื่อถือ",
+      "pick": "Edifier X2 Plus"
+    },
+    {
+      "condition": "ไม่ชอบ in-ear ใส่สบายทั้งวัน",
+      "pick": "Baseus AS01 Open-Ear"
+    },
+    {
+      "condition": "ประชุมบ่อย ANC จริงจัง",
+      "pick": "ANKER Soundcore R60i NC"
+    },
+    {
+      "condition": "ต้องการคุณภาพสูงสุดในลิสต์",
+      "pick": "Baseus Bowie MC1"
+    }
+  ],
+  "related": [
+    {
+      "title": "USB Hub Type-C รุ่นไหนดี HDMI + ชาร์จ + LAN",
+      "url": "/usb-hub-type-c",
+      "category": "อุปกรณ์เสริม"
+    },
+    {
+      "title": "เมาส์ไร้สาย ราคาไม่เกิน 500 บาท รุ่นไหนดี",
+      "url": "/wireless-mouse-under-500",
+      "category": "เมาส์"
+    },
+    {
+      "title": "มอนิเตอร์ 4K ราคาประหยัด รุ่นไหนดี",
+      "url": "/monitor-2k-4k",
+      "category": "มอนิเตอร์"
+    }
   ]
 }

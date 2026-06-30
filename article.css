@@ -77,3 +77,16 @@ footer a{color:var(--white);}
   .card-img img{height:120px;}
   .pros-cons{grid-template-columns:1fr;}
 }
+
+/* Related articles */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s16);margin-top:var(--s16);}
+.related-card{
+  display:block;text-decoration:none;color:inherit;
+  background:var(--bg-secondary);border-radius:var(--r-card);
+  padding:var(--s16);transition:background .15s,box-shadow .15s;
+}
+.related-card:hover{background:var(--white);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.related-cat{font-size:11px;font-weight:700;color:var(--dark-grey);margin-bottom:var(--s8);text-transform:uppercase;letter-spacing:.5px;}
+.related-title{font-size:14px;font-weight:700;line-height:1.4;margin-bottom:var(--s8);}
+.related-cta{font-size:13px;color:var(--dark-grey);}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr;}}

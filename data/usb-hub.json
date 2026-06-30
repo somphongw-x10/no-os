@@ -4,7 +4,10 @@
     "description": "รวม 5 USB Hub Type-C งบ 300-1,600 บาท เปรียบเทียบสเปคจริง HDMI 4K PD100W Ethernet บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
     "updatedDate": "มิถุนายน 2026",
     "breadcrumb": [
-      { "label": "หน้าแรก", "href": "/" }
+      {
+        "label": "หน้าแรก",
+        "href": "/"
+      }
     ],
     "canonicalUrl": "https://pick.no-os.com/usb-hub-type-c"
   },
@@ -19,10 +22,22 @@
       "tableTag": "ถูกที่สุด",
       "tableWho": "ต้องการแค่ต่อจอ",
       "specs": [
-        { "label": "พอร์ต", "value": "HDMI + VGA + USB-A x2" },
-        { "label": "ความละเอียด HDMI", "value": "4K" },
-        { "label": "PD Charging", "value": "ไม่มี" },
-        { "label": "ขนาด", "value": "พกพาได้" }
+        {
+          "label": "พอร์ต",
+          "value": "HDMI + VGA + USB-A x2"
+        },
+        {
+          "label": "ความละเอียด HDMI",
+          "value": "4K"
+        },
+        {
+          "label": "PD Charging",
+          "value": "ไม่มี"
+        },
+        {
+          "label": "ขนาด",
+          "value": "พกพาได้"
+        }
       ],
       "pros": [
         "ราคาถูกที่สุด ไม่ถึง 310 บาท",
@@ -46,10 +61,22 @@
       "tableTag": "คุ้มที่สุด",
       "tableWho": "WFH ต้องการครบ งบน้อย",
       "specs": [
-        { "label": "พอร์ต", "value": "HDMI + USB-C x2 + USB-A + RJ45" },
-        { "label": "ความละเอียด HDMI", "value": "4K 60Hz" },
-        { "label": "PD Charging", "value": "100W" },
-        { "label": "LAN", "value": "RJ45 Gigabit" }
+        {
+          "label": "พอร์ต",
+          "value": "HDMI + USB-C x2 + USB-A + RJ45"
+        },
+        {
+          "label": "ความละเอียด HDMI",
+          "value": "4K 60Hz"
+        },
+        {
+          "label": "PD Charging",
+          "value": "100W"
+        },
+        {
+          "label": "LAN",
+          "value": "RJ45 Gigabit"
+        }
       ],
       "pros": [
         "HDMI 4K 60Hz + PD 100W + RJ45 ครบในราคา 437 บาท",
@@ -72,10 +99,22 @@
       "tableTag": "แบรนด์ดัง คุณภาพดี",
       "tableWho": "ต้องการคุณภาพ",
       "specs": [
-        { "label": "พอร์ต", "value": "HDMI + USB-A 3.2 x2 + USB-C 3.2 x2 + PD" },
-        { "label": "ความละเอียด HDMI", "value": "4K 60Hz" },
-        { "label": "PD Charging", "value": "100W" },
-        { "label": "สาย", "value": "Braided ทนทาน" }
+        {
+          "label": "พอร์ต",
+          "value": "HDMI + USB-A 3.2 x2 + USB-C 3.2 x2 + PD"
+        },
+        {
+          "label": "ความละเอียด HDMI",
+          "value": "4K 60Hz"
+        },
+        {
+          "label": "PD Charging",
+          "value": "100W"
+        },
+        {
+          "label": "สาย",
+          "value": "Braided ทนทาน"
+        }
       ],
       "pros": [
         "UGREEN แบรนด์ดัง คุณภาพเชื่อถือได้",
@@ -99,10 +138,22 @@
       "tableTag": "10Gbps เร็วสุด",
       "tableWho": "โอนไฟล์ใหญ่ / External SSD",
       "specs": [
-        { "label": "พอร์ต", "value": "HDMI 4K + USB-A + USB-C + PD 100W" },
-        { "label": "ความเร็ว USB", "value": "10Gbps (USB 3.2 Gen 2)" },
-        { "label": "ความละเอียด HDMI", "value": "4K 60Hz" },
-        { "label": "PD Charging", "value": "100W" }
+        {
+          "label": "พอร์ต",
+          "value": "HDMI 4K + USB-A + USB-C + PD 100W"
+        },
+        {
+          "label": "ความเร็ว USB",
+          "value": "10Gbps (USB 3.2 Gen 2)"
+        },
+        {
+          "label": "ความละเอียด HDMI",
+          "value": "4K 60Hz"
+        },
+        {
+          "label": "PD Charging",
+          "value": "100W"
+        }
       ],
       "pros": [
         "USB 10Gbps เร็วกว่ามาตรฐานทั่วไป 2 เท่า",
@@ -125,11 +176,26 @@
       "tableTag": "ครบที่สุด 8-in-1",
       "tableWho": "Content Creator / ต้องการครบ",
       "specs": [
-        { "label": "พอร์ต", "value": "HDMI x2 + USB-A 3.0 x2 + PD 100W + RJ45 + SD + microSD" },
-        { "label": "ความละเอียด HDMI", "value": "4K 60Hz (main)" },
-        { "label": "PD Charging", "value": "100W" },
-        { "label": "LAN", "value": "Gigabit Ethernet" },
-        { "label": "Card Reader", "value": "SD + microSD" }
+        {
+          "label": "พอร์ต",
+          "value": "HDMI x2 + USB-A 3.0 x2 + PD 100W + RJ45 + SD + microSD"
+        },
+        {
+          "label": "ความละเอียด HDMI",
+          "value": "4K 60Hz (main)"
+        },
+        {
+          "label": "PD Charging",
+          "value": "100W"
+        },
+        {
+          "label": "LAN",
+          "value": "Gigabit Ethernet"
+        },
+        {
+          "label": "Card Reader",
+          "value": "SD + microSD"
+        }
       ],
       "pros": [
         "ครบที่สุด 8-in-1 ในตัวเดียว",
@@ -145,10 +211,42 @@
     }
   ],
   "verdict": [
-    { "condition": "ต้องการแค่ต่อจอ งบน้อยสุด", "pick": "GLINK GL030 (307 บาท)" },
-    { "condition": "คุ้มที่สุด HDMI + ชาร์จ + LAN", "pick": "Vention Hub (437 บาท) — แนะนำ!" },
-    { "condition": "อยากได้แบรนด์ดัง คุณภาพดี", "pick": "UGREEN 35999 (759 บาท)" },
-    { "condition": "โอนไฟล์ใหญ่ ต่อ External SSD", "pick": "UGREEN Uno 10Gbps (850 บาท)" },
-    { "condition": "ต้องการครบทุกอย่าง ต่อ 2 จอ + SD Card", "pick": "ANKER 8-in-1 (1,579 บาท)" }
+    {
+      "condition": "ต้องการแค่ต่อจอ งบน้อยสุด",
+      "pick": "GLINK GL030 (307 บาท)"
+    },
+    {
+      "condition": "คุ้มที่สุด HDMI + ชาร์จ + LAN",
+      "pick": "Vention Hub (437 บาท) — แนะนำ!"
+    },
+    {
+      "condition": "อยากได้แบรนด์ดัง คุณภาพดี",
+      "pick": "UGREEN 35999 (759 บาท)"
+    },
+    {
+      "condition": "โอนไฟล์ใหญ่ ต่อ External SSD",
+      "pick": "UGREEN Uno 10Gbps (850 บาท)"
+    },
+    {
+      "condition": "ต้องการครบทุกอย่าง ต่อ 2 จอ + SD Card",
+      "pick": "ANKER 8-in-1 (1,579 บาท)"
+    }
+  ],
+  "related": [
+    {
+      "title": "มอนิเตอร์ 4K ราคาประหยัด รุ่นไหนดี",
+      "url": "/monitor-2k-4k",
+      "category": "มอนิเตอร์"
+    },
+    {
+      "title": "เมาส์ไร้สาย ราคาไม่เกิน 500 บาท รุ่นไหนดี",
+      "url": "/wireless-mouse-under-500",
+      "category": "เมาส์"
+    },
+    {
+      "title": "คีย์บอร์ด Mechanical งบ 500-1,500 บาท รุ่นไหนดี",
+      "url": "/keyboard-mechanical-500-1500",
+      "category": "คีย์บอร์ด"
+    }
   ]
 }

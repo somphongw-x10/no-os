@@ -118,10 +118,28 @@ function renderVerdict(items) {
   return sec;
 }
 
+function renderRelated(related) {
+  if (!related || related.length === 0) return null;
+  const sec = el('section', 'section');
+  sec.appendChild(el('h2', '', 'บทความที่เกี่ยวข้อง'));
+  const grid = el('div', 'related-grid');
+  related.forEach(r => {
+    const a = el('a', 'related-card', `
+      <div class="related-cat">${r.category}</div>
+      <div class="related-title">${r.title}</div>
+      <div class="related-cta">อ่านเพิ่มเติม →</div>
+    `);
+    a.href = r.url;
+    grid.appendChild(a);
+  });
+  sec.appendChild(grid);
+  return sec;
+}
+
 async function render(dataFile) {
   const res = await fetch(dataFile);
   const data = await res.json();
-  const { meta, products, verdict } = data;
+  const { meta, products, verdict, related } = data;
 
   const canonical = document.querySelector('link[rel="canonical"]');
   const canonicalUrl = canonical ? canonical.href : location.href;
@@ -171,6 +189,8 @@ async function render(dataFile) {
   content.appendChild(renderTable(products));
   content.appendChild(renderProducts(products));
   content.appendChild(renderVerdict(verdict));
+  const relatedSec = renderRelated(related);
+  if (relatedSec) content.appendChild(relatedSec);
 
   document.getElementById('loading').style.display = 'none';
   content.style.display = 'block';
