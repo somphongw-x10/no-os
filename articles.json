@@ -34,5 +34,32 @@
     "url": "monitor-2k-4k",
     "category": "มอนิเตอร์",
     "updatedDate": "มิถุนายน 2026"
+  },
+  {
+    "title": "โต๊ะปรับระดับ ราคาประหยัด 2026 รุ่นไหนดี เปรียบเทียบ 5 รุ่น",
+    "description": "รวม 5 โต๊ะปรับระดับ ทั้งแบบไฟฟ้าและมือหมุน งบไม่เกิน 3,500 บาท เปรียบเทียบสเปคจริง บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
+    "image": "images/th-11134207-81ztj-mpix9rz15mv5ee.webp",
+    "data": "data/desk-standing.json",
+    "url": "desk-standing-2026",
+    "category": "โต๊ะ",
+    "updatedDate": "มิถุนายน 2026"
+  },
+  {
+    "title": "เก้าอี้ Ergonomic ราคาประหยัด 2026 รุ่นไหนดี เปรียบเทียบ 5 รุ่น",
+    "description": "รวม 5 เก้าอี้ Ergonomic งบ 800-5,000 บาท เปรียบเทียบสเปคจริง รองรับหลัง ปรับได้ครบ บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
+    "image": "images/th-11134207-81ztc-mq2y8h745kp852.webp",
+    "data": "data/chair-ergonomic.json",
+    "url": "chair-ergonomic-2026",
+    "category": "เก้าอี้",
+    "updatedDate": "มิถุนายน 2026"
+  },
+  {
+    "title": "USB Hub Type-C ราคาประหยัด 2026 รุ่นไหนดี เปรียบเทียบ 5 รุ่น",
+    "description": "รวม 5 USB Hub Type-C งบ 300-1,600 บาท เปรียบเทียบสเปคจริง HDMI 4K PD100W Ethernet บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
+    "image": "images/cn-11134207-820l4-mmzi2r2qpjb804.webp",
+    "data": "data/usb-hub.json",
+    "url": "usb-hub-type-c",
+    "category": "อุปกรณ์เสริม",
+    "updatedDate": "มิถุนายน 2026"
   }
 ]
