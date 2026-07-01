@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "title": "หัวชาร์จ GaN 30W vs 45W vs 65W ซื้อวัตต์ไหนดี 2026 เปรียบเทียบ 5 รุ่น",
+    "description": "หัวชาร์จ GaN แต่ละวัตต์ต่างกันยังไง 30W 45W 65W เหมาะกับใครบ้าง เปรียบเทียบสเปคจริง 5 รุ่น บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
+    "updatedDate": "มิถุนายน 2026",
+    "breadcrumb": [
+      { "label": "หน้าแรก", "href": "/" }
+    ],
+    "canonicalUrl": "https://pick.no-os.com/gan-charger-30w-45w-65w"
+  },
+  "products": [
+    {
+      "rank": "1",
+      "name": "UGREEN X515 หัวชาร์จเร็ว 30-45W GaN 2 Port PD+USB",
+      "price": "219 บาท",
+      "image": "images/th-11134207-7ra0p-mdn2pwzci0duf2.webp",
+      "shopeeUrl": "https://s.shopee.co.th/3g1jjPV1wv",
+      "summary": "ถูกที่สุดในกลุ่ม และเป็นตัวเดียวในลิสต์ที่จ่ายไฟ 30-45W เหมาะกับมือถือและ Notebook บางเบา มี 2 พอร์ต (USB-C PD + USB-A) ชาร์จ 2 เครื่องพร้อมกันได้ เทคโนโลยี GaN ทำให้ตัวเล็กกว่าหัวชาร์จปกติมาก",
+      "tableTag": "30-45W ถูกสุด",
+      "tableWho": "มือถือ + Notebook บางเบา",
+      "specs": [
+        { "label": "กำลังไฟ", "value": "30-45W (GaN)" },
+        { "label": "พอร์ต", "value": "USB-C PD + USB-A" },
+        { "label": "รองรับ", "value": "มือถือ, iPad, MacBook Air/Ultrabook บางรุ่น" },
+        { "label": "ขนาด", "value": "เล็กกะทัดรัด (GaN Tech)" }
+      ],
+      "pros": [
+        "ราคาถูกที่สุดในกลุ่ม ไม่ถึง 220 บาท",
+        "มี 2 พอร์ต ชาร์จ 2 เครื่องพร้อมกันได้",
+        "ตัวเล็ก พกพาสะดวก",
+        "UGREEN แบรนด์เชื่อถือได้"
+      ],
+      "cons": [
+        "ไม่พอสำหรับ Notebook งานหนักหรือ MacBook Pro",
+        "45W ต้องแบ่งไฟถ้าเสียบ 2 พอร์ตพร้อมกัน"
+      ],
+      "bestFor": "คนมีแค่มือถือ + iPad หรือ Notebook บางเบา ไม่ต้องการวัตต์สูง"
+    },
+    {
+      "rank": "2",
+      "name": "Techsavvy 65W USB-C PD Wall Charger",
+      "price": "237 บาท",
+      "image": "images/th-11134207-7r991-lwnpsn93uspb41.webp",
+      "shopeeUrl": "https://s.shopee.co.th/8fQPifBZhP",
+      "summary": "หัวชาร์จ 65W ราคาถูกที่สุดในกลุ่ม 65W คุ้มมากสำหรับคนที่อยากได้กำลังไฟสูงพอสำหรับ Notebook งานทั่วไป โดยจ่ายในราคาไม่ถึง 240 บาท",
+      "tableTag": "65W คุ้มที่สุด",
+      "tableWho": "Notebook งานทั่วไป งบน้อย",
+      "specs": [
+        { "label": "กำลังไฟ", "value": "65W" },
+        { "label": "พอร์ต", "value": "USB-C PD" },
+        { "label": "รองรับ", "value": "Notebook งานทั่วไป, MacBook Pro 13-14\" บางรุ่น, มือถือ" }
+      ],
+      "pros": [
+        "65W ราคาถูกที่สุดในกลุ่ม",
+        "พอสำหรับ Notebook งานทั่วไปหรือ MacBook Pro 13-14\"",
+        "ใช้ชาร์จมือถือได้ด้วยแบบเร็วเต็มสปีด"
+      ],
+      "cons": [
+        "มีพอร์ตเดียว ชาร์จได้ทีละเครื่อง",
+        "แบรนด์ไม่ค่อยเป็นที่รู้จัก"
+      ],
+      "bestFor": "คนอยากได้ 65W ราคาประหยัดที่สุด ใช้กับ Notebook เครื่องเดียว"
+    },
+    {
+      "rank": "3",
+      "name": "Actual 65W USB-C Power Delivery Wall Charger",
+      "price": "357 บาท",
+      "image": "images/sg-11134201-22110-gikf6vfyvdkv66.webp",
+      "shopeeUrl": "https://s.shopee.co.th/3ViJZ3LlYd",
+      "summary": "หัวชาร์จ 65W ระดับกลาง คุณภาพการผลิตดีกว่ารุ่นราคาถูก มีระบบป้องกันไฟเกินและความร้อนเกินมาตรฐาน เหมาะกับคนที่อยากได้ 65W แต่ไม่มั่นใจกับแบรนด์ราคาถูกสุด",
+      "tableTag": "65W คุณภาพกลาง",
+      "tableWho": "Notebook + ต้องการความปลอดภัย",
+      "specs": [
+        { "label": "กำลังไฟ", "value": "65W" },
+        { "label": "พอร์ต", "value": "USB-C PD" },
+        { "label": "ระบบป้องกัน", "value": "ป้องกันไฟเกิน/ความร้อนเกิน" }
+      ],
+      "pros": [
+        "65W เต็มสปีดสำหรับ Notebook",
+        "มีระบบป้องกันไฟเกินและความร้อน",
+        "ราคากลางๆ คุ้มค่า"
+      ],
+      "cons": [
+        "แพงกว่า Techsavvy แต่สเปคใกล้เคียงกัน",
+        "พอร์ตเดียว"
+      ],
+      "bestFor": "คนอยากได้ 65W ที่มั่นใจเรื่องความปลอดภัยมากขึ้น"
+    },
+    {
+      "rank": "4",
+      "name": "LDNIO SC1418 65W Turbo Power Engine",
+      "price": "451 บาท",
+      "image": "images/th-11134207-7ra0t-mdlerg6lpkgj5b.webp",
+      "shopeeUrl": "https://s.shopee.co.th/50X7Lar7yr",
+      "summary": "หัวชาร์จ 65W จาก LDNIO ที่ขึ้นชื่อเรื่องความทนทาน ตัวถังแข็งแรงกว่ารุ่นราคาถูก มี Turbo Power Engine ช่วยจ่ายไฟเสถียรกว่า เหมาะกับคนที่ใช้งานหนักบ่อยๆ ต้องการของที่ทนทาน",
+      "tableTag": "65W ทนทาน",
+      "tableWho": "ใช้งานหนัก ต้องการทนทาน",
+      "specs": [
+        { "label": "กำลังไฟ", "value": "65W (Turbo Power Engine)" },
+        { "label": "พอร์ต", "value": "USB-C PD" },
+        { "label": "จุดเด่น", "value": "ตัวถังแข็งแรง จ่ายไฟเสถียร" }
+      ],
+      "pros": [
+        "65W เต็มสปีด จ่ายไฟเสถียร",
+        "ตัวถังแข็งแรงทนทานกว่ารุ่นอื่น",
+        "LDNIO แบรนด์มีชื่อเสียงด้านอุปกรณ์ชาร์จ"
+      ],
+      "cons": [
+        "ราคาแพงกว่ารุ่นอื่นในกลุ่ม 65W",
+        "พอร์ตเดียว"
+      ],
+      "bestFor": "คนที่ต้องพกหัวชาร์จไปมาบ่อยๆ อยากได้ของทนทานใช้ได้นาน"
+    },
+    {
+      "rank": "5",
+      "name": "INNERGIE T6 65W Notebook Adapter (ADP-65DW-LZU)",
+      "price": "1,090 บาท",
+      "image": "images/th-11134207-7ra0t-mdlerg6lpkgj5b.webp",
+      "shopeeUrl": "https://s.shopee.co.th/110yYhVBAY",
+      "summary": "อะแดปเตอร์ Notebook เฉพาะทางจาก INNERGIE แบรนด์ Premium ที่ผลิตโดย Delta Electronics ออกแบบมาเพื่อ Notebook โดยเฉพาะ มาพร้อมหัวต่อ Tip แบบเฉพาะรุ่น เหมาะกับคนที่ต้องการอะแดปเตอร์สำรองของแท้สำหรับ Notebook รุ่นเก่าที่หา adapter ทั่วไปมาทดแทนไม่ได้",
+      "tableTag": "Premium เฉพาะทาง",
+      "tableWho": "Notebook รุ่นเก่าที่ต้องการ Tip เฉพาะ",
+      "specs": [
+        { "label": "กำลังไฟ", "value": "65W" },
+        { "label": "พอร์ต", "value": "Tip แบบเฉพาะรุ่น (ไม่ใช่ USB-C)" },
+        { "label": "ผู้ผลิต", "value": "Delta Electronics" }
+      ],
+      "pros": [
+        "แบรนด์ Premium ผลิตโดย Delta Electronics",
+        "เหมาะกับ Notebook รุ่นเก่าที่ไม่มีพอร์ต USB-C",
+        "คุณภาพและความปลอดภัยสูง"
+      ],
+      "cons": [
+        "ราคาแพงที่สุดในกลุ่มมาก",
+        "ใช้ได้เฉพาะ Notebook ที่ตรงกับหัว Tip เท่านั้น ไม่ยืดหยุ่นเหมือน USB-C"
+      ],
+      "bestFor": "คนมี Notebook รุ่นเก่าที่ไม่มีพอร์ต USB-C และต้องการอะแดปเตอร์สำรองของแท้"
+    }
+  ],
+  "verdict": [
+    { "condition": "มีแค่มือถือ + iPad หรือ Notebook บางเบา", "pick": "UGREEN X515 30-45W (219 บาท)" },
+    { "condition": "ต้องการ 65W ราคาประหยัดที่สุด", "pick": "Techsavvy 65W (237 บาท) — คุ้มที่สุด!" },
+    { "condition": "ต้องการ 65W คุณภาพกลาง ปลอดภัย", "pick": "Actual 65W (357 บาท)" },
+    { "condition": "ใช้งานหนัก ต้องการทนทาน", "pick": "LDNIO SC1418 65W (451 บาท)" },
+    { "condition": "Notebook รุ่นเก่า ไม่มีพอร์ต USB-C", "pick": "INNERGIE T6 65W (1,090 บาท)" }
+  ],
+  "related": [
+    { "title": "USB Hub Type-C รุ่นไหนดี HDMI + ชาร์จ + LAN", "url": "/usb-hub-type-c", "category": "อุปกรณ์เสริม" },
+    { "title": "มอนิเตอร์ 4K ราคาประหยัด รุ่นไหนดี", "url": "/monitor-2k-4k", "category": "มอนิเตอร์" },
+    { "title": "โต๊ะปรับระดับ ราคาประหยัด รุ่นไหนดี", "url": "/desk-standing-2026", "category": "โต๊ะ" }
+  ]
+}
