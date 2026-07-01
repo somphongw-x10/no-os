@@ -185,14 +185,14 @@ async function render(dataFile) {
         "publisher": { "@type": "Organization", "name": "no-os.com", "url": "https://pick.no-os.com" },
         "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl }
       },
-      {
+      ...(products && products.length ? [{
         "@type": "ItemList",
         "name": meta.title,
         "numberOfItems": products.length,
         "itemListElement": products.map((p, i) => ({
           "@type": "ListItem", "position": i+1, "name": p.name, "url": p.shopeeUrl
         }))
-      }
+      }] : [])
     ]
   };
   const script = document.createElement('script');
@@ -205,9 +205,11 @@ async function render(dataFile) {
   content.appendChild(renderHero(meta));
   const guideSec = renderGuide(guide);
   if (guideSec) content.appendChild(guideSec);
-  content.appendChild(renderTable(products));
-  content.appendChild(renderProducts(products));
-  content.appendChild(renderVerdict(verdict));
+  if (products && products.length) {
+    content.appendChild(renderTable(products));
+    content.appendChild(renderProducts(products));
+  }
+  if (verdict && verdict.length) content.appendChild(renderVerdict(verdict));
   const relatedSec = renderRelated(related);
   if (relatedSec) content.appendChild(relatedSec);
 
