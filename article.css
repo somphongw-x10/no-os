@@ -97,3 +97,8 @@ footer a{color:var(--white);}
 .guide-p{font-size:15px;line-height:1.7;color:var(--dark-grey);margin-top:var(--s12);}
 .guide-list{margin-top:var(--s12);padding-left:var(--s20);}
 .guide-list li{font-size:15px;line-height:1.7;color:var(--dark-grey);margin-bottom:var(--s8);}
+
+.guide-p a,.guide-list a{color:var(--charcoal);text-decoration:underline;}
+.guide-p a:hover,.guide-list a:hover{color:var(--dark-grey);text-decoration:underline;}
+.guide-p a:active,.guide-list a:active{color:var(--charcoal);text-decoration:underline;}
+.guide-p a:visited,.guide-list a:visited{color:#666666;}
