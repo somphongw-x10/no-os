@@ -102,3 +102,4 @@ footer a{color:var(--white);}
 .guide-p a:hover,.guide-list a:hover{color:var(--dark-grey);text-decoration:underline;}
 .guide-p a:active,.guide-list a:active{color:var(--charcoal);text-decoration:underline;}
 .guide-p a:visited,.guide-list a:visited{color:#666666;}
+.guide-img{width:100%;max-height:360px;object-fit:cover;border-radius:var(--r-card);margin-top:var(--s16);display:block;}

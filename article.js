@@ -30,6 +30,14 @@ function renderGuide(guide) {
   const sec = el('section', 'section guide-section');
   guide.forEach(block => {
     if (block.heading) sec.appendChild(el('h2', '', block.heading));
+    if (block.image) {
+      const img = document.createElement('img');
+      img.src = block.image;
+      img.alt = block.imageAlt || block.heading || '';
+      img.loading = 'lazy';
+      img.className = 'guide-img';
+      sec.appendChild(img);
+    }
     if (block.paragraphs) {
       block.paragraphs.forEach(p => sec.appendChild(el('p', 'guide-p', p)));
     }
