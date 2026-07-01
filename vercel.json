@@ -2,5 +2,13 @@
   "cleanUrls": true,
   "redirects": [
     { "source": "/wfh", "destination": "/", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+      ]
+    }
   ]
 }
