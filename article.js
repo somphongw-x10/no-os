@@ -25,6 +25,23 @@ function renderHero(meta) {
   return h;
 }
 
+function renderGuide(guide) {
+  if (!guide || guide.length === 0) return null;
+  const sec = el('section', 'section guide-section');
+  guide.forEach(block => {
+    if (block.heading) sec.appendChild(el('h2', '', block.heading));
+    if (block.paragraphs) {
+      block.paragraphs.forEach(p => sec.appendChild(el('p', 'guide-p', p)));
+    }
+    if (block.list) {
+      const ul = el('ul', 'guide-list');
+      block.list.forEach(li => { ul.innerHTML += `<li>${li}</li>`; });
+      sec.appendChild(ul);
+    }
+  });
+  return sec;
+}
+
 function renderTable(products) {
   const sec = el('section', 'section');
   sec.appendChild(el('h2', '', 'สรุปเร็ว ถ้าไม่อยากอ่านทั้งหมด'));
@@ -139,7 +156,7 @@ function renderRelated(related) {
 async function render(dataFile) {
   const res = await fetch(dataFile);
   const data = await res.json();
-  const { meta, products, verdict, related } = data;
+  const { meta, guide, products, verdict, related } = data;
 
   const canonical = document.querySelector('link[rel="canonical"]');
   const canonicalUrl = canonical ? canonical.href : location.href;
@@ -186,6 +203,8 @@ async function render(dataFile) {
   const content = document.getElementById('content');
   content.appendChild(renderBreadcrumb(meta.breadcrumb, meta.title.split(' ').slice(0,4).join(' ')));
   content.appendChild(renderHero(meta));
+  const guideSec = renderGuide(guide);
+  if (guideSec) content.appendChild(guideSec);
   content.appendChild(renderTable(products));
   content.appendChild(renderProducts(products));
   content.appendChild(renderVerdict(verdict));
