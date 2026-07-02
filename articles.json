@@ -6,6 +6,7 @@
     "data": "data/wireless-mouse.json",
     "url": "wireless-mouse-under-500",
     "category": "เมาส์",
+    "group": "อุปกรณ์คอมพิวเตอร์",
     "updatedDate": "มิถุนายน 2026"
   },
   {
@@ -15,6 +16,7 @@
     "data": "data/keyboard-mechanical.json",
     "url": "keyboard-mechanical-500-1500",
     "category": "คีย์บอร์ด",
+    "group": "อุปกรณ์คอมพิวเตอร์",
     "updatedDate": "มิถุนายน 2026"
   },
   {
@@ -24,15 +26,17 @@
     "data": "data/headphone-wfh.json",
     "url": "headphone-wfh-2026",
     "category": "หูฟัง",
+    "group": "อุปกรณ์คอมพิวเตอร์",
     "updatedDate": "มิถุนายน 2026"
-  }
-  ,{
+  },
+  {
     "title": "มอนิเตอร์ 4K ราคาประหยัด 2026 รุ่นไหนดี เปรียบเทียบ 5 รุ่น",
     "description": "รวม 5 มอนิเตอร์ 4K งบไม่เกิน 13,000 บาท เปรียบเทียบสเปคจริง IPS สีสวย รีเฟรชสูง บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
     "image": "images/th-11134207-7rasl-m2aou5ic8l9g76.webp",
     "data": "data/monitor-2k-4k.json",
     "url": "monitor-2k-4k",
     "category": "มอนิเตอร์",
+    "group": "อุปกรณ์คอมพิวเตอร์",
     "updatedDate": "มิถุนายน 2026"
   },
   {
@@ -42,6 +46,7 @@
     "data": "data/desk-standing.json",
     "url": "desk-standing-2026",
     "category": "โต๊ะ",
+    "group": "โต๊ะ & สรีรศาสตร์",
     "updatedDate": "มิถุนายน 2026"
   },
   {
@@ -51,7 +56,18 @@
     "data": "data/chair-ergonomic.json",
     "url": "chair-ergonomic-2026",
     "category": "เก้าอี้",
+    "group": "โต๊ะ & สรีรศาสตร์",
     "updatedDate": "มิถุนายน 2026"
+  },
+  {
+    "title": "โคมไฟทำงานแบบไหนถนอมสายตา รวมตัวเลือกโคมไฟตั้งโต๊ะสำหรับคนทำงานหนักหน้าจอ",
+    "description": "แสงส่งผลต่อสุขภาพดวงตาและสมาธิในการทำงานมากกว่าที่คิด รวมคุณสมบัติที่โคมไฟทำงานที่ดีควรมี พร้อมตัวเลือกโคมไฟตั้งโต๊ะสำหรับคนทำงานหน้าจอทุกสไตล์ ซื้อผ่าน Shopee",
+    "image": "images/desk-lamp-hero.jpg",
+    "data": "data/desk-lamp.json",
+    "url": "desk-lamp-ergonomic-2026",
+    "category": "โคมไฟ",
+    "group": "โต๊ะ & สรีรศาสตร์",
+    "updatedDate": "กรกฎาคม 2026"
   },
   {
     "title": "USB Hub Type-C ราคาประหยัด 2026 รุ่นไหนดี เปรียบเทียบ 5 รุ่น",
@@ -59,7 +75,8 @@
     "image": "images/cn-11134207-820l4-mmzi2r2qpjb804.webp",
     "data": "data/usb-hub.json",
     "url": "usb-hub-type-c",
-    "category": "อุปกรณ์เสริม",
+    "category": "USB Hub",
+    "group": "พลังงาน & การเชื่อมต่อ",
     "updatedDate": "มิถุนายน 2026"
   },
   {
@@ -68,7 +85,8 @@
     "image": "images/th-11134207-7ra0p-mdn2pwzci0duf2.webp",
     "data": "data/gan-charger.json",
     "url": "gan-charger-30w-45w-65w",
-    "category": "อุปกรณ์เสริม",
+    "category": "หัวชาร์จ",
+    "group": "พลังงาน & การเชื่อมต่อ",
     "updatedDate": "มิถุนายน 2026"
   },
   {
@@ -77,7 +95,8 @@
     "image": "images/th-11134207-81zto-mdwral7ekxdt62.webp",
     "data": "data/power-strip.json",
     "url": "power-strip-guide-2026",
-    "category": "อุปกรณ์เสริม",
+    "category": "ปลั๊กพ่วง",
+    "group": "พลังงาน & การเชื่อมต่อ",
     "updatedDate": "กรกฎาคม 2026"
   },
   {
@@ -86,16 +105,8 @@
     "image": "images/cable-mgmt-hero.jpg",
     "data": "data/cable-management.json",
     "url": "cable-management-guide-2026",
-    "category": "อุปกรณ์เสริม",
-    "updatedDate": "กรกฎาคม 2026"
-  },
-  {
-    "title": "โคมไฟทำงานแบบไหนถนอมสายตา รวมตัวเลือกโคมไฟตั้งโต๊ะสำหรับคนทำงานหนักหน้าจอ",
-    "description": "แสงส่งผลต่อสุขภาพดวงตาและสมาธิในการทำงานมากกว่าที่คิด รวมคุณสมบัติที่โคมไฟทำงานที่ดีควรมี พร้อมตัวเลือกโคมไฟตั้งโต๊ะสำหรับคนทำงานหน้าจอทุกสไตล์ ซื้อผ่าน Shopee",
-    "image": "images/desk-lamp-hero.jpg",
-    "data": "data/desk-lamp.json",
-    "url": "desk-lamp-ergonomic-2026",
-    "category": "อุปกรณ์เสริม",
+    "category": "จัดสายไฟ",
+    "group": "พลังงาน & การเชื่อมต่อ",
     "updatedDate": "กรกฎาคม 2026"
   }
 ]

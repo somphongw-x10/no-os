@@ -94,6 +94,11 @@
   .cat-card-th{font-size:16px;font-weight:700;color:var(--charcoal);}
   .cat-card-en{font-family:var(--font-mono);font-size:11px;color:var(--muted-grey);margin-top:2px;}
   .cat-card-desc{font-size:13px;line-height:1.5;color:var(--dark-grey);margin-top:var(--s8);}
+  .cat-group{margin-bottom:var(--s40);}
+  .cat-group:last-child{margin-bottom:0;}
+  .cat-group-head{display:flex;align-items:baseline;gap:var(--s12);margin-bottom:var(--s16);}
+  .cat-group-head .g-th{font-size:18px;font-weight:700;color:var(--charcoal);}
+  .cat-group-head .g-en{font-family:var(--font-mono);font-size:12px;color:var(--muted-grey);}
 
   /* Inspiration banner */
   .banner{margin:56px;border-radius:var(--r-banner);min-height:300px;position:relative;overflow:hidden;
@@ -214,7 +219,7 @@
 
 <!-- Category grid -->
 <div class="cat-grid-wrap">
-  <div class="cat-grid" id="cat-grid"></div>
+  <div id="cat-groups"></div>
 </div>
 
 <!-- Inspiration banner -->
@@ -229,7 +234,7 @@
 
 <!-- Article listing -->
 <div class="articles-section" id="articles">
-  <h2>บทความทั้งหมด</h2>
+  <h2 id="articles-heading">บทความทั้งหมด</h2>
   <div class="sub">เปรียบเทียบสเปคจริง คัดมาแล้วว่าคุ้มค่าที่สุดในแต่ละงบ</div>
   <div class="cats-filter" id="cat-filter"></div>
   <div class="grid" id="article-grid"></div>
@@ -243,70 +248,100 @@
 
 <script>
 const CATEGORY_META = {
-  'เมาส์':        { en: 'Mouse',        img: 'images/cat-mouse.jpg',      desc: 'เมาส์ไร้สาย เปรียบเทียบสเปคจริงในแต่ละงบ' },
-  'คีย์บอร์ด':    { en: 'Keyboard',     img: 'images/cat-keyboard.jpg',   desc: 'คีย์บอร์ด Mechanical มีสายและไร้สาย' },
-  'หูฟัง':        { en: 'Headphones',   img: 'images/cat-headphone.jpg',  desc: 'หูฟัง WFH ตัดเสียง ไมค์ชัด ประชุมลื่น' },
-  'มอนิเตอร์':    { en: 'Monitor',      img: 'images/cat-monitor.jpg',    desc: 'มอนิเตอร์ 4K คมชัด สีสวย รีเฟรชสูง' },
-  'โต๊ะ':         { en: 'Desk',         img: 'images/cat-desk.jpg',       desc: 'โต๊ะปรับระดับ ไฟฟ้าและมือหมุน' },
-  'เก้าอี้':      { en: 'Chair',        img: 'images/cat-chair.jpg',      desc: 'เก้าอี้ Ergonomic รองรับหลังได้ดี' },
-  'อุปกรณ์เสริม': { en: 'Accessories',  img: 'images/cat-accessory.jpg',  desc: 'ของเสริมจำเป็น ตั้งแต่ปลั๊กพ่วงถึงโคมไฟ' }
+  'เมาส์':      { en: 'Mouse',       img: 'images/cat-mouse.jpg',                         desc: 'เมาส์ไร้สาย เปรียบเทียบสเปคจริงในแต่ละงบ' },
+  'คีย์บอร์ด':  { en: 'Keyboard',    img: 'images/cat-keyboard.jpg',                      desc: 'คีย์บอร์ด Mechanical มีสายและไร้สาย' },
+  'หูฟัง':      { en: 'Headphones',  img: 'images/cat-headphone.jpg',                     desc: 'หูฟัง WFH ตัดเสียง ไมค์ชัด ประชุมลื่น' },
+  'มอนิเตอร์':  { en: 'Monitor',     img: 'images/cat-monitor.jpg',                       desc: 'มอนิเตอร์ 4K คมชัด สีสวย รีเฟรชสูง' },
+  'โต๊ะ':       { en: 'Desk',        img: 'images/cat-desk.jpg',                          desc: 'โต๊ะปรับระดับ ไฟฟ้าและมือหมุน' },
+  'เก้าอี้':    { en: 'Chair',       img: 'images/cat-chair.jpg',                         desc: 'เก้าอี้ Ergonomic รองรับหลังได้ดี' },
+  'โคมไฟ':      { en: 'Desk Lamp',   img: 'images/desk-lamp-hero.jpg',                    desc: 'โคมไฟตั้งโต๊ะ ถนอมสายตา ปรับแสงได้' },
+  'USB Hub':    { en: 'USB Hub',     img: 'images/cn-11134207-820l4-mmzi2r2qpjb804.webp', desc: 'USB Hub Type-C ต่อจอ ต่อ Ethernet' },
+  'หัวชาร์จ':   { en: 'Charger',     img: 'images/th-11134207-7ra0p-mdn2pwzci0duf2.webp', desc: 'หัวชาร์จ GaN 30W-65W เล็ก แรง' },
+  'ปลั๊กพ่วง':  { en: 'Power Strip', img: 'images/th-11134207-81zto-mdwral7ekxdt62.webp', desc: 'ปลั๊กพ่วงปลอดภัย ได้มาตรฐาน มอก.' },
+  'จัดสายไฟ':   { en: 'Cable Mgmt',  img: 'images/cable-mgmt-hero.jpg',                   desc: 'จัดสายไฟบนโต๊ะให้เรียบร้อย' }
 };
+
+const GROUPS = [
+  { name: 'อุปกรณ์คอมพิวเตอร์',    en: 'Computer Peripherals' },
+  { name: 'โต๊ะ & สรีรศาสตร์',      en: 'Desk & Ergonomics' },
+  { name: 'พลังงาน & การเชื่อมต่อ', en: 'Power & Connectivity' }
+];
 
 async function loadHome() {
   const res = await fetch('articles.json');
   const articles = await res.json();
 
-  // Category cards (from real site categories)
-  const cats = [...new Set(articles.map(a => a.category))];
-  const catGrid = document.getElementById('cat-grid');
-  cats.forEach((cat, i) => {
-    const meta = CATEGORY_META[cat] || { en: '', img: '', desc: '' };
-    const a = document.createElement('a');
-    a.className = 'cat-card';
-    a.href = `/?cat=${encodeURIComponent(cat)}#articles`;
-    a.innerHTML = `
-      <div class="cat-card-img">
-        <img src="${meta.img}" alt="${cat}" loading="lazy">
-        <div class="cat-card-num">${String(i + 1).padStart(2, '0')}</div>
-      </div>
-      <div class="cat-card-body">
-        <div class="cat-card-th">${cat}</div>
-        <div class="cat-card-en">${meta.en}</div>
-        <div class="cat-card-desc">${meta.desc}</div>
-      </div>`;
-    catGrid.appendChild(a);
+  // Category cards, grouped into families
+  const catGroups = document.getElementById('cat-groups');
+  let counter = 0;
+  GROUPS.forEach(g => {
+    const groupCats = [...new Set(articles.filter(a => a.group === g.name).map(a => a.category))];
+    if (groupCats.length === 0) return;
+
+    const section = document.createElement('div');
+    section.className = 'cat-group';
+    const head = document.createElement('div');
+    head.className = 'cat-group-head';
+    head.innerHTML = `<span class="g-th">${g.name}</span><span class="g-en">${g.en}</span>`;
+    section.appendChild(head);
+
+    const grid = document.createElement('div');
+    grid.className = 'cat-grid';
+    groupCats.forEach(cat => {
+      counter++;
+      const meta = CATEGORY_META[cat] || { en: '', img: '', desc: '' };
+      const a = document.createElement('a');
+      a.className = 'cat-card';
+      a.href = `/?cat=${encodeURIComponent(cat)}#articles`;
+      a.innerHTML = `
+        <div class="cat-card-img">
+          <img src="${meta.img}" alt="${cat}" loading="lazy">
+          <div class="cat-card-num">${String(counter).padStart(2, '0')}</div>
+        </div>
+        <div class="cat-card-body">
+          <div class="cat-card-th">${cat}</div>
+          <div class="cat-card-en">${meta.en}</div>
+          <div class="cat-card-desc">${meta.desc}</div>
+        </div>`;
+      grid.appendChild(a);
+    });
+    section.appendChild(grid);
+    catGroups.appendChild(section);
   });
-  const viewAllCard = document.createElement('a');
-  viewAllCard.className = 'cat-card';
-  viewAllCard.href = '#articles';
-  viewAllCard.innerHTML = `
-    <div class="cat-card-img" style="background:var(--charcoal);display:flex;align-items:center;justify-content:center;">
-      <div class="cat-card-num" style="position:static;background:var(--white);">→</div>
-    </div>
-    <div class="cat-card-body">
-      <div class="cat-card-th">ดูทั้งหมด</div>
-      <div class="cat-card-en">All Articles</div>
-      <div class="cat-card-desc">รวมบทความทั้งหมดในเว็บ</div>
-    </div>`;
-  catGrid.appendChild(viewAllCard);
 
-  // Article filter + grid (existing behavior)
+  // Article filter (by group) + grid
   const params = new URLSearchParams(location.search);
-  const activeCat = params.get('cat') || 'ทั้งหมด';
+  const activeCat = params.get('cat');       // set when a category card is clicked
+  const activeGroup = params.get('group');   // set when a filter pill is clicked
 
-  const filterCats = ['ทั้งหมด', ...cats];
+  // which group pill to highlight (direct, or parent group of active category)
+  let activeGroupName = activeGroup;
+  if (activeCat) {
+    const art = articles.find(a => a.category === activeCat);
+    if (art) activeGroupName = art.group;
+  }
+
   const catWrap = document.getElementById('cat-filter');
-  filterCats.forEach(cat => {
+  const pills = ['ทั้งหมด', ...GROUPS.map(g => g.name)];
+  pills.forEach(p => {
     const btn = document.createElement('button');
-    btn.className = 'cat-btn' + (cat === activeCat ? ' active' : '');
-    btn.textContent = cat;
+    const isActive = (p === 'ทั้งหมด' && !activeCat && !activeGroup) || p === activeGroupName;
+    btn.className = 'cat-btn' + (isActive ? ' active' : '');
+    btn.textContent = p;
     btn.onclick = () => {
-      location.href = cat === 'ทั้งหมด' ? '/#articles' : `/?cat=${encodeURIComponent(cat)}#articles`;
+      location.href = p === 'ทั้งหมด' ? '/#articles' : `/?group=${encodeURIComponent(p)}#articles`;
     };
     catWrap.appendChild(btn);
   });
 
-  const filtered = activeCat === 'ทั้งหมด' ? articles : articles.filter(a => a.category === activeCat);
+  let filtered = articles;
+  if (activeCat) {
+    filtered = articles.filter(a => a.category === activeCat);
+    document.getElementById('articles-heading').textContent = activeCat;
+  } else if (activeGroup) {
+    filtered = articles.filter(a => a.group === activeGroup);
+    document.getElementById('articles-heading').textContent = activeGroup;
+  }
 
   const grid = document.getElementById('article-grid');
   if (filtered.length === 0) {
