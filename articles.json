@@ -66,7 +66,7 @@
     "data": "data/desk-lamp.json",
     "url": "desk-lamp-ergonomic-2026",
     "category": "โคมไฟ",
-    "group": "โต๊ะ & สรีรศาสตร์",
+    "group": "ไอเดียการจัดโต๊ะ",
     "updatedDate": "กรกฎาคม 2026"
   },
   {
@@ -106,7 +106,7 @@
     "data": "data/cable-management.json",
     "url": "cable-management-guide-2026",
     "category": "จัดสายไฟ",
-    "group": "พลังงาน & การเชื่อมต่อ",
+    "group": "ไอเดียการจัดโต๊ะ",
     "updatedDate": "กรกฎาคม 2026"
   }
 ]
