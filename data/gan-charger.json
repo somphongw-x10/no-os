@@ -4,9 +4,13 @@
     "description": "หัวชาร์จ GaN แต่ละวัตต์ต่างกันยังไง 30W 45W 65W เหมาะกับใครบ้าง เปรียบเทียบสเปคจริง 5 รุ่น บอกเลยว่ารุ่นไหนคุ้มที่สุด ซื้อผ่าน Shopee ราคาถูกกว่า",
     "updatedDate": "มิถุนายน 2026",
     "breadcrumb": [
-      { "label": "หน้าแรก", "href": "/" }
+      {
+        "label": "หน้าแรก",
+        "href": "/"
+      }
     ],
-    "canonicalUrl": "https://pick.no-os.com/gan-charger-30w-45w-65w"
+    "canonicalUrl": "https://pick.no-os.com/gan-charger-30w-45w-65w",
+    "datePublished": "2026-07-01"
   },
   "products": [
     {
@@ -19,10 +23,22 @@
       "tableTag": "30-45W ถูกสุด",
       "tableWho": "มือถือ + Notebook บางเบา",
       "specs": [
-        { "label": "กำลังไฟ", "value": "30-45W (GaN)" },
-        { "label": "พอร์ต", "value": "USB-C PD x2 + USB-A x1 (รวม 3 พอร์ต)" },
-        { "label": "รองรับ", "value": "มือถือ, iPad, MacBook Air/Ultrabook บางรุ่น" },
-        { "label": "ขนาด", "value": "เล็กกะทัดรัด (GaN Tech)" }
+        {
+          "label": "กำลังไฟ",
+          "value": "30-45W (GaN)"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "USB-C PD x2 + USB-A x1 (รวม 3 พอร์ต)"
+        },
+        {
+          "label": "รองรับ",
+          "value": "มือถือ, iPad, MacBook Air/Ultrabook บางรุ่น"
+        },
+        {
+          "label": "ขนาด",
+          "value": "เล็กกะทัดรัด (GaN Tech)"
+        }
       ],
       "pros": [
         "ราคาถูกที่สุดในกลุ่ม ไม่ถึง 220 บาท",
@@ -46,9 +62,18 @@
       "tableTag": "65W คุ้มที่สุด",
       "tableWho": "Notebook งานทั่วไป งบน้อย",
       "specs": [
-        { "label": "กำลังไฟ", "value": "65W" },
-        { "label": "พอร์ต", "value": "USB-C PD" },
-        { "label": "รองรับ", "value": "Notebook งานทั่วไป, MacBook Pro 13-14\" บางรุ่น, มือถือ" }
+        {
+          "label": "กำลังไฟ",
+          "value": "65W"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "USB-C PD"
+        },
+        {
+          "label": "รองรับ",
+          "value": "Notebook งานทั่วไป, MacBook Pro 13-14\" บางรุ่น, มือถือ"
+        }
       ],
       "pros": [
         "65W ราคาถูกที่สุดในกลุ่ม",
@@ -71,9 +96,18 @@
       "tableTag": "65W คุณภาพกลาง",
       "tableWho": "Notebook + ต้องการความปลอดภัย",
       "specs": [
-        { "label": "กำลังไฟ", "value": "65W" },
-        { "label": "พอร์ต", "value": "USB-C PD" },
-        { "label": "ระบบป้องกัน", "value": "ป้องกันไฟเกิน/ความร้อนเกิน" }
+        {
+          "label": "กำลังไฟ",
+          "value": "65W"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "USB-C PD"
+        },
+        {
+          "label": "ระบบป้องกัน",
+          "value": "ป้องกันไฟเกิน/ความร้อนเกิน"
+        }
       ],
       "pros": [
         "65W เต็มสปีดสำหรับ Notebook",
@@ -96,9 +130,18 @@
       "tableTag": "พอร์ตเยอะสุด",
       "tableWho": "มีอุปกรณ์หลายชิ้น ต้องการปลั๊กพ่วง",
       "specs": [
-        { "label": "กำลังไฟ", "value": "65W (USB-C PD สูงสุด)" },
-        { "label": "พอร์ต", "value": "USB-C PD x2 + QC 3.0 x2 + AC Socket x1" },
-        { "label": "จุดเด่น", "value": "เสียบได้พร้อมกัน 5 อุปกรณ์ในตัวเดียว" }
+        {
+          "label": "กำลังไฟ",
+          "value": "65W (USB-C PD สูงสุด)"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "USB-C PD x2 + QC 3.0 x2 + AC Socket x1"
+        },
+        {
+          "label": "จุดเด่น",
+          "value": "เสียบได้พร้อมกัน 5 อุปกรณ์ในตัวเดียว"
+        }
       ],
       "pros": [
         "พอร์ตเยอะที่สุดในกลุ่ม 5 ช่องในตัวเดียว",
@@ -122,9 +165,18 @@
       "tableTag": "Premium ใช้ได้ทุกรุ่น",
       "tableWho": "มี Notebook หลายเครื่อง หลายยี่ห้อ",
       "specs": [
-        { "label": "กำลังไฟ", "value": "65W" },
-        { "label": "พอร์ต", "value": "หัว Tip ถอดเปลี่ยนได้ 6 แบบ + USB-C Converter" },
-        { "label": "ผู้ผลิต", "value": "Delta Electronics" }
+        {
+          "label": "กำลังไฟ",
+          "value": "65W"
+        },
+        {
+          "label": "พอร์ต",
+          "value": "หัว Tip ถอดเปลี่ยนได้ 6 แบบ + USB-C Converter"
+        },
+        {
+          "label": "ผู้ผลิต",
+          "value": "Delta Electronics"
+        }
       ],
       "pros": [
         "แบรนด์ Premium ผลิตโดย Delta Electronics รับประกัน 3 ปี",
@@ -140,15 +192,42 @@
     }
   ],
   "verdict": [
-    { "condition": "มีแค่มือถือ + iPad หรือ Notebook บางเบา", "pick": "UGREEN X515 30-45W (219 บาท)" },
-    { "condition": "ต้องการ 65W ราคาประหยัดที่สุด", "pick": "Techsavvy 65W (237 บาท) — คุ้มที่สุด!" },
-    { "condition": "ต้องการ 65W คุณภาพกลาง ปลอดภัย", "pick": "Actual 65W (357 บาท)" },
-    { "condition": "มีอุปกรณ์หลายชิ้น อยากได้ปลั๊กพ่วงในตัว", "pick": "LDNIO SC1418 65W (451 บาท)" },
-    { "condition": "มี Notebook หลายเครื่อง หลายยี่ห้อ", "pick": "INNERGIE T6 65W (1,090 บาท)" }
+    {
+      "condition": "มีแค่มือถือ + iPad หรือ Notebook บางเบา",
+      "pick": "UGREEN X515 30-45W (219 บาท)"
+    },
+    {
+      "condition": "ต้องการ 65W ราคาประหยัดที่สุด",
+      "pick": "Techsavvy 65W (237 บาท) — คุ้มที่สุด!"
+    },
+    {
+      "condition": "ต้องการ 65W คุณภาพกลาง ปลอดภัย",
+      "pick": "Actual 65W (357 บาท)"
+    },
+    {
+      "condition": "มีอุปกรณ์หลายชิ้น อยากได้ปลั๊กพ่วงในตัว",
+      "pick": "LDNIO SC1418 65W (451 บาท)"
+    },
+    {
+      "condition": "มี Notebook หลายเครื่อง หลายยี่ห้อ",
+      "pick": "INNERGIE T6 65W (1,090 บาท)"
+    }
   ],
   "related": [
-    { "title": "USB Hub Type-C รุ่นไหนดี HDMI + ชาร์จ + LAN", "url": "/usb-hub-type-c", "category": "อุปกรณ์เสริม" },
-    { "title": "มอนิเตอร์ 4K ราคาประหยัด รุ่นไหนดี", "url": "/monitor-2k-4k", "category": "มอนิเตอร์" },
-    { "title": "โต๊ะปรับระดับ ราคาประหยัด รุ่นไหนดี", "url": "/desk-standing-2026", "category": "โต๊ะ" }
+    {
+      "title": "USB Hub Type-C รุ่นไหนดี HDMI + ชาร์จ + LAN",
+      "url": "/usb-hub-type-c",
+      "category": "อุปกรณ์เสริม"
+    },
+    {
+      "title": "มอนิเตอร์ 4K ราคาประหยัด รุ่นไหนดี",
+      "url": "/monitor-2k-4k",
+      "category": "มอนิเตอร์"
+    },
+    {
+      "title": "โต๊ะปรับระดับ ราคาประหยัด รุ่นไหนดี",
+      "url": "/desk-standing-2026",
+      "category": "โต๊ะ"
+    }
   ]
 }

@@ -169,6 +169,12 @@ async function render(dataFile) {
   const canonical = document.querySelector('link[rel="canonical"]');
   const canonicalUrl = canonical ? canonical.href : location.href;
 
+  const ogImage = document.querySelector('meta[property="og:image"]');
+  const imageUrl = ogImage ? ogImage.content : null;
+  const today = new Date().toISOString().split('T')[0];
+  const datePublished = meta.datePublished || today;
+  const dateModified = meta.dateModified || meta.datePublished || today;
+
   document.querySelector('meta[name="description"]').content = meta.description;
 
   // JSON-LD
@@ -189,7 +195,9 @@ async function render(dataFile) {
         "@type": "Article",
         "headline": meta.title,
         "description": meta.description,
-        "dateModified": new Date().toISOString().split('T')[0],
+        ...(imageUrl ? { "image": imageUrl } : {}),
+        "datePublished": datePublished,
+        "dateModified": dateModified,
         "publisher": { "@type": "Organization", "name": "no-os.com", "url": "https://pick.no-os.com" },
         "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl }
       },

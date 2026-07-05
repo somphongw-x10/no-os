@@ -4,8 +4,12 @@
     "description": "รวมอุปกรณ์จัดสายไฟบนโต๊ะทำงานที่ใช้งานได้จริง ราคาไม่แพง เปลี่ยนโต๊ะรกๆ ให้ดูเป็นระเบียบได้ในไม่กี่นาที ซื้อผ่าน Shopee",
     "updatedDate": "กรกฎาคม 2026",
     "breadcrumb": [
-      { "label": "หน้าแรก", "href": "/" }
-    ]
+      {
+        "label": "หน้าแรก",
+        "href": "/"
+      }
+    ],
+    "datePublished": "2026-07-01"
   },
   "guide": [
     {
@@ -87,8 +91,20 @@
     }
   ],
   "related": [
-    { "category": "ปลั๊กพ่วง", "title": "ปลั๊กพ่วง เลือกยังไงให้ปลอดภัย 2026", "url": "power-strip-guide-2026" },
-    { "category": "โต๊ะ", "title": "โต๊ะปรับระดับ ราคาประหยัด 2026", "url": "desk-standing-2026" },
-    { "category": "อุปกรณ์เสริม", "title": "หัวชาร์จ GaN 30W vs 45W vs 65W", "url": "gan-charger-30w-45w-65w" }
+    {
+      "category": "ปลั๊กพ่วง",
+      "title": "ปลั๊กพ่วง เลือกยังไงให้ปลอดภัย 2026",
+      "url": "power-strip-guide-2026"
+    },
+    {
+      "category": "โต๊ะ",
+      "title": "โต๊ะปรับระดับ ราคาประหยัด 2026",
+      "url": "desk-standing-2026"
+    },
+    {
+      "category": "อุปกรณ์เสริม",
+      "title": "หัวชาร์จ GaN 30W vs 45W vs 65W",
+      "url": "gan-charger-30w-45w-65w"
+    }
   ]
 }
