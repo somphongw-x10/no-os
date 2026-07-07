@@ -118,5 +118,15 @@
     "category": "แผ่นรองโต๊ะ",
     "group": "ไอเดียการจัดโต๊ะ",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "นาฬิกาโฟกัส Pomodoro Timer อุปกรณ์เล็กที่ช่วยให้ทำงานมีสมาธิและไม่หมดไฟ 2026",
+    "description": "Focus Timer หรือ Pomodoro Timer ตัวเล็กบนโต๊ะทำงาน ช่วยเพิ่มสมาธิและวินัยในการทำงานได้จริง รวมตัวเลือกยอดนิยม พร้อมเกณฑ์การเลือกซื้อ ซื้อผ่าน Shopee",
+    "image": "images/pomodoro-hero.jpg",
+    "data": "data/pomodoro-timer.json",
+    "url": "pomodoro-focus-timer-guide-2026",
+    "category": "Focus Timer",
+    "group": "ไอเดียการจัดโต๊ะ",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
