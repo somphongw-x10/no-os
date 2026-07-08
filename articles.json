@@ -128,5 +128,15 @@
     "category": "Focus Timer",
     "group": "ไอเดียการจัดโต๊ะ",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "แท่นระบายความร้อนโน้ตบุ๊ก (Laptop Cooling Pad) ตัวช่วยยืดอายุเครื่องที่มือ WFH ควรมี 2026",
+    "description": "แท่นระบายความร้อนโน้ตบุ๊กช่วยลด thermal throttling ยืดอายุแบตเตอรี่และชิ้นส่วนภายใน รวมตัวเลือกยอดนิยม พร้อมเกณฑ์การเลือกซื้อ ซื้อผ่าน Shopee",
+    "image": "images/cooling-hero.jpg",
+    "data": "data/laptop-cooling-pad.json",
+    "url": "laptop-cooling-pad-guide-2026",
+    "category": "Cooling Pad",
+    "group": "ไอเดียการจัดโต๊ะ",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
