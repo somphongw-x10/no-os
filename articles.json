@@ -138,5 +138,15 @@
     "category": "Cooling Pad",
     "group": "ไอเดียการจัดโต๊ะ",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "เมาส์ Ergonomic รุ่นไหนดี 2026 รวม 5 อันดับน่าใช้ ลดปวดข้อมือสำหรับมือ WFH",
+    "description": "รวม 5 อันดับเมาส์ Ergonomic น่าใช้ปี 2026 ทั้งแบบแนวตั้งและทรงโค้งรับอุ้งมือ ช่วยลดอาการปวดข้อมือจากการทำงานหน้าจอ พร้อมเกณฑ์การเลือกซื้อ ซื้อผ่าน Shopee",
+    "image": "images/mouse-hero.jpg",
+    "data": "data/ergonomic-mouse.json",
+    "url": "ergonomic-mouse-2026",
+    "category": "เมาส์",
+    "group": "อุปกรณ์คอมพิวเตอร์",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
