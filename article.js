@@ -161,10 +161,25 @@ function renderRelated(related) {
   return sec;
 }
 
+function renderFAQ(faq) {
+  if (!faq || faq.length === 0) return null;
+  const sec = el('section', 'section faq-section');
+  sec.appendChild(el('h2', '', 'คำถามที่พบบ่อย (FAQ)'));
+  faq.forEach(item => {
+    const wrap = el('div', 'faq-item');
+    wrap.appendChild(el('h3', 'faq-q', item.q));
+    const a = el('div', 'faq-a');
+    a.innerHTML = item.a;
+    wrap.appendChild(a);
+    sec.appendChild(wrap);
+  });
+  return sec;
+}
+
 async function render(dataFile) {
   const res = await fetch(dataFile);
   const data = await res.json();
-  const { meta, guide, products, verdict, related } = data;
+  const { meta, guide, products, verdict, related, faq } = data;
 
   const canonical = document.querySelector('link[rel="canonical"]');
   const canonicalUrl = canonical ? canonical.href : location.href;
@@ -208,6 +223,14 @@ async function render(dataFile) {
         "itemListElement": products.map((p, i) => ({
           "@type": "ListItem", "position": i+1, "name": p.name, "url": p.shopeeUrl
         }))
+      }] : []),
+      ...(faq && faq.length ? [{
+        "@type": "FAQPage",
+        "mainEntity": faq.map(item => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a.replace(/<[^>]+>/g, '') }
+        }))
       }] : [])
     ]
   };
@@ -226,6 +249,8 @@ async function render(dataFile) {
     content.appendChild(renderProducts(products));
   }
   if (verdict && verdict.length) content.appendChild(renderVerdict(verdict));
+  const faqSec = renderFAQ(faq);
+  if (faqSec) content.appendChild(faqSec);
   const relatedSec = renderRelated(related);
   if (relatedSec) content.appendChild(relatedSec);
 
