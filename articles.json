@@ -158,5 +158,15 @@
     "category": "แขนจับจอ",
     "group": "ไอเดียการจัดโต๊ะ",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "ที่วางหูฟัง (Headphone Stand) จัดโต๊ะให้เป็นระเบียบ ยืดอายุหูฟังตัวโปรด รุ่นไหนน่าซื้อ 2026",
+    "description": "ที่วางหูฟังช่วยจัดโต๊ะให้เป็นระเบียบ ยืดอายุหูฟัง และเพิ่มพื้นที่บนโต๊ะ รวมประเภทและรุ่นที่แนะนำ พร้อมเกณฑ์การเลือกซื้อ ซื้อผ่าน Shopee",
+    "image": "images/headphone-stand-hero.jpg",
+    "data": "data/headphone-stand.json",
+    "url": "headphone-stand-guide-2026",
+    "category": "ที่วางหูฟัง",
+    "group": "ไอเดียการจัดโต๊ะ",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
