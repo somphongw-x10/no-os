@@ -74,8 +74,24 @@
     display:flex;align-items:center;gap:var(--s8);font-size:14px;color:var(--muted-grey);}
   .avatar,.hamburger{width:44px;height:44px;border-radius:50%;background:var(--bg-secondary);
     display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;}
-  .hamburger span{width:16px;height:2px;background:var(--charcoal);}
+  .hamburger{display:none;position:relative;cursor:pointer;}
+  .hamburger span{position:absolute;left:14px;width:16px;height:2px;background:var(--charcoal);
+    transition:transform .2s,opacity .2s;}
+  .hamburger span:nth-child(1){top:16px;}
+  .hamburger span:nth-child(2){top:22px;}
+  .hamburger span:nth-child(3){top:28px;}
+  .hamburger.open span:nth-child(1){top:22px;transform:rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){top:22px;transform:rotate(-45deg);}
+  .mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);
+    border-bottom:1px solid var(--border-subtle);padding:var(--s16) 20px;flex-direction:column;gap:var(--s4);
+    box-shadow:0 4px 12px rgba(0,0,0,.06);z-index:20;}
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{font-size:15px;color:var(--dark-grey);text-decoration:none;padding:var(--s12) 0;
+    border-bottom:1px solid var(--border-subtle);}
+  .mobile-nav a:last-child{border-bottom:0;}
+  .mobile-nav a.active{color:var(--charcoal);font-weight:700;}
+  .topbar{position:relative;}
 
   /* Hero split */
   .hero{display:grid;grid-template-columns:1fr 1fr;min-height:380px;}
@@ -208,8 +224,12 @@
     </nav>
   </div>
   <div class="topbar-right">
-    <div class="hamburger"><span></span><span></span><span></span></div>
+    <div class="hamburger" id="hamburger" role="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></div>
   </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="/?group=ไอเดียการจัดโต๊ะ#articles">ไอเดียการจัดโต๊ะ</a>
+    <a href="/#articles" class="active">คู่มือการซื้อ</a>
+  </nav>
 </div>
 
 <!-- Hero -->
@@ -268,6 +288,19 @@
 </footer>
 
 <script>
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobileNav.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+}));
+
 const CATEGORY_META = {
   'เมาส์':      { en: 'Mouse',       img: 'images/cat-mouse.jpg',                         desc: 'เมาส์ไร้สาย เปรียบเทียบสเปคจริงในแต่ละงบ' },
   'คีย์บอร์ด':  { en: 'Keyboard',    img: 'images/cat-keyboard.jpg',                      desc: 'คีย์บอร์ด Mechanical มีสายและไร้สาย' },
