@@ -178,5 +178,15 @@
     "category": "ลำโพง",
     "group": "ไอเดียการจัดโต๊ะ",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "Bluetooth 5.3 กับ 5.4 ต่างกันอย่างไร? อธิบายให้เข้าใจง่าย ก่อนเลือกซื้ออุปกรณ์ไร้สายบนโต๊ะทำงาน 2026",
+    "description": "Bluetooth 5.4 ต่างจาก 5.3 ตรงไหน จำเป็นต้องอัปเกรดไหม อธิบายฟีเจอร์ PAwR การเข้ารหัส และสิ่งที่ควรดูจริง ๆ เวลาเลือกซื้อหูฟัง คีย์บอร์ด เมาส์ ลำโพงไร้สาย",
+    "image": "images/bluetooth-hero.jpg",
+    "data": "data/bluetooth-version.json",
+    "url": "bluetooth-5-3-vs-5-4-guide-2026",
+    "category": "Bluetooth",
+    "group": "ไอเดียการจัดโต๊ะ",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
