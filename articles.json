@@ -188,5 +188,15 @@
     "category": "Bluetooth",
     "group": "ไอเดียการจัดโต๊ะ",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "ที่วางแล็ปท็อปและขาตั้งจอ เลือกอย่างไรให้คอไม่ก้ม หลังไม่งอ 2026",
+    "description": "ที่วางแล็ปท็อปและขาตั้งจอช่วยยกจอให้อยู่ระดับสายตา ลดอาการ Tech Neck ปวดคอบ่าไหล่ รวมประเภทและเกณฑ์เลือกซื้อตามหลัก ergonomics ซื้อผ่าน Shopee",
+    "image": "images/laptopstand-hero.jpg",
+    "data": "data/laptop-monitor-stand.json",
+    "url": "laptop-monitor-stand-guide-2026",
+    "category": "ขาตั้งจอ",
+    "group": "ไอเดียการจัดโต๊ะ",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
