@@ -208,5 +208,15 @@
     "category": "หัวชาร์จ",
     "group": "พลังงาน & การเชื่อมต่อ",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "USB-C Hub ทำไมภาพ 4K ถึงกระตุก? เข้าใจสาเหตุและวิธีเลือกฮับให้จอ 4K ลื่นไม่มีสะดุด 2026",
+    "description": "ต่อจอ 4K ผ่าน USB-C Hub แล้วภาพกระตุก? สาเหตุคือแบนด์วิดท์ไม่พอทำให้จอวิ่งแค่ 30Hz รวม 5 สาเหตุที่พบบ่อย วิธีแก้ทีละขั้น และเกณฑ์เลือกฮับให้ได้ 4K@60Hz",
+    "image": "images/usbhub4k-hero.jpg",
+    "data": "data/usb-hub-4k-stutter.json",
+    "url": "usb-c-hub-4k-stutter-guide-2026",
+    "category": "USB Hub",
+    "group": "พลังงาน & การเชื่อมต่อ",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
