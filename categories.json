@@ -1,0 +1,29 @@
+{
+  "groups": [
+    { "name": "อุปกรณ์คอมพิวเตอร์",    "en": "Computer Peripherals" },
+    { "name": "โต๊ะ & สรีรศาสตร์",      "en": "Desk & Ergonomics" },
+    { "name": "พลังงาน & การเชื่อมต่อ", "en": "Power & Connectivity" },
+    { "name": "ไอเดียการจัดโต๊ะ",      "en": "Desk Setup Ideas" }
+  ],
+  "categories": {
+    "เมาส์":        { "en": "Mouse",           "img": "images/cat-mouse.jpg",                         "desc": "เมาส์ไร้สาย เปรียบเทียบสเปคจริงในแต่ละงบ" },
+    "คีย์บอร์ด":    { "en": "Keyboard",        "img": "images/cat-keyboard.jpg",                      "desc": "คีย์บอร์ด Mechanical มีสายและไร้สาย" },
+    "หูฟัง":        { "en": "Headphones",      "img": "images/cat-headphone.jpg",                     "desc": "หูฟัง WFH ตัดเสียง ไมค์ชัด ประชุมลื่น" },
+    "มอนิเตอร์":    { "en": "Monitor",         "img": "images/cat-monitor.jpg",                       "desc": "มอนิเตอร์ 4K คมชัด สีสวย รีเฟรชสูง" },
+    "โต๊ะ":         { "en": "Desk",            "img": "images/cat-desk.jpg",                          "desc": "โต๊ะปรับระดับ ไฟฟ้าและมือหมุน" },
+    "เก้าอี้":      { "en": "Chair",           "img": "images/cat-chair.jpg",                         "desc": "เก้าอี้ Ergonomic รองรับหลังได้ดี" },
+    "โคมไฟ":        { "en": "Desk Lamp",       "img": "images/desk-lamp-hero.jpg",                    "desc": "โคมไฟตั้งโต๊ะ ถนอมสายตา ปรับแสงได้" },
+    "USB Hub":      { "en": "USB Hub",         "img": "images/cn-11134207-820l4-mmzi2r2qpjb804.webp", "desc": "USB Hub Type-C ต่อจอ ต่อ Ethernet" },
+    "หัวชาร์จ":     { "en": "Charger",         "img": "images/th-11134207-7ra0p-mdn2pwzci0duf2.webp", "desc": "หัวชาร์จ GaN 30W-65W เล็ก แรง" },
+    "ปลั๊กพ่วง":    { "en": "Power Strip",     "img": "images/th-11134207-81zto-mdwral7ekxdt62.webp", "desc": "ปลั๊กพ่วงปลอดภัย ได้มาตรฐาน มอก." },
+    "จัดสายไฟ":     { "en": "Cable Mgmt",      "img": "images/cable-mgmt-hero.jpg",                   "desc": "จัดสายไฟบนโต๊ะให้เรียบร้อย" },
+    "แผ่นรองโต๊ะ":  { "en": "Desk Mat",        "img": "images/desk-mat-hero.jpg",                     "desc": "แผ่นรองโต๊ะ ปกป้องผิวโต๊ะ ใช้เมาส์ลื่นขึ้น" },
+    "Focus Timer":  { "en": "Focus Timer",     "img": "images/pomodoro-hero.jpg",                     "desc": "Pomodoro Timer เพิ่มสมาธิและวินัยในการทำงาน" },
+    "Cooling Pad":  { "en": "Cooling Pad",     "img": "images/cooling-hero.jpg",                      "desc": "แท่นระบายความร้อนโน้ตบุ๊ก ยืดอายุเครื่อง" },
+    "แขนจับจอ":     { "en": "Monitor Arm",     "img": "images/monitor-arm-hero.jpg",                  "desc": "แขนจับจอ คืนพื้นที่โต๊ะ ปรับจออิสระ" },
+    "ที่วางหูฟัง":  { "en": "Headphone Stand", "img": "images/headphone-stand-hero.jpg",              "desc": "ที่วางหูฟัง จัดโต๊ะเป็นระเบียบ ยืดอายุหูฟัง" },
+    "ลำโพง":        { "en": "Speaker",         "img": "images/speaker-hero.jpg",                      "desc": "ลำโพงบลูทูธตั้งโต๊ะ เสียงดี ประชุมแฮนด์ฟรี" },
+    "Bluetooth":    { "en": "Bluetooth",       "img": "images/bluetooth-hero.jpg",                    "desc": "รู้จักเวอร์ชัน Bluetooth ก่อนซื้ออุปกรณ์ไร้สาย" },
+    "ขาตั้งจอ":     { "en": "Laptop Stand",    "img": "images/laptopstand-hero.jpg",                  "desc": "ที่วางแล็ปท็อป/ขาตั้งจอ ยกจอระดับสายตา ลดปวดคอ" }
+  }
+}

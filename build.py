@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """
-Static pre-render (SSG) for pick / no-os.com article pages.
+Static pre-render (SSG) for pick / no-os.com — homepage + article pages.
 
-Source of truth = data/*.json (edit these). This script bakes the rendered
-content + JSON-LD directly into each article's .html so that crawlers and AI
-answer engines that don't run JavaScript still see the full content.
+Source of truth = articles.json + categories.json + data/*.json (edit these).
+This script bakes the rendered content + JSON-LD directly into index.html and
+each article's .html so that crawlers and AI answer engines that don't run
+JavaScript still see the full content.
 
 Idempotent: safe to run repeatedly. Run before committing:  python3 build.py
 """
 import json, re, os, sys
 from html import escape
+from urllib.parse import quote
 
 BASE = "https://pick.no-os.com/"
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -214,6 +216,81 @@ def build_article(art, missing_images):
     open(html_path, 'w', encoding='utf-8').write(html)
     return True
 
+# ---------- homepage ----------
+
+# Content between these markers is regenerated on every build; anything outside
+# them is hand-maintained. Keeps index.html idempotent like the article pages.
+def region_re(name):
+    return re.compile(r'(<!--BUILD:%s-->).*?(<!--/BUILD:%s-->)' % (name, name), re.DOTALL)
+
+def render_cat_groups(articles, groups, cat_meta):
+    out, counter = [], 0
+    for g in groups:
+        cats = list(dict.fromkeys(a['category'] for a in articles if a.get('group') == g['name']))
+        if not cats:
+            continue
+        out.append('<div class="cat-group"><div class="cat-group-head">'
+                   f'<span class="g-th">{g["name"]}</span><span class="g-en">{g["en"]}</span></div>'
+                   '<div class="cat-grid">')
+        for cat in cats:
+            counter += 1
+            meta = cat_meta.get(cat, {'en': '', 'img': '', 'desc': ''})
+            href = '/?cat=' + quote(cat) + '#articles'
+            out.append(
+                f'<a class="cat-card" href="{href}"><div class="cat-card-img">'
+                f'<img src="{meta["img"]}" alt="{escape(cat, quote=True)}" loading="lazy">'
+                f'<div class="cat-card-num">{counter:02d}</div></div>'
+                f'<div class="cat-card-body"><div class="cat-card-th">{cat}</div>'
+                f'<div class="cat-card-en">{meta["en"]}</div>'
+                f'<div class="cat-card-desc">{meta["desc"]}</div></div></a>')
+        out.append('</div></div>')
+    return ''.join(out)
+
+def render_cat_filter(groups):
+    pills = ['<button class="cat-btn active" data-group="">ทั้งหมด</button>']
+    pills += [f'<button class="cat-btn" data-group="{escape(g["name"], quote=True)}">{g["name"]}</button>'
+              for g in groups]
+    return ''.join(pills)
+
+def render_article_grid(articles):
+    out = []
+    for a in articles:
+        href = a.get('url') or f'article.html?data={a["data"]}'
+        img = (f'<img class="acard-img" src="{a["image"]}" alt="{escape(a["title"], quote=True)}" '
+               f'loading="lazy" onerror="this.style.display=\'none\'">') if a.get('image') else \
+              f'<div class="acard-img-placeholder">{PLACEHOLDER_SVG}</div>'
+        out.append(
+            f'<a class="acard" href="{href}" data-cat="{escape(a["category"], quote=True)}" '
+            f'data-group="{escape(a.get("group", ""), quote=True)}">{img}'
+            f'<div class="acard-body"><div class="acard-cat">{a["category"]}</div>'
+            f'<div class="acard-title">{a["title"]}</div>'
+            f'<div class="acard-desc">{a["description"]}</div>'
+            f'<div class="acard-footer"><span>อัปเดต {a["updatedDate"]}</span>'
+            f'<span class="acard-cta">อ่านเพิ่มเติม →</span></div></div></a>')
+    return ''.join(out)
+
+PLACEHOLDER_SVG = ('<svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" '
+                   'viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/>'
+                   '<circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>')
+
+def build_home(articles):
+    path = os.path.join(ROOT, 'index.html')
+    cats = json.load(open(os.path.join(ROOT, 'categories.json'), encoding='utf-8'))
+    html = open(path, encoding='utf-8').read()
+    regions = {
+        'cat-groups':   render_cat_groups(articles, cats['groups'], cats['categories']),
+        'cat-filter':   render_cat_filter(cats['groups']),
+        'article-grid': render_article_grid(articles),
+    }
+    for name, content in regions.items():
+        rx = region_re(name)
+        if not rx.search(html):
+            print(f"  !! could not locate <!--BUILD:{name}--> region in index.html")
+            return False
+        html = rx.sub(lambda m: m.group(1) + content + m.group(2), html, count=1)
+    open(path, 'w', encoding='utf-8').write(html)
+    return True
+
 def main():
     articles = json.load(open(os.path.join(ROOT, 'articles.json'), encoding='utf-8'))
     missing_images = set()
@@ -223,6 +300,8 @@ def main():
             ok += 1
             print(f"  ✓ {art['url']}.html")
     print(f"\nBuilt {ok}/{len(articles)} article pages.")
+    if build_home(articles):
+        print("Built index.html (categories + article grid).")
     if missing_images:
         print("WARNING missing image files:")
         for m in sorted(missing_images):
