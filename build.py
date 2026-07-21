@@ -9,6 +9,7 @@ answer engines that don't run JavaScript still see the full content.
 Idempotent: safe to run repeatedly. Run before committing:  python3 build.py
 """
 import json, re, os, sys
+from html import escape
 
 BASE = "https://pick.no-os.com/"
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -36,7 +37,7 @@ def render_guide(guide):
         if block.get('heading'):
             out.append(f'<h2>{block["heading"]}</h2>')
         if block.get('image'):
-            alt = block.get('imageAlt') or block.get('heading') or ''
+            alt = escape(block.get('imageAlt') or block.get('heading') or '', quote=True)
             out.append(f'<img src="{block["image"]}" alt="{alt}" loading="lazy" class="guide-img">')
         for p in block.get('paragraphs', []):
             out.append(f'<p class="guide-p">{p}</p>')
@@ -63,10 +64,17 @@ PLACEHOLDER = ('<div class="img-placeholder"><svg width="40" height="40" fill="n
                '<circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>'
                '<span>วางรูปสินค้าที่นี่</span></div>')
 
+# Compact fallback used inside the onerror attribute. Must be HTML-escaped so the
+# inner double quotes don't terminate the attribute early (the full SVG placeholder
+# is only used when there is no src at all, where no escaping is needed).
+_FALLBACK_JS = ('this.parentNode.innerHTML=\'<div class="img-placeholder">'
+                '<span>วางรูปสินค้าที่นี่</span></div>\'')
+
 def render_image(src, alt):
     if src:
-        return (f'<div class="card-img"><img alt="{alt}" loading="lazy" src="{src}" '
-                f'onerror="this.parentNode.innerHTML=\'{PLACEHOLDER}\'"></div>')
+        onerror = escape(_FALLBACK_JS, quote=True)
+        return (f'<div class="card-img"><img alt="{escape(alt, quote=True)}" loading="lazy" '
+                f'src="{src}" onerror="{onerror}"></div>')
     return f'<div class="card-img">{PLACEHOLDER}</div>'
 
 def render_card(p):
