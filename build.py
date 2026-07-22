@@ -91,7 +91,9 @@ def render_card(p):
             f'<div class="pros-cons"><div class="pros"><div class="t">ข้อดี</div><ul>{pros}</ul></div>'
             f'<div class="cons"><div class="t">ข้อเสีย</div><ul>{cons}</ul></div></div>'
             f'<div class="fit"><b>เหมาะสำหรับ:</b> {p["bestFor"]}</div>'
-            f'<a class="btn" href="{p["shopeeUrl"]}" target="_blank" rel="sponsored noopener">ดูราคาล่าสุดบน Shopee →</a>'
+            f'<a class="btn" href="{p["shopeeUrl"]}" target="_blank" rel="sponsored noopener" '
+            f'data-aff-item="{escape(p["name"], quote=True)}" data-aff-rank="{p["rank"]}">'
+            f'ดูราคาล่าสุดบน Shopee →</a>'
             f'</div></div></article>')
 
 def render_products(products):
@@ -183,6 +185,8 @@ WRAP_RE = re.compile(r'<(?:main|div) class="wrap">.*?</(?:main|div)>(?=\s*<foote
 LDJSON_RE = re.compile(r'\s*<script type="application/ld\+json">.*?</script>', re.DOTALL)
 DATAFILE_RE = re.compile(r'\s*<script>window\.DATA_FILE=.*?</script>', re.DOTALL)
 ARTICLEJS_RE = re.compile(r'\s*<script src="article\.js"></script>', re.DOTALL)
+AFFTRACK_RE = re.compile(r'\s*<script src="affiliate-track\.js" defer></script>', re.DOTALL)
+AFFTRACK_TAG = '<script src="affiliate-track.js" defer></script>'
 
 def build_article(art, missing_images):
     html_path = os.path.join(ROOT, art['url'] + '.html')
@@ -207,12 +211,14 @@ def build_article(art, missing_images):
     html = LDJSON_RE.sub('', html)
     html = DATAFILE_RE.sub('', html)
     html = ARTICLEJS_RE.sub('', html)
+    html = AFFTRACK_RE.sub('', html)   # re-inserted below, keeps the build idempotent
     new_main = f'<main class="wrap"><div id="content">{content}</div></main>'
     if not WRAP_RE.search(html):
         print(f"  !! could not locate content wrap in {art['url']}.html")
         return False
     html = WRAP_RE.sub(new_main, html, count=1)
     html = html.replace('</head>', f'<script type="application/ld+json">{jsonld}</script>\n</head>', 1)
+    html = html.replace('</body>', f'{AFFTRACK_TAG}\n</body>', 1)
     open(html_path, 'w', encoding='utf-8').write(html)
     return True
 
