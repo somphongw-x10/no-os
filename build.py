@@ -91,7 +91,7 @@ def render_card(p):
             f'<div class="pros-cons"><div class="pros"><div class="t">ข้อดี</div><ul>{pros}</ul></div>'
             f'<div class="cons"><div class="t">ข้อเสีย</div><ul>{cons}</ul></div></div>'
             f'<div class="fit"><b>เหมาะสำหรับ:</b> {p["bestFor"]}</div>'
-            f'<a class="btn" href="{p["shopeeUrl"]}" target="_blank" rel="noopener">ดูราคาล่าสุดบน Shopee →</a>'
+            f'<a class="btn" href="{p["shopeeUrl"]}" target="_blank" rel="sponsored noopener">ดูราคาล่าสุดบน Shopee →</a>'
             f'</div></div></article>')
 
 def render_products(products):

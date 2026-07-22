@@ -117,7 +117,7 @@ function renderCard(p) {
   const btn = el('a', 'btn', 'ดูราคาล่าสุดบน Shopee →');
   btn.href = p.shopeeUrl;
   btn.target = '_blank';
-  btn.rel = 'noopener';
+  btn.rel = 'sponsored noopener';
   body.appendChild(btn);
   inner.appendChild(body);
   card.appendChild(inner);
