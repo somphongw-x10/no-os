@@ -189,8 +189,8 @@ AFFTRACK_RE = re.compile(r'\s*<script src="affiliate-track\.js" defer></script>'
 AFFTRACK_TAG = '<script src="affiliate-track.js" defer></script>'
 FAVICON_RE = re.compile(r'\s*<link rel="(?:icon|apple-touch-icon)"[^>]*>', re.DOTALL)
 FAVICON_TAGS = ('<link rel="icon" href="/favicon.ico" sizes="any">\n'
-                '<link rel="icon" type="image/png" href="/letter-p.png">\n'
-                '<link rel="apple-touch-icon" href="/letter-p.png">')
+                '<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">\n'
+                '<link rel="apple-touch-icon" href="/apple-touch-icon.png">')
 
 def build_article(art, missing_images):
     html_path = os.path.join(ROOT, art['url'] + '.html')
