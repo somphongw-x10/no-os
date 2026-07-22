@@ -187,6 +187,10 @@ DATAFILE_RE = re.compile(r'\s*<script>window\.DATA_FILE=.*?</script>', re.DOTALL
 ARTICLEJS_RE = re.compile(r'\s*<script src="article\.js"></script>', re.DOTALL)
 AFFTRACK_RE = re.compile(r'\s*<script src="affiliate-track\.js" defer></script>', re.DOTALL)
 AFFTRACK_TAG = '<script src="affiliate-track.js" defer></script>'
+FAVICON_RE = re.compile(r'\s*<link rel="(?:icon|apple-touch-icon)"[^>]*>', re.DOTALL)
+FAVICON_TAGS = ('<link rel="icon" href="/favicon.ico" sizes="any">\n'
+                '<link rel="icon" type="image/png" href="/letter-p.png">\n'
+                '<link rel="apple-touch-icon" href="/letter-p.png">')
 
 def build_article(art, missing_images):
     html_path = os.path.join(ROOT, art['url'] + '.html')
@@ -212,11 +216,13 @@ def build_article(art, missing_images):
     html = DATAFILE_RE.sub('', html)
     html = ARTICLEJS_RE.sub('', html)
     html = AFFTRACK_RE.sub('', html)   # re-inserted below, keeps the build idempotent
+    html = FAVICON_RE.sub('', html)
     new_main = f'<main class="wrap"><div id="content">{content}</div></main>'
     if not WRAP_RE.search(html):
         print(f"  !! could not locate content wrap in {art['url']}.html")
         return False
     html = WRAP_RE.sub(new_main, html, count=1)
+    html = html.replace('</head>', f'{FAVICON_TAGS}\n</head>', 1)
     html = html.replace('</head>', f'<script type="application/ld+json">{jsonld}</script>\n</head>', 1)
     html = html.replace('</body>', f'{AFFTRACK_TAG}\n</body>', 1)
     open(html_path, 'w', encoding='utf-8').write(html)
