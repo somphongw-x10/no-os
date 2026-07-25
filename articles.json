@@ -228,5 +228,15 @@
     "category": "แป้นเหยียบ",
     "group": "อุปกรณ์คอมพิวเตอร์",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "คีย์บอร์ด Ergonomic แบบแยกซ้าย-ขวา 2026: ทางออกของคนพิมพ์งานทั้งวันแล้วปวดข้อมือ",
+    "description": "คีย์บอร์ด ergonomic แบบแยกซ้าย-ขวา (split keyboard) ช่วยลดอาการปวดข้อมือจากการพิมพ์งานทั้งวัน รู้จักว่ามันช่วยอะไร เลือกอย่างไร และรุ่นแบบไหนเหมาะกับใคร",
+    "image": "images/splitkb-hero.jpg",
+    "data": "data/split-ergonomic-keyboard.json",
+    "url": "split-ergonomic-keyboard-guide-2026",
+    "category": "คีย์บอร์ด",
+    "group": "อุปกรณ์คอมพิวเตอร์",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
