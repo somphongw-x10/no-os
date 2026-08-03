@@ -104,6 +104,8 @@ footer a{color:var(--white);}
 /* Buying guide section */
 .guide-section h2{margin-top:var(--s32);}
 .guide-section h2:first-child{margin-top:0;}
+/* sub-headings under an h2 (guide blocks with "level": 3) */
+.guide-section h3{font-size:18px;font-weight:700;color:var(--charcoal);margin-top:var(--s24);}
 .guide-p{font-size:15px;line-height:1.7;color:var(--dark-grey);margin-top:var(--s12);}
 .guide-list{margin-top:var(--s12);padding-left:var(--s20);}
 .guide-list li{font-size:15px;line-height:1.7;color:var(--dark-grey);margin-bottom:var(--s8);}

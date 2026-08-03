@@ -258,5 +258,15 @@
     "category": "โต๊ะ",
     "group": "โต๊ะ & สรีรศาสตร์",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "รวมสถานีชาร์จไร้สายและที่ชาร์จหลายพอร์ต จัดโต๊ะทำงานให้ไร้สายรก 2026",
+    "description": "รวมสถานีชาร์จไร้สายและที่ชาร์จหลายพอร์ตสำหรับโต๊ะทำงาน ทั้งแท่นชาร์จ 3-in-1 ปลั๊กไฟ USB-C PD ที่ชาร์จมีพัดลม ฐานชาร์จใต้โต๊ะ พร้อมเกณฑ์เลือกซื้อ",
+    "image": "images/wirelesscharge-hero.jpg",
+    "data": "data/wireless-charging-station.json",
+    "url": "wireless-charging-station-guide-2026",
+    "category": "ชาร์จไร้สาย",
+    "group": "พลังงาน & การเชื่อมต่อ",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]

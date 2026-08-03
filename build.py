@@ -37,7 +37,9 @@ def render_guide(guide):
     out = ['<section class="section guide-section">']
     for block in guide:
         if block.get('heading'):
-            out.append(f'<h2>{block["heading"]}</h2>')
+            # optional "level": 3 nests a block under the preceding h2 (defaults to h2)
+            lv = 3 if block.get('level') == 3 else 2
+            out.append(f'<h{lv}>{block["heading"]}</h{lv}>')
         if block.get('image'):
             alt = escape(block.get('imageAlt') or block.get('heading') or '', quote=True)
             out.append(f'<img src="{block["image"]}" alt="{alt}" loading="lazy" class="guide-img">')
