@@ -238,5 +238,15 @@
     "category": "คีย์บอร์ด",
     "group": "อุปกรณ์คอมพิวเตอร์",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "เก้าอี้ทำงานเพื่อสุขภาพ เลือกอย่างไรให้นั่งได้ทั้งวันโดยไม่ปวดหลัง",
+    "description": "คู่มือเลือกเก้าอี้ทำงานเพื่อสุขภาพ (Ergonomic Chair) ที่รองรับสรีระ ลดอาการปวดหลังจากการนั่งทำงานทั้งวัน พร้อมคุณสมบัติที่ควรมีและเกณฑ์การเลือกซื้อ",
+    "image": "images/chair-guide-hero.jpg",
+    "data": "data/ergonomic-office-chair.json",
+    "url": "ergonomic-office-chair-guide-2026",
+    "category": "เก้าอี้",
+    "group": "โต๊ะ & สรีรศาสตร์",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
