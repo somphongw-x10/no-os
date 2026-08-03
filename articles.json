@@ -248,5 +248,15 @@
     "category": "เก้าอี้",
     "group": "โต๊ะ & สรีรศาสตร์",
     "updatedDate": "กรกฎาคม 2026"
+  },
+  {
+    "title": "โต๊ะทำงานปรับระดับได้ คุ้มค่าจริงไหม และควรเลือกแบบไหนให้เหมาะกับตัวเอง",
+    "description": "โต๊ะทำงานปรับระดับได้ (Standing Desk) คุ้มค่าจริงไหม ช่วยอะไรได้บ้าง มีกี่แบบ ทั้งมอเตอร์ไฟฟ้า มือหมุน ขาโต๊ะแยก และ Desk Converter พร้อมเกณฑ์การเลือกซื้อ",
+    "image": "images/standdesk-hero.jpg",
+    "data": "data/adjustable-standing-desk.json",
+    "url": "adjustable-standing-desk-guide-2026",
+    "category": "โต๊ะ",
+    "group": "โต๊ะ & สรีรศาสตร์",
+    "updatedDate": "กรกฎาคม 2026"
   }
 ]
