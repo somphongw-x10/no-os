@@ -187,6 +187,21 @@ DATAFILE_RE = re.compile(r'\s*<script>window\.DATA_FILE=.*?</script>', re.DOTALL
 ARTICLEJS_RE = re.compile(r'\s*<script src="article\.js"></script>', re.DOTALL)
 AFFTRACK_RE = re.compile(r'\s*<script src="affiliate-track\.js" defer></script>', re.DOTALL)
 AFFTRACK_TAG = '<script src="affiliate-track.js" defer></script>'
+CONSENT_JS_RE = re.compile(r'\s*<script src="cookie-consent\.js" defer></script>', re.DOTALL)
+CONSENT_JS_TAG = '<script src="cookie-consent.js" defer></script>'
+# Google Consent Mode v2 default — analytics denied until the visitor accepts.
+# Injected before the gtag loader so the default is queued before config runs.
+# A returning visitor who already granted starts granted (no analytics gap).
+CONSENT_HEAD_RE = re.compile(r'\s*<!--CC-DEFAULT-->.*?<!--/CC-DEFAULT-->', re.DOTALL)
+CONSENT_HEAD = (
+    '<!--CC-DEFAULT--><script>\n'
+    '  window.dataLayer = window.dataLayer || [];\n'
+    '  function gtag(){dataLayer.push(arguments);}\n'
+    '  (function(){var c="denied";try{if(localStorage.getItem("cookieConsent")==="granted")c="granted";}catch(e){}\n'
+    '    gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",'
+    'ad_personalization:"denied",analytics_storage:c,wait_for_update:500});})();\n'
+    '</script><!--/CC-DEFAULT-->')
+GTAG_MARKER = '<!-- Google tag (gtag.js) -->'
 FAVICON_RE = re.compile(r'\s*<link rel="(?:icon|apple-touch-icon)"[^>]*>', re.DOTALL)
 FAVICON_TAGS = ('<link rel="icon" href="/favicon.ico" sizes="any">\n'
                 '<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">\n'
@@ -216,15 +231,18 @@ def build_article(art, missing_images):
     html = DATAFILE_RE.sub('', html)
     html = ARTICLEJS_RE.sub('', html)
     html = AFFTRACK_RE.sub('', html)   # re-inserted below, keeps the build idempotent
+    html = CONSENT_JS_RE.sub('', html)
+    html = CONSENT_HEAD_RE.sub('', html)
     html = FAVICON_RE.sub('', html)
     new_main = f'<main class="wrap"><div id="content">{content}</div></main>'
     if not WRAP_RE.search(html):
         print(f"  !! could not locate content wrap in {art['url']}.html")
         return False
     html = WRAP_RE.sub(new_main, html, count=1)
+    html = html.replace(GTAG_MARKER, f'{CONSENT_HEAD}\n{GTAG_MARKER}', 1)
     html = html.replace('</head>', f'{FAVICON_TAGS}\n</head>', 1)
     html = html.replace('</head>', f'<script type="application/ld+json">{jsonld}</script>\n</head>', 1)
-    html = html.replace('</body>', f'{AFFTRACK_TAG}\n</body>', 1)
+    html = html.replace('</body>', f'{AFFTRACK_TAG}\n{CONSENT_JS_TAG}\n</body>', 1)
     open(html_path, 'w', encoding='utf-8').write(html)
     return True
 
