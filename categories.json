@@ -122,6 +122,11 @@
       "en": "Wireless Charging",
       "img": "images/wirelesscharge-hero.jpg",
       "desc": "สถานีชาร์จไร้สายและที่ชาร์จหลายพอร์ต ลดสายรกบนโต๊ะ"
+    },
+    "ประชุมออนไลน์": {
+      "en": "Video Call",
+      "img": "images/videocall-hero.jpg",
+      "desc": "เว็บแคม ไมค์ หูฟัง ไฟส่องหน้า ให้ประชุมออนไลน์ดูโปร"
     }
   }
 }
