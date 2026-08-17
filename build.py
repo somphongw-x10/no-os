@@ -273,9 +273,59 @@ FAVICON_TAGS = ('<link rel="icon" href="/favicon.ico" sizes="any">\n'
                 '<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">\n'
                 '<link rel="apple-touch-icon" href="/apple-touch-icon.png">')
 
+def ensure_article_shell(art):
+    """Create <slug>.html if it does not exist yet.
+
+    Adding an article should only mean: write data/<name>.json and add an entry
+    to articles.json. Everything below is placeholder scaffolding — build_article
+    immediately rewrites the head, topbar, content, footer and JSON-LD from the
+    data file, so this only has to contain the anchors those substitutions look
+    for (the gtag marker, a .wrap main, and a footer).
+    """
+    path = os.path.join(ROOT, art['url'] + '.html')
+    if os.path.exists(path):
+        return
+
+    canonical = BASE + art['url']
+    image = BASE + art['image'] if art.get('image') else ''
+    title = escape(art['title'], quote=True)
+    desc = escape(art['description'], quote=True)
+
+    open(path, 'w', encoding='utf-8').write(f'''<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{art['title']} | no-os.com</title>
+<meta name="description" content="{desc}">
+<link rel="canonical" href="{canonical}">
+<meta property="og:title" content="{title} | no-os.com">
+<meta property="og:description" content="{desc}">
+<meta property="og:type" content="article">
+{f'<meta property="og:image" content="{image}">' if image else ''}
+<meta property="og:site_name" content="no-os.com">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+{f'<meta name="twitter:image" content="{image}">' if image else ''}
+<meta property="og:url" content="{canonical}">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="article.css">
+{GTAG}
+</head>
+<body>
+{TOPBAR}
+<main class="wrap"><div id="content"></div></main>
+{FOOTER}
+</body>
+</html>
+''')
+    print(f"  + created shell {art['url']}.html")
+
+
 def build_article(art, missing_images):
     global _page_uses_widget
     _page_uses_widget = False
+    ensure_article_shell(art)
     html_path = os.path.join(ROOT, art['url'] + '.html')
     data_path = os.path.join(ROOT, art['data'])
     if not os.path.exists(html_path):
