@@ -1,0 +1,68 @@
+name: Seed price catalogue
+
+# Manual only. Run this once at the start, then again whenever you publish a new
+# article or swap an affiliate link, so the tracker picks up the new products.
+#
+# This job needs network access to follow the s.shopee.co.th short links and
+# recover each product's shopId / itemId — which is why it runs here rather than
+# on your machine's Cowork sandbox.
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Re-resolve every link, ignoring the cache'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Resolve Shopee links to product ids
+        run: node scripts/price/seed-products.mjs ${{ inputs.force && '--force' || '' }}
+
+      - name: Rebuild pages with widgets
+        run: python3 build.py
+
+      - name: Commit catalogue
+        run: |
+          git config user.name  "price-tracker[bot]"
+          git config user.email "price-tracker[bot]@users.noreply.github.com"
+          git add prices *.html
+          if git diff --staged --quiet; then
+            echo "Catalogue unchanged."
+            exit 0
+          fi
+          git commit -m "data: refresh price catalogue"
+          git push
+
+      - name: Run summary
+        if: always()
+        run: |
+          if [ -f prices/products.json ]; then
+            node -e '
+              const c = require("./prices/products.json");
+              const ok = c.products.filter(p => p.itemId).length;
+              const bad = c.products.filter(p => !p.itemId);
+              console.log(`### Catalogue: ${ok}/${c.products.length} resolved`);
+              if (bad.length) {
+                console.log("\nUnresolved — fix these by hand in prices/products.json:\n");
+                for (const p of bad) console.log(`- ${p.label} → ${p.shopeeUrl}`);
+              }
+            ' >> "$GITHUB_STEP_SUMMARY"
+          fi

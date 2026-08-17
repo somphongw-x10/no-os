@@ -1,0 +1,230 @@
+/* Interactive tools — loaded on top of article.css.
+   Uses article.css's :root tokens so the tools look native to the site. */
+
+.tool {
+  background: var(--bg-secondary, #F5F5F5);
+  border-radius: var(--r-card, 4px);
+  padding: var(--s24, 24px);
+  margin: var(--s24, 24px) 0 var(--s40, 40px);
+}
+
+.tool-form { display: grid; gap: var(--s20, 20px); }
+
+.field label,
+.fieldset-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: var(--s8, 8px);
+}
+
+.field .hint {
+  font-size: 12px;
+  color: var(--dark-grey, #484848);
+  font-weight: 400;
+  margin-bottom: var(--s8, 8px);
+}
+
+.field input[type="number"],
+.field input[type="text"],
+.field select {
+  width: 100%;
+  max-width: 320px;
+  font-family: inherit;
+  font-size: 16px; /* ≥16px stops iOS Safari zooming on focus */
+  padding: 10px 12px;
+  border: 1px solid var(--border-medium, #CCC);
+  border-radius: var(--r-card, 4px);
+  background: var(--white, #fff);
+  color: inherit;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.tool button:focus-visible,
+.chip:focus-within {
+  outline: 2px solid var(--charcoal, #111);
+  outline-offset: 2px;
+}
+
+.field input[type="range"] { width: 100%; max-width: 420px; accent-color: var(--charcoal, #111); }
+
+.range-row { display: flex; align-items: baseline; gap: var(--s12, 12px); flex-wrap: wrap; }
+.range-value { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---- chips (multi-select) ---------------------------------------------- */
+
+.chips { display: flex; flex-wrap: wrap; gap: var(--s8, 8px); }
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--border-medium, #CCC);
+  border-radius: var(--r-pill, 64px);
+  background: var(--white, #fff);
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .12s, background .12s;
+}
+
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip:hover { border-color: var(--charcoal, #111); }
+.chip:has(input:checked) { background: var(--charcoal, #111); border-color: var(--charcoal, #111); color: var(--white, #fff); }
+.chip .w { opacity: .65; font-size: 12px; }
+
+/* ---- buttons ----------------------------------------------------------- */
+
+.tool button {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 0;
+  border-radius: var(--r-pill, 64px);
+  padding: 0 var(--s24, 24px);
+  height: 44px;
+  background: var(--charcoal, #111);
+  color: var(--white, #fff);
+  transition: background .15s;
+}
+
+.tool button:hover { background: var(--dark-grey, #484848); }
+.tool button.ghost { background: transparent; color: var(--charcoal, #111); border: 1px solid var(--border-medium, #CCC); }
+.tool button.ghost:hover { border-color: var(--charcoal, #111); background: var(--white, #fff); }
+
+.tool-actions { display: flex; gap: var(--s12, 12px); flex-wrap: wrap; }
+
+/* ---- results ----------------------------------------------------------- */
+
+.result { margin-top: var(--s24, 24px); }
+.result[hidden] { display: none; }
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--s12, 12px);
+}
+
+.rcard {
+  background: var(--white, #fff);
+  border-radius: var(--r-card, 4px);
+  padding: var(--s16, 16px);
+  border-left: 3px solid var(--accent-teal, #AADDDD);
+}
+
+.rcard-label { font-size: 12px; color: var(--dark-grey, #484848); margin-bottom: 4px; }
+.rcard-value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.rcard-unit { font-size: 14px; font-weight: 400; color: var(--dark-grey, #484848); margin-left: 3px; }
+.rcard-note { font-size: 12px; color: var(--dark-grey, #484848); margin-top: 6px; }
+
+/* ---- status banner ----------------------------------------------------- */
+
+.status {
+  display: flex;
+  gap: var(--s12, 12px);
+  align-items: flex-start;
+  padding: var(--s16, 16px) var(--s20, 20px);
+  border-radius: var(--r-card, 4px);
+  margin-bottom: var(--s16, 16px);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.status b { display: block; font-size: 16px; margin-bottom: 2px; }
+.status-ok   { background: #e6f6ee; color: #0b6b45; }
+.status-warn { background: #fdf3e3; color: #8a5a00; }
+.status-bad  { background: #fdecec; color: #a11212; }
+.status-icon { font-size: 20px; line-height: 1.3; }
+
+/* ---- meter ------------------------------------------------------------- */
+
+.meter {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--border-subtle, #DFDFDF);
+  overflow: hidden;
+  margin: var(--s12, 12px) 0 6px;
+}
+
+.meter-fill { height: 100%; border-radius: 999px; transition: width .25s ease, background .25s ease; }
+.meter-scale { display: flex; justify-content: space-between; font-size: 11px; color: var(--dark-grey, #484848); }
+
+/* ---- build list (budget builder) --------------------------------------- */
+
+.buy-list { list-style: none; margin: var(--s16, 16px) 0 0; padding: 0; }
+
+.buy-item {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  gap: var(--s12, 12px);
+  align-items: center;
+  background: var(--white, #fff);
+  border-radius: var(--r-card, 4px);
+  padding: var(--s12, 12px) var(--s16, 16px);
+  margin-bottom: var(--s8, 8px);
+}
+
+.buy-rank {
+  width: 28px; height: 28px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--charcoal, #111); color: var(--white, #fff);
+  font-size: 13px; font-weight: 700;
+}
+
+.buy-cat { font-size: 12px; color: var(--dark-grey, #484848); }
+.buy-name { font-weight: 700; font-size: 15px; line-height: 1.35; }
+.buy-links { font-size: 12px; margin-top: 3px; }
+.buy-links a { color: var(--dark-grey, #484848); }
+.buy-price { font-weight: 700; color: var(--accent-red, #CC0008); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.buy-item.skipped { opacity: .55; }
+.buy-item.skipped .buy-rank { background: var(--border-medium, #CCC); }
+
+.buy-total {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: var(--s16, 16px);
+  border-top: 2px solid var(--charcoal, #111);
+  margin-top: var(--s12, 12px);
+  font-weight: 700;
+}
+
+.buy-total .amt { font-size: 22px; font-variant-numeric: tabular-nums; }
+
+.tool-note {
+  font-size: 12px;
+  color: var(--dark-grey, #484848);
+  margin-top: var(--s16, 16px);
+  line-height: 1.6;
+}
+
+/* ---- tool hub cards ---------------------------------------------------- */
+
+.toolgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s20, 20px); }
+
+.toolcard {
+  display: block;
+  padding: var(--s24, 24px);
+  border: 1px solid var(--border-subtle, #DFDFDF);
+  border-radius: var(--r-card, 4px);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s, background .15s;
+}
+
+.toolcard:hover { border-color: var(--charcoal, #111); background: var(--bg-secondary, #F5F5F5); }
+.toolcard-title { font-weight: 700; font-size: 17px; margin-bottom: var(--s8, 8px); }
+.toolcard-desc { font-size: 13px; color: var(--dark-grey, #484848); line-height: 1.55; }
+.toolcard-cta { font-size: 13px; font-weight: 700; margin-top: var(--s12, 12px); }
+
+@media (max-width: 900px) { .toolgrid { grid-template-columns: 1fr; } }
+
+@media (max-width: 700px) {
+  .tool { padding: var(--s16, 16px); }
+  .buy-item { grid-template-columns: 28px 1fr; }
+  .buy-price { grid-column: 2; text-align: right; }
+}

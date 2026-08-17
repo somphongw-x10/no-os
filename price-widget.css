@@ -1,0 +1,209 @@
+/* pick. price widget
+   Neutral tokens so it inherits your site's look. Override the custom properties
+   on :root (or on .pk-price) to match your palette. */
+
+.pk-price {
+  --pk-bg: #ffffff;
+  --pk-border: #e4e6ea;
+  --pk-text: #14161a;
+  --pk-muted: #6b7280;
+  --pk-accent: #1f6feb;
+  --pk-low: #0f9960;
+  --pk-low-bg: #e6f6ee;
+  --pk-warn: #b45309;
+  --pk-warn-bg: #fdf3e3;
+  --pk-radius: 12px;
+
+  box-sizing: border-box;
+  margin: 1.5rem 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--pk-border);
+  border-radius: var(--pk-radius);
+  background: var(--pk-bg);
+  color: var(--pk-text);
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.pk-price *,
+.pk-price *::before,
+.pk-price *::after { box-sizing: inherit; }
+
+.pk-price[data-state='loading'] { border-style: dashed; opacity: 0.5; }
+.pk-price[hidden] { display: none; }
+
+/* ---- headline ---------------------------------------------------------- */
+
+.pk-price-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pk-price-now {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.pk-baht {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-left: 0.12em;
+  color: var(--pk-muted);
+}
+
+.pk-badge {
+  display: inline-block;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.pk-badge-low  { background: var(--pk-low-bg);  color: var(--pk-low); }
+.pk-badge-good { background: var(--pk-low-bg);  color: var(--pk-low); }
+.pk-badge-warn { background: var(--pk-warn-bg); color: var(--pk-warn); }
+
+/* ---- sparkline --------------------------------------------------------- */
+
+.pk-spark-wrap { margin: 0.85rem 0 0.2rem; }
+
+.pk-spark {
+  display: block;
+  width: 100%;
+  height: 48px;
+  overflow: visible;
+}
+
+.pk-spark-line {
+  fill: none;
+  stroke: var(--pk-accent);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.pk-spark-area { fill: var(--pk-accent); opacity: 0.08; stroke: none; }
+.pk-spark-now  { fill: var(--pk-accent); }
+.pk-spark-low  { fill: var(--pk-low); }
+
+.pk-spark-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.3rem;
+  font-size: 0.72rem;
+  color: var(--pk-muted);
+}
+
+/* ---- stats ------------------------------------------------------------- */
+
+.pk-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 0.9rem 0 0;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid var(--pk-border);
+}
+
+.pk-stats > div { text-align: center; }
+
+.pk-stats dt {
+  font-size: 0.72rem;
+  color: var(--pk-muted);
+  margin: 0 0 0.15rem;
+}
+
+.pk-stats dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Thai fonts render ฿ tight against digits — give it room. */
+.pk-unit {
+  margin-left: 0.15em;
+  font-weight: 500;
+  color: var(--pk-muted);
+}
+
+/* ---- CTA --------------------------------------------------------------- */
+
+.pk-buy {
+  display: block;
+  margin-top: 0.9rem;
+  padding: 0.7rem 1rem;
+  border-radius: 9px;
+  background: #ee4d2d; /* Shopee orange — recognisable, raises CTR */
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  text-decoration: none;
+  transition: filter 0.15s ease;
+}
+
+.pk-buy:hover,
+.pk-buy:focus-visible { filter: brightness(0.93); color: #fff; }
+
+/* ---- provenance -------------------------------------------------------- */
+
+.pk-note {
+  margin: 0.7rem 0 0;
+  font-size: 0.72rem;
+  color: var(--pk-muted);
+  text-align: center;
+}
+
+/* ---- compact variant --------------------------------------------------- */
+
+.pk-price[data-compact] { padding: 0.7rem 0.9rem; margin: 0.75rem 0; }
+.pk-price[data-compact] .pk-price-now { font-size: 1.35rem; }
+.pk-price[data-compact] .pk-buy { margin-top: 0.6rem; padding: 0.55rem 0.9rem; }
+
+/* ---- dark mode --------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  .pk-price {
+    --pk-bg: #16181d;
+    --pk-border: #2b2f37;
+    --pk-text: #e8eaed;
+    --pk-muted: #9aa1ad;
+    --pk-accent: #58a6ff;
+    --pk-low: #3fb950;
+    --pk-low-bg: #12261a;
+    --pk-warn: #d29922;
+    --pk-warn-bg: #2b2113;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pk-buy { transition: none; }
+}
+
+/* ---- live-updated price in the page's own markup ----------------------- */
+/* Applied to any [data-pk-fallback] whose number the widget refreshed.
+   Deliberately minimal: the host page owns this element's layout. */
+
+.pk-live { position: relative; }
+
+.pk-live b::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-left: 0.4em;
+  border-radius: 50%;
+  background: #0f9960;
+  vertical-align: 0.15em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pk-live b::after { background: #3fb950; }
+}
