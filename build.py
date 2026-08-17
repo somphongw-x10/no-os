@@ -264,6 +264,11 @@ GTAG_MARKER = '<!-- Google tag (gtag.js) -->'
 # the shells stay consistent no matter how they were authored.
 ROBOTS_RE = re.compile(r'<meta name="robots" content="[^"]*">')
 ROBOTS_TAG = '<meta name="robots" content="index, follow, max-image-preview:large">'
+# og:image is rewritten from articles.json on every build rather than left in the
+# shell. Otherwise adding or changing an article's image later silently fails to
+# update the social preview — which is exactly what happened once already.
+OGIMAGE_RE = re.compile(
+    r'\s*<meta (?:property="og:image"|name="twitter:image") content="[^"]*">')
 PRICEWIDGET_CSS_RE = re.compile(r'\s*<link rel="stylesheet" href="/price-widget\.css">')
 PRICEWIDGET_JS_RE = re.compile(r'\s*<script src="/price-widget\.js" defer></script>')
 PRICEWIDGET_CSS_TAG = '<link rel="stylesheet" href="/price-widget.css">'
@@ -369,6 +374,7 @@ def build_article(art, missing_images):
     html = PRICEWIDGET_CSS_RE.sub('', html)
     html = PRICEWIDGET_JS_RE.sub('', html)
     html = ROBOTS_RE.sub(ROBOTS_TAG, html, count=1)
+    html = OGIMAGE_RE.sub('', html)
     html = FOOTER_RE.sub(lambda _: FOOTER, html, count=1)
     if TOPBAR_RE.search(html):
         html = TOPBAR_RE.sub(lambda _: TOPBAR, html, count=1)
@@ -380,6 +386,11 @@ def build_article(art, missing_images):
         return False
     html = WRAP_RE.sub(new_main, html, count=1)
     html = html.replace(GTAG_MARKER, f'{CONSENT_HEAD}\n{GTAG_MARKER}', 1)
+    if image_url:
+        html = html.replace(
+            '</head>',
+            f'<meta property="og:image" content="{image_url}">\n'
+            f'<meta name="twitter:image" content="{image_url}">\n</head>', 1)
     html = html.replace('</head>', f'{FAVICON_TAGS}\n</head>', 1)
     html = html.replace('</head>', f'<script type="application/ld+json">{jsonld}</script>\n</head>', 1)
     if _page_uses_widget:

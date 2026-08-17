@@ -1,0 +1,165 @@
+<!--
+  ต้นฉบับไดอะแกรมสำหรับ images/power-strip-warning-signs.webp
+
+  วิธีสร้างใหม่:
+    npm install @fontsource/noto-sans-thai          # ต้องมีฟอนต์ไทยจริง ไม่งั้นขึ้นสี่เหลี่ยม
+    เปิดไฟล์นี้ในเบราว์เซอร์ที่ viewport 1200x675 แล้ว screenshot ที่ 2x
+    ย่อกลับเป็น 1200x675 แล้วบันทึกเป็น WebP คุณภาพ 90
+
+  หมายเหตุการออกแบบ: ทุกสีบนแถบวัดต้องมี legend กำกับ และทุก legend
+  ต้องมีสีที่ปรากฏจริงบนแถบ — ห้ามใส่สีใน legend ที่ไม่มีบนแถบ
+-->
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:'NotoTH';src:url('node_modules/@fontsource/noto-sans-thai/files/noto-sans-thai-thai-400-normal.woff2') format('woff2');font-weight:400;}
+@font-face{font-family:'NotoTH';src:url('node_modules/@fontsource/noto-sans-thai/files/noto-sans-thai-thai-700-normal.woff2') format('woff2');font-weight:700;}
+@font-face{font-family:'NotoTH';src:url('node_modules/@fontsource/noto-sans-thai/files/noto-sans-thai-latin-400-normal.woff2') format('woff2');font-weight:400;unicode-range:U+0000-024F;}
+@font-face{font-family:'NotoTH';src:url('node_modules/@fontsource/noto-sans-thai/files/noto-sans-thai-latin-700-normal.woff2') format('woff2');font-weight:700;unicode-range:U+0000-024F;}
+
+:root{
+  --ink:#111111; --ink-2:#484848; --ink-3:#8a8a8a;
+  --surface:#FFFFFF; --surface-2:#F5F5F5; --line:#DFDFDF;
+  --ok:#0b6b45; --warn:#8a5a00; --bad:#a11212; --bad-bg:#fdecec;
+  --teal:#AADDDD;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1200px;height:675px;font-family:'NotoTH',sans-serif;background:var(--surface);color:var(--ink);
+  display:flex;flex-direction:column;overflow:hidden;position:relative;}
+
+.top{padding:26px 48px 0;}
+.eyebrow{display:inline-block;background:var(--teal);font-size:13px;font-weight:700;padding:4px 10px;border-radius:2px;}
+h1{font-size:35px;line-height:1.2;font-weight:700;letter-spacing:-.5px;margin-top:12px;}
+.sub{font-size:15px;color:var(--ink-2);margin-top:7px;}
+.brand{position:absolute;right:48px;top:34px;font-size:19px;font-weight:700;letter-spacing:-.4px;}
+.brand span{color:var(--ink-3);}
+
+.signs{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;padding:22px 48px 0;}
+.sign{background:var(--bad-bg);border-radius:6px;padding:14px 13px 15px;display:flex;flex-direction:column;gap:9px;}
+.sign .ic{width:30px;height:30px;}
+.sign .t{font-size:14.5px;font-weight:700;line-height:1.32;color:var(--bad);}
+.sign .d{font-size:12.5px;line-height:1.42;color:var(--ink-2);margin-top:-1px;}
+
+.never{padding:20px 48px 0;margin-top:20px;}
+.never .lbl{font-size:15px;font-weight:700;margin-bottom:11px;}
+.never .lbl em{font-style:normal;color:var(--bad);}
+.chips{display:flex;gap:9px;flex-wrap:wrap;}
+.chip{border:1.5px solid var(--line);border-radius:999px;padding:8px 15px;font-size:14px;
+  display:flex;align-items:baseline;gap:7px;background:#fff;}
+.chip b{font-weight:700;}
+.chip i{font-style:normal;color:var(--bad);font-weight:700;font-variant-numeric:tabular-nums;}
+
+.meter-wrap{margin-top:auto;background:var(--surface-2);padding:18px 48px 22px;border-top:1px solid var(--line);}
+.mtitle{font-size:17px;font-weight:700;margin-bottom:3px;}
+.mnote{font-size:13.5px;color:var(--ink-2);margin-bottom:14px;}
+.mnote b{color:var(--ink);}
+
+.bar{position:relative;height:38px;background:#e6e6e6;border-radius:6px;overflow:hidden;}
+.seg{position:absolute;top:0;bottom:0;}
+.s1{left:0;width:5.2%;background:var(--ok);}
+/* 2px surface gap between adjacent fills */
+.s2{left:calc(5.2% + 2px);width:calc(74.8% - 2px);background:var(--warn);
+    display:flex;align-items:center;padding-left:12px;}
+.s2 span{font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap;}
+.s3{left:calc(80% + 2px);width:calc(3.5% - 2px);background:var(--bad);}
+.tick{position:absolute;left:80%;top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.25);}
+
+.tickrow{position:relative;height:18px;font-size:12px;}
+.tickrow .m{position:absolute;left:80%;transform:translateX(-50%);white-space:nowrap;font-weight:700;color:var(--ink);}
+.scalewrap{position:relative;height:18px;margin-top:6px;font-size:12px;color:var(--ink-2);}
+.scalewrap .l{position:absolute;left:0;}
+.scalewrap .r{position:absolute;right:0;}
+
+.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 22px;margin-top:10px;}
+.lg{display:flex;align-items:flex-start;gap:8px;font-size:12.8px;color:var(--ink-2);line-height:1.4;}
+.dot{width:11px;height:11px;border-radius:3px;flex:none;margin-top:3px;}
+.lg b{color:var(--ink);}
+.lg .mk{font-weight:700;flex:none;}
+</style>
+</head>
+<body>
+<div class="brand">pick<span>.</span></div>
+
+<div class="top">
+  <div class="eyebrow">ความปลอดภัย</div>
+  <h1>สัญญาณอันตรายของปลั๊กพ่วง — เจอเมื่อไหร่ ถอดปลั๊กทันที</h1>
+  <div class="sub">ถอดออกจากเต้ารับผนังก่อน แล้วค่อยถอดอุปกรณ์ออกทีหลัง</div>
+</div>
+
+<div class="signs">
+  <div class="sign">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#a11212" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3c0 4-4 4.5-4 8a4 4 0 0 0 8 0c0-3.5-4-4-4-8z"/><path d="M4 20h16"/>
+    </svg>
+    <div class="t">กลิ่นไหม้</div>
+    <div class="d">คือพลาสติกที่กำลังละลาย ไม่มีกรณีที่ปลอดภัย</div>
+  </div>
+  <div class="sign">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#a11212" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="10" rx="2"/><circle cx="9" cy="12" r="1.6" fill="#a11212"/><circle cx="15" cy="12" r="1.6" fill="#a11212"/>
+      <path d="M6.5 4.5 8 6M17.5 4.5 16 6"/>
+    </svg>
+    <div class="t">รอยดำรอบรูเสียบ</div>
+    <div class="d">ร่องรอยประกายไฟที่เกิดซ้ำ ๆ จุดนั้นจะร้อนขึ้นเรื่อย ๆ</div>
+  </div>
+  <div class="sign">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#a11212" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2v6M8.5 5.5 12 2l3.5 3.5"/><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M9 14h6"/>
+    </svg>
+    <div class="t">ร้อนจนจับไม่ได้</div>
+    <div class="d">อุ่นพอได้ถ้าโหลดสูง แต่ร้อนจนต้องปล่อยมือคือผิดปกติ</div>
+  </div>
+  <div class="sign">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#a11212" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12h6M14 12h6"/><path d="M10 8v8M14 8v8"/><path d="M11.5 4.5 12.5 7"/>
+    </svg>
+    <div class="t">เต้ารับหลวม</div>
+    <div class="d">หน้าสัมผัสน้อยลง ความร้อนพุ่งขึ้นตรงจุดนั้น</div>
+  </div>
+  <div class="sign">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#a11212" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="9" width="9" height="7" rx="1.6"/><rect x="13" y="9" width="9" height="7" rx="1.6"/>
+      <path d="M11 12.5h2"/><path d="M17 5.5v3M20 5.5v3"/>
+    </svg>
+    <div class="t">ต่อพ่วงกับพ่วง</div>
+    <div class="d">กระแสทั้งหมดไหลผ่านสายเส้นเดียวของตัวแรก</div>
+  </div>
+</div>
+
+<div class="never">
+  <div class="lbl"><em>ห้ามเสียบกับปลั๊กพ่วง</em> — อุปกรณ์ให้ความร้อน ควรเสียบเต้ารับผนังโดยตรง</div>
+  <div class="chips">
+    <div class="chip"><b>กาต้มน้ำ</b><i>1,800 W</i></div>
+    <div class="chip"><b>ฮีตเตอร์</b><i>2,000 W</i></div>
+    <div class="chip"><b>เตารีด</b><i>1,600 W</i></div>
+    <div class="chip"><b>ไดร์เป่าผม</b><i>1,500 W</i></div>
+    <div class="chip"><b>ไมโครเวฟ</b><i>1,000 W</i></div>
+    <div class="chip"><b>หม้อหุงข้าว</b><i>700 W</i></div>
+  </div>
+</div>
+
+<div class="meter-wrap">
+  <div class="mtitle">เสียบได้เท่าไหร่ถึงพอดี — ปลั๊ก 10A ที่ไฟบ้าน 230V</div>
+  <div class="mnote">พิกัด 2,300 วัตต์ คือ<b>ผลรวมของทุกอย่างที่เสียบพร้อมกัน</b> ไม่ใช่ต่อช่อง</div>
+
+  <div class="tickrow"><span class="m">เกณฑ์ปลอดภัย 80% = 1,840 W</span></div>
+  <div class="bar">
+    <div class="seg s1"></div>
+    <div class="seg s2"><span>+ กาต้มน้ำ 1,800 W  →  รวม 1,920 W = 83% ของพิกัด</span></div>
+    <div class="seg s3"></div>
+  </div>
+  <div class="scalewrap">
+    <span class="l">0 W</span>
+    <span class="r">พิกัดสูงสุด 2,300 W</span>
+  </div>
+
+  <div class="legend">
+    <div class="lg"><span class="dot" style="background:var(--ok)"></span><span class="mk">✓</span><span><b>ชุดทำงานทั้งโต๊ะ</b> — รวมราว 120 W เท่านั้น</span></div>
+    <div class="lg"><span class="dot" style="background:var(--warn)"></span><span class="mk">△</span><span><b>ยังอยู่ในเกณฑ์</b> — สะสมได้ถึง 1,840 W</span></div>
+    <div class="lg"><span class="dot" style="background:var(--bad)"></span><span class="mk">!</span><span><b>เกินเกณฑ์ 80%</b> — สายและเต้ารับเริ่มร้อนสะสม</span></div>
+  </div>
+</div>
+</body>
+</html>
