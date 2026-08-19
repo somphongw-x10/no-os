@@ -223,6 +223,7 @@
     footer{padding:var(--s40) 20px;}
   }
 </style>
+<link rel="alternate" type="application/rss+xml" title="pick. — บทความใหม่" href="/feed.xml">
 </head>
 <body>
 
@@ -259,6 +260,33 @@
     <img src="images/home-hero.jpg" alt="โต๊ะทำงานที่บ้าน" loading="lazy">
   </div>
 </section>
+
+<!-- Tools promo -->
+<!--BUILD:tools-promo--><style>
+.tools-promo{padding:56px 56px 0;}
+.tools-promo-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;}
+.tools-promo h2{font-size:28px;font-weight:700;color:var(--charcoal,#1a1a1a);}
+.tools-promo .sub{font-size:15px;color:var(--dark-grey,#666);margin-top:8px;}
+.tools-promo .viewall{font-size:14px;font-weight:700;color:var(--charcoal,#1a1a1a);
+  text-decoration:none;border-bottom:1px solid #cfcfcf;padding-bottom:2px;white-space:nowrap;}
+.tools-promo .viewall:hover{color:var(--dark-grey,#666);border-color:var(--dark-grey,#666);}
+.tools-promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
+.tool-promo-card{display:flex;flex-direction:column;gap:8px;padding:22px 22px 24px;
+  border:1px solid #e5e5e5;border-radius:10px;text-decoration:none;color:inherit;
+  background:#fff;transition:border-color .15s ease, transform .15s ease;}
+.tool-promo-card:hover{border-color:#bdbdbd;transform:translateY(-2px);}
+.tool-promo-card .tp-kicker{font-size:12px;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;color:#8a8a8a;}
+.tool-promo-card .tp-title{font-size:17px;font-weight:700;line-height:1.35;
+  color:var(--charcoal,#1a1a1a);}
+.tool-promo-card .tp-desc{font-size:14px;line-height:1.55;color:var(--dark-grey,#666);}
+.tool-promo-card .tp-cta{margin-top:auto;padding-top:10px;font-size:14px;font-weight:700;}
+@media (max-width:1024px){.tools-promo{padding-left:40px;padding-right:40px;}
+  .tools-promo-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.tools-promo{padding:40px 20px 0;}
+  .tools-promo-row{flex-direction:column;align-items:flex-start;gap:8px;}
+  .tools-promo-grid{grid-template-columns:1fr;}}
+</style><section class="tools-promo"><div class="tools-promo-row"><div><h2>เครื่องมือช่วยตัดสินใจ</h2><div class="sub">คำนวณจากตัวเลขของคุณเอง ใช้ฟรี ไม่ต้องสมัคร และไม่เก็บข้อมูลที่กรอก</div></div><a href="/tools" class="viewall">ดูเครื่องมือทั้งหมด</a></div><div class="tools-promo-grid"><a class="tool-promo-card" href="/tools/desk-height"><span class="tp-kicker">เครื่องมือ</span><span class="tp-title">ความสูงโต๊ะและเก้าอี้ที่พอดีตัวคุณ</span><span class="tp-desc">ใส่ส่วนสูง แล้วรู้เลยว่าโต๊ะควรสูงเท่าไหร่ เก้าอี้ควรตั้งไว้ตรงไหน และจอควรอยู่ระดับใด</span><span class="tp-cta">ลองใช้ฟรี →</span></a><a class="tool-promo-card" href="/tools/power-load"><span class="tp-kicker">เครื่องมือ</span><span class="tp-title">ปลั๊กพ่วงของคุณรับไหวไหม</span><span class="tp-desc">เลือกอุปกรณ์ที่เสียบอยู่ แล้วดูว่ากำลังไฟรวมเกินพิกัดปลั๊กหรือยัง — เรื่องนี้ผิดพลาดแล้วไหม้ได้จริง</span><span class="tp-cta">ลองใช้ฟรี →</span></a><a class="tool-promo-card" href="/tools/budget-builder"><span class="tp-kicker">เครื่องมือ</span><span class="tp-title">จัดชุดอุปกรณ์ตามงบที่มี</span><span class="tp-desc">บอกงบและบอกว่ามีอะไรอยู่แล้ว แล้วดูว่าควรซื้ออะไรก่อน-หลัง พร้อมรุ่นและราคาจริง</span><span class="tp-cta">ลองใช้ฟรี →</span></a></div></section><!--/BUILD:tools-promo-->
 
 <!-- Category heading -->
 <div class="cat-heading">

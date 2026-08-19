@@ -31,6 +31,138 @@ def render_hero(meta):
             f'<p class="lead">{meta["description"]}</p>'
             f'<span class="updated">อัปเดต {meta["updatedDate"]}</span></header>')
 
+# ---------- contextual internal links ----------
+# The 29 guide articles had zero in-body internal links — every link lived in the
+# trailing "บทความที่เกี่ยวข้อง" box, which is the weakest possible placement for
+# both crawlers and readers. This adds a small number of links inside the prose,
+# on the first occurrence of a curated phrase only.
+#
+# Curated, not derived from titles: an auto-generated map keyed on article titles
+# would match long noisy strings and read like spam. Each phrase is a term a Thai
+# reader would actually write mid-sentence.
+AUTOLINK_MAX = 3          # per article — enough to help, few enough to stay natural
+
+AUTOLINK_MAP = {
+    # อุปกรณ์คอมพิวเตอร์
+    'เมาส์ไร้สาย': '/wireless-mouse-under-500',
+    'เมาส์ Ergonomic': '/ergonomic-mouse-2026',
+    'ปวดข้อมือ': '/ergonomic-mouse-2026',
+    'คีย์บอร์ดแยกซ้าย-ขวา': '/split-ergonomic-keyboard-guide-2026',
+    'คีย์บอร์ด Mechanical': '/keyboard-mechanical-500-1500',
+    'หูฟังไร้สาย': '/headphone-wfh-2026',
+    'ตัดเสียงรบกวน': '/headphone-wfh-2026',
+    'จอมอนิเตอร์พกพา': '/portable-monitor-guide-2026',
+    'มอนิเตอร์ 4K': '/monitor-2k-4k',
+    'จอ 4K': '/monitor-2k-4k',
+    'แป้นเหยียบ': '/usb-foot-pedal-guide-2026',
+    'เว็บแคม': '/wfh-video-call-gear-guide-2026',
+    'ประชุมออนไลน์': '/wfh-video-call-gear-guide-2026',
+    # โต๊ะ & สรีรศาสตร์
+    'โต๊ะปรับระดับ': '/adjustable-standing-desk-guide-2026',
+    'เก้าอี้เพื่อสุขภาพ': '/ergonomic-office-chair-guide-2026',
+    'เก้าอี้ทำงาน': '/ergonomic-office-chair-guide-2026',
+    'ปวดหลัง': '/ergonomic-office-chair-guide-2026',
+    'ปวดคอบ่าไหล่': '/neck-shoulder-pain-desk-setup-2026',
+    'ปวดคอ': '/neck-shoulder-pain-desk-setup-2026',
+    'ที่วางแล็ปท็อป': '/laptop-monitor-stand-guide-2026',
+    'ระดับสายตา': '/laptop-monitor-stand-guide-2026',
+    'ขาตั้งจอ': '/laptop-monitor-stand-guide-2026',
+    # พลังงาน & การเชื่อมต่อ
+    'ปลั๊กพ่วง': '/power-strip-guide-2026',
+    'หัวชาร์จ GaN': '/gan-charger-guide-2026',
+    'ที่ชาร์จ GaN': '/gan-charger-guide-2026',
+    'USB-C Hub': '/usb-hub-type-c',
+    'USB Hub': '/usb-hub-type-c',
+    'สถานีชาร์จไร้สาย': '/wireless-charging-station-guide-2026',
+    'ชาร์จไร้สาย': '/wireless-charging-station-guide-2026',
+    'Bluetooth 5.4': '/bluetooth-5-3-vs-5-4-guide-2026',
+    # ไอเดียการจัดโต๊ะ
+    'แผ่นรองโต๊ะ': '/desk-mat-guide-2026',
+    'แผ่นรองเมาส์': '/desk-mat-guide-2026',
+    'แขนจับจอ': '/monitor-arm-guide-2026',
+    'ที่วางหูฟัง': '/headphone-stand-guide-2026',
+    'จัดสายไฟ': '/cable-management-guide-2026',
+    'โคมไฟตั้งโต๊ะ': '/desk-lamp-ergonomic-2026',
+    'โคมไฟ': '/desk-lamp-ergonomic-2026',
+    'ลำโพงบลูทูธ': '/bluetooth-desk-speaker-guide-2026',
+    'แท่นระบายความร้อน': '/laptop-cooling-pad-guide-2026',
+    'สมาธิ': '/pomodoro-focus-timer-guide-2026',
+    'ข้อมือ': '/ergonomic-mouse-2026',
+    'Bluetooth': '/bluetooth-5-3-vs-5-4-guide-2026',
+    'แล็ปท็อป': '/laptop-monitor-stand-guide-2026',
+    'โน้ตบุ๊ก': '/laptop-cooling-pad-guide-2026',
+    'พื้นที่บนโต๊ะ': '/monitor-arm-guide-2026',
+    'ความละเอียด': '/monitor-2k-4k',
+    'ต่อจอ': '/usb-hub-type-c',
+    'HDMI': '/usb-hub-type-c',
+    'มอก.': '/power-strip-guide-2026',
+    'เบรกเกอร์': '/power-strip-overheating-2026',
+    'โฟกัส': '/pomodoro-focus-timer-guide-2026',
+    # เครื่องมือ
+    'ความสูงโต๊ะ': '/tools/desk-height',
+    'โหลดของปลั๊กพ่วง': '/tools/power-load',
+    'จัดชุดตามงบ': '/tools/budget-builder',
+}
+# Generic terms that appear in nearly every article. Kept in a second tier so a
+# specific match always wins the slot; these only fill what is left over.
+AUTOLINK_FALLBACK = {
+    'โต๊ะทำงาน': '/category/desk-setup-ideas',
+    'จัดโต๊ะ': '/category/desk-setup-ideas',
+    'ประชุม': '/wfh-video-call-gear-guide-2026',
+}
+
+# Longest phrase first within each tier, so "คีย์บอร์ดแยกซ้าย-ขวา" wins over
+# "คีย์บอร์ด Mechanical" and a short phrase never eats the start of a longer one.
+def _by_length(d):
+    return sorted(d.items(), key=lambda kv: -len(kv[0]))
+
+AUTOLINK = _by_length(AUTOLINK_MAP) + _by_length(AUTOLINK_FALLBACK)
+
+# Splits on whole <a>…</a> elements and on any other tag, so only the odd-indexed
+# separators are markup — everything at an even index is linkable text.
+AUTOLINK_SPLIT_RE = re.compile(r'(<a\b[^>]*>.*?</a>|<[^>]+>)', re.DOTALL | re.I)
+
+_autolink_slug = None     # set per article; None disables linking entirely
+_autolink_used = set()
+_autolink_count = 0
+
+def autolink_reset(slug, already_linked=()):
+    """Start a new page. `already_linked` seeds destinations the author linked
+    by hand, so an auto link never duplicates an editorial one."""
+    global _autolink_slug, _autolink_used, _autolink_count
+    _autolink_slug = slug
+    _autolink_used = set(already_linked)
+    _autolink_count = 0
+
+def autolink(text):
+    """Link the first occurrence of at most AUTOLINK_MAX curated phrases.
+
+    Never inside an existing <a>, never inside a tag, never to the page itself,
+    and never the same destination twice on one page.
+    """
+    global _autolink_count
+    if _autolink_slug is None or _autolink_count >= AUTOLINK_MAX:
+        return text
+    for phrase, url in AUTOLINK:
+        if _autolink_count >= AUTOLINK_MAX:
+            break
+        if phrase in _autolink_used or url in _autolink_used:
+            continue
+        if url.strip('/') == _autolink_slug:
+            continue
+        parts = AUTOLINK_SPLIT_RE.split(text)
+        for i in range(0, len(parts), 2):
+            if phrase in parts[i]:
+                parts[i] = parts[i].replace(
+                    phrase, f'<a href="{url}">{phrase}</a>', 1)
+                text = ''.join(parts)
+                _autolink_used.add(phrase)
+                _autolink_used.add(url)
+                _autolink_count += 1
+                break
+    return text
+
+
 def render_guide(guide):
     if not guide:
         return ''
@@ -44,11 +176,11 @@ def render_guide(guide):
             alt = escape(block.get('imageAlt') or block.get('heading') or '', quote=True)
             out.append(f'<img src="{block["image"]}" alt="{alt}" loading="lazy" class="guide-img">')
         for p in block.get('paragraphs', []):
-            out.append(f'<p class="guide-p">{p}</p>')
+            out.append(f'<p class="guide-p">{autolink(p)}</p>')
         if block.get('list'):
             out.append('<ul class="guide-list">')
             for li in block['list']:
-                out.append(f'<li>{li}</li>')
+                out.append(f'<li>{autolink(li)}</li>')
             out.append('</ul>')
     out.append('</section>')
     return ''.join(out)
@@ -163,7 +295,7 @@ def render_faq(faq):
     if not faq:
         return ''
     items = ''.join(f'<div class="faq-item"><h3 class="faq-q">{it["q"]}</h3>'
-                    f'<div class="faq-a">{it["a"]}</div></div>' for it in faq)
+                    f'<div class="faq-a">{autolink(it["a"])}</div></div>' for it in faq)
     return f'<section class="section faq-section"><h2>คำถามที่พบบ่อย (FAQ)</h2>{items}</section>'
 
 def render_related(related):
@@ -277,6 +409,9 @@ FAVICON_RE = re.compile(r'\s*<link rel="(?:icon|apple-touch-icon)"[^>]*>', re.DO
 FAVICON_TAGS = ('<link rel="icon" href="/favicon.ico" sizes="any">\n'
                 '<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">\n'
                 '<link rel="apple-touch-icon" href="/apple-touch-icon.png">')
+FEED_RE = re.compile(r'\s*<link rel="alternate" type="application/rss\+xml"[^>]*>')
+FEED_TAG = ('<link rel="alternate" type="application/rss+xml" '
+            'title="pick. — บทความใหม่" href="/feed.xml">')
 
 def ensure_article_shell(art):
     """Create <slug>.html if it does not exist yet.
@@ -358,7 +493,17 @@ def build_article(art, missing_images):
         if not os.path.exists(os.path.join(ROOT, ref)):
             missing_images.add(ref)
 
+    # Destinations the author already linked by hand in the prose — the trailing
+    # "related" box is excluded on purpose: a link there is exactly the weak
+    # placement this feature exists to supplement.
+    # The href quotes are backslash-escaped inside the JSON dump, hence the loose
+    # pattern.
+    prose = {k: v for k, v in data.items() if k != 'related'}
+    hand_linked = re.findall(r'href=\\?.(/[^\\"\'#?]+)',
+                             json.dumps(prose, ensure_ascii=False))
+    autolink_reset(art['url'], hand_linked)
     content = render_content(data)
+    autolink_reset(None)
     jsonld = json.dumps(build_jsonld(data, canonical_url, image_url), ensure_ascii=False)
 
     html = open(html_path, encoding='utf-8').read()
@@ -369,6 +514,7 @@ def build_article(art, missing_images):
     html = CONSENT_JS_RE.sub('', html)
     html = CONSENT_HEAD_RE.sub('', html)
     html = FAVICON_RE.sub('', html)
+    html = FEED_RE.sub('', html)
     # Stripped here and re-added below only when the page actually has a widget,
     # so removing a product from data/*.json also removes its assets.
     html = PRICEWIDGET_CSS_RE.sub('', html)
@@ -391,7 +537,7 @@ def build_article(art, missing_images):
             '</head>',
             f'<meta property="og:image" content="{image_url}">\n'
             f'<meta name="twitter:image" content="{image_url}">\n</head>', 1)
-    html = html.replace('</head>', f'{FAVICON_TAGS}\n</head>', 1)
+    html = html.replace('</head>', f'{FAVICON_TAGS}\n{FEED_TAG}\n</head>', 1)
     html = html.replace('</head>', f'<script type="application/ld+json">{jsonld}</script>\n</head>', 1)
     if _page_uses_widget:
         html = html.replace('</head>', f'{PRICEWIDGET_CSS_TAG}\n</head>', 1)
@@ -458,15 +604,94 @@ PLACEHOLDER_SVG = ('<svg width="40" height="40" fill="none" stroke="currentColor
                    'viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/>'
                    '<circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>')
 
+# ---------- homepage tools promo ----------
+# /tools appeared on the homepage only twice, both times inside the nav. The three
+# calculators are the only thing on this site a competitor cannot copy in an
+# afternoon, so they get a block in the body above the category grid.
+# index.html keeps its CSS inline and loads neither tools.css nor category.css,
+# so the block ships its own scoped styles.
+TOOLS_PROMO_STYLE = """<style>
+.tools-promo{padding:56px 56px 0;}
+.tools-promo-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;}
+.tools-promo h2{font-size:28px;font-weight:700;color:var(--charcoal,#1a1a1a);}
+.tools-promo .sub{font-size:15px;color:var(--dark-grey,#666);margin-top:8px;}
+.tools-promo .viewall{font-size:14px;font-weight:700;color:var(--charcoal,#1a1a1a);
+  text-decoration:none;border-bottom:1px solid #cfcfcf;padding-bottom:2px;white-space:nowrap;}
+.tools-promo .viewall:hover{color:var(--dark-grey,#666);border-color:var(--dark-grey,#666);}
+.tools-promo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;}
+.tool-promo-card{display:flex;flex-direction:column;gap:8px;padding:22px 22px 24px;
+  border:1px solid #e5e5e5;border-radius:10px;text-decoration:none;color:inherit;
+  background:#fff;transition:border-color .15s ease, transform .15s ease;}
+.tool-promo-card:hover{border-color:#bdbdbd;transform:translateY(-2px);}
+.tool-promo-card .tp-kicker{font-size:12px;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;color:#8a8a8a;}
+.tool-promo-card .tp-title{font-size:17px;font-weight:700;line-height:1.35;
+  color:var(--charcoal,#1a1a1a);}
+.tool-promo-card .tp-desc{font-size:14px;line-height:1.55;color:var(--dark-grey,#666);}
+.tool-promo-card .tp-cta{margin-top:auto;padding-top:10px;font-size:14px;font-weight:700;}
+@media (max-width:1024px){.tools-promo{padding-left:40px;padding-right:40px;}
+  .tools-promo-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.tools-promo{padding:40px 20px 0;}
+  .tools-promo-row{flex-direction:column;align-items:flex-start;gap:8px;}
+  .tools-promo-grid{grid-template-columns:1fr;}}
+</style>"""
+
+TOOLS_PROMO_MARKERS = ('<!--BUILD:tools-promo-->', '<!--/BUILD:tools-promo-->')
+
+
+def render_tools_promo(tools_doc):
+    tools = [t for t in tools_doc.get('tools', []) if t.get('slug')]
+    if not tools:
+        return ''
+    cards = []
+    for t in tools:
+        cards.append(
+            f'<a class="tool-promo-card" href="/tools/{t["slug"]}">'
+            f'<span class="tp-kicker">{escape(t.get("kicker") or "เครื่องมือ")}</span>'
+            f'<span class="tp-title">{escape(t.get("cardTitle") or t["title"])}</span>'
+            f'<span class="tp-desc">{escape(t.get("cardDesc") or t.get("description", ""))}</span>'
+            f'<span class="tp-cta">ลองใช้ฟรี →</span></a>')
+    return (TOOLS_PROMO_STYLE +
+            '<section class="tools-promo">'
+            '<div class="tools-promo-row"><div>'
+            '<h2>เครื่องมือช่วยตัดสินใจ</h2>'
+            '<div class="sub">คำนวณจากตัวเลขของคุณเอง ใช้ฟรี ไม่ต้องสมัคร '
+            'และไม่เก็บข้อมูลที่กรอก</div></div>'
+            '<a href="/tools" class="viewall">ดูเครื่องมือทั้งหมด</a></div>'
+            f'<div class="tools-promo-grid">{"".join(cards)}</div>'
+            '</section>')
+
+
 def build_home(articles):
     path = os.path.join(ROOT, 'index.html')
     cats = json.load(open(os.path.join(ROOT, 'categories.json'), encoding='utf-8'))
     html = open(path, encoding='utf-8').read()
+
+    # The promo region does not exist in the hand-written index.html, so create the
+    # marker pair once, above the category heading. Idempotent: after the first
+    # build the markers are there and only their contents are rewritten.
+    open_m, close_m = TOOLS_PROMO_MARKERS
+    if open_m not in html:
+        anchor = '<!-- Category heading -->'
+        if anchor not in html:
+            print("  !! index.html: no '<!-- Category heading -->' anchor — "
+                  "tools promo not inserted")
+        else:
+            html = html.replace(
+                anchor,
+                f'<!-- Tools promo -->\n{open_m}{close_m}\n\n{anchor}', 1)
+
+    tools_path = os.path.join(ROOT, 'tools.json')
+    tools_doc = (json.load(open(tools_path, encoding='utf-8'))
+                 if os.path.exists(tools_path) else {})
+
     regions = {
         'cat-groups':   render_cat_groups(articles, cats['groups'], cats['categories']),
         'cat-filter':   render_cat_filter(cats['groups']),
         'article-grid': render_article_grid(articles),
     }
+    if open_m in html:
+        regions['tools-promo'] = render_tools_promo(tools_doc)
     for name, content in regions.items():
         rx = region_re(name)
         if not rx.search(html):
@@ -496,6 +721,8 @@ def build_home(articles):
                         'href="/category/desk-setup-ideas" class="btn-banner"')
 
     html = ROBOTS_RE.sub(ROBOTS_TAG, html, count=1)
+    html = FEED_RE.sub('', html)
+    html = html.replace('</head>', f'{FEED_TAG}\n</head>', 1)
 
     open(path, 'w', encoding='utf-8').write(html)
     return True
@@ -674,6 +901,7 @@ def build_categories(articles, cats):
 <meta name="twitter:card" content="summary_large_image">
 {f'<meta name="twitter:image" content="{og_image}">' if og_image else ''}
 <meta name="robots" content="index, follow, max-image-preview:large">
+{FEED_TAG}
 <link rel="stylesheet" href="/article.css">
 <link rel="stylesheet" href="/category.css">
 {CONSENT_HEAD}
@@ -726,6 +954,7 @@ def render_page_shell(slug, title, description, lead, updated, body_html, jsonld
 <meta property="og:locale" content="th_TH">
 {f'<meta property="og:image" content="{og_image}">' if og_image else ''}
 <meta name="robots" content="index, follow, max-image-preview:large">
+{FEED_TAG}
 <link rel="stylesheet" href="/article.css">{extra_css}
 {CONSENT_HEAD}
 {GTAG}
@@ -1124,6 +1353,133 @@ def build_sitemap(articles, built_groups, built_pages, built_tools):
     print(f"Built sitemap.xml ({len(entries)} URLs).")
 
 
+# ---------- llms.txt ----------
+# robots.txt explicitly welcomes GPTBot / ClaudeBot / PerplexityBot / Google-Extended,
+# so llms.txt is the map those crawlers read first. Hand-maintaining it meant it went
+# stale the moment /tools, /category and the troubleshooting articles shipped — it
+# listed none of them. Generated from the same sources as the sitemap now.
+LLMS_HEADER = """# pick — no-os.com
+
+> คู่มือและรีวิวอุปกรณ์ทำงานที่บ้าน (Work From Home) ภาษาไทย คัดสรรอุปกรณ์คุ้มราคา พร้อมเปรียบเทียบสเปคจริง คู่มือเลือกซื้อ และลิงก์ซื้อผ่าน Shopee ประเทศไทย เว็บไซต์: https://pick.no-os.com
+
+ทุกบทความเขียนจากข้อมูลสเปคจริงของสินค้า เน้นช่วยผู้อ่านตัดสินใจซื้ออุปกรณ์ WFH เช่น เมาส์ คีย์บอร์ด หูฟัง มอนิเตอร์ โต๊ะ เก้าอี้ และอุปกรณ์จัดโต๊ะ เราไม่ได้ซื้อสินค้าทุกชิ้นมาทดสอบเอง และบอกไว้ตรง ๆ ที่หน้า /methodology
+"""
+
+
+def _oneline(text):
+    return ' '.join((text or '').split())
+
+
+def build_llms_txt(articles, cats, built_groups, built_pages, built_tools):
+    lines = [LLMS_HEADER]
+
+    if built_tools:
+        lines.append('## เครื่องมือคำนวณ (ข้อมูลเฉพาะของเว็บนี้)\n')
+        for t in built_tools:
+            lines.append(f'- [{_oneline(t["title"])}]({BASE}tools/{t["slug"]}): '
+                         f'{_oneline(t.get("description"))}')
+        lines.append('')
+
+    if built_groups:
+        lines.append('## หมวดหมู่\n')
+        for g, arts in built_groups:
+            lines.append(f'- [{_oneline(g["title"])}]({BASE}category/{g["slug"]}): '
+                         f'{_oneline(g.get("description"))} ({len(arts)} บทความ)')
+        lines.append('')
+
+    # Articles grouped exactly as the site groups them, so a model reading this
+    # sees the same structure a reader sees.
+    order = [g['name'] for g in cats['groups']]
+    seen = set()
+    for name in order + sorted({a.get('group', '') for a in articles} - set(order)):
+        if name in seen:
+            continue
+        seen.add(name)
+        arts = [a for a in articles if a.get('group') == name]
+        if not arts:
+            continue
+        lines.append(f'## {name}\n')
+        for a in arts:
+            lines.append(f'- [{_oneline(a["title"])}]({BASE}{a["url"]}): '
+                         f'{_oneline(a["description"])}')
+        lines.append('')
+
+    if built_pages:
+        lines.append('## เกี่ยวกับเว็บไซต์\n')
+        for pg in built_pages:
+            lines.append(f'- [{_oneline(pg["title"])}]({BASE}{pg["slug"]}): '
+                         f'{_oneline(pg.get("description"))}')
+        lines.append('')
+
+    lines.append('## อื่น ๆ\n')
+    lines.append(f'- [RSS feed]({BASE}feed.xml): บทความใหม่ทั้งหมด เรียงตามวันที่เผยแพร่')
+    lines.append(f'- [Sitemap]({BASE}sitemap.xml): รายการ URL ทั้งหมดของเว็บไซต์')
+    lines.append('')
+
+    out = '\n'.join(lines)
+    open(os.path.join(ROOT, 'llms.txt'), 'w', encoding='utf-8').write(out)
+    n = sum(1 for l in lines if l.startswith('- ['))
+    print(f"Built llms.txt ({n} links).")
+
+
+# ---------- RSS feed ----------
+# Dates come from data/*.json meta.datePublished (ISO). articles.json only carries
+# updatedDate as Thai prose ("สิงหาคม 2026"), which cannot be parsed into a pubDate.
+def build_feed(articles):
+    from email.utils import format_datetime
+    from datetime import datetime, timezone, timedelta
+    TH = timezone(timedelta(hours=7))
+
+    items = []
+    for a in articles:
+        data_path = os.path.join(ROOT, a['data'])
+        if not os.path.exists(data_path):
+            continue
+        meta = json.load(open(data_path, encoding='utf-8')).get('meta', {})
+        iso = meta.get('dateModified') or meta.get('datePublished')
+        if not iso:
+            print(f"  !! {a['url']}: no datePublished in {a['data']} — left out of feed.xml")
+            continue
+        try:
+            dt = datetime.fromisoformat(iso).replace(tzinfo=TH)
+        except ValueError:
+            print(f"  !! {a['url']}: unparsable date {iso!r} — left out of feed.xml")
+            continue
+        items.append((dt, a))
+
+    if not items:
+        print("  (no dated articles — skipping feed.xml)")
+        return
+    items.sort(key=lambda x: x[0], reverse=True)
+
+    # lastBuildDate is the newest article, not "now": stamping the current time on
+    # every build would rewrite the file on every run and fake freshness.
+    parts = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+             '<channel>',
+             '<title>pick. — อุปกรณ์ทำงานที่บ้าน</title>',
+             f'<link>{BASE}</link>',
+             '<description>คู่มือและรีวิวอุปกรณ์ Work From Home ภาษาไทย '
+             'เปรียบเทียบสเปคจริง พร้อมเครื่องมือคำนวณ</description>',
+             '<language>th</language>',
+             f'<atom:link href="{BASE}feed.xml" rel="self" type="application/rss+xml"/>',
+             f'<lastBuildDate>{format_datetime(items[0][0])}</lastBuildDate>']
+    for dt, a in items:
+        url = BASE + a['url']
+        parts += ['<item>',
+                  f'<title>{escape(a["title"])}</title>',
+                  f'<link>{url}</link>',
+                  f'<guid isPermaLink="true">{url}</guid>',
+                  f'<pubDate>{format_datetime(dt)}</pubDate>',
+                  f'<description>{escape(a["description"])}</description>']
+        if a.get('category'):
+            parts.append(f'<category>{escape(a["category"])}</category>')
+        parts.append('</item>')
+    parts += ['</channel>', '</rss>']
+    open(os.path.join(ROOT, 'feed.xml'), 'w', encoding='utf-8').write('\n'.join(parts) + '\n')
+    print(f"Built feed.xml ({len(items)} items).")
+
+
 def main():
     global PRICE_IDS, GROUP_PAGES
     articles = json.load(open(os.path.join(ROOT, 'articles.json'), encoding='utf-8'))
@@ -1160,6 +1516,8 @@ def main():
     if build_home(articles):
         print("Built index.html (categories + article grid).")
     build_sitemap(articles, built_groups, built_pages, built_tools)
+    build_feed(articles)
+    build_llms_txt(articles, cats, built_groups, built_pages, built_tools)
     if missing_images:
         print("WARNING missing image files:")
         for m in sorted(missing_images):
