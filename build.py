@@ -1493,7 +1493,18 @@ def build_feed(articles):
 # and must be matched with `has`.
 #
 # Generated from articles.json so adding an article cannot leave a gap here.
+# Two source paths per article, not one. `cleanUrls: true` makes Vercel redirect
+# /article.html to the extensionless /article, and a rule keyed only on
+# /article.html was observed in production to never fire — the blank shell was
+# still served. Registering both paths does not depend on which phase wins.
+LEGACY_SHELL_PATHS = ('/article.html', '/article')
+
 EXTRA_REDIRECTS = [
+    # Belt and braces: if the query match above ever fails to fire, these send the
+    # visitor to the homepage instead of the blank "กำลังโหลด…" shell. They come
+    # last because Vercel takes the first matching rule.
+    {"source": "/article.html", "destination": "/", "permanent": True},
+    {"source": "/article", "destination": "/", "permanent": True},
     # /wfh was an early vanity path; 302 because it may become a real page later.
     {"source": "/wfh", "destination": "/", "permanent": False},
 ]
@@ -1505,13 +1516,13 @@ def build_redirects(articles):
     doc = json.load(open(path, encoding='utf-8'))
 
     rules = [{
-        "source": "/article.html",
+        "source": src,
         # Left unescaped on purpose: a literal dot matches under both a literal and
         # a regex reading of `value`, so this works whichever way Vercel treats it.
         "has": [{"type": "query", "key": "data", "value": a['data']}],
         "destination": "/" + a['url'],
         "permanent": True,
-    } for a in articles]
+    } for a in articles for src in LEGACY_SHELL_PATHS]
     rules += EXTRA_REDIRECTS
 
     if doc.get('redirects') == rules:
