@@ -1480,6 +1480,49 @@ def build_feed(articles):
     print(f"Built feed.xml ({len(items)} items).")
 
 
+# ---------- redirects ----------
+# Every article used to be served from one shell as
+# /article.html?data=data/<name>.json. Those URLs are still in Google's index —
+# Search Console shows impressions on them — and the shell now renders an empty
+# "กำลังโหลด…" page, so they have to 301 to the real URL. noindex alone only stops
+# future indexing; it still hands a blank page to anyone arriving from an old link.
+#
+# These rules used to live in a Netlify-style _redirects file, which Vercel does
+# not read at all: all 29 were dead in production for as long as the file existed.
+# In vercel.json a query string cannot go in `source` (that matches the path only)
+# and must be matched with `has`.
+#
+# Generated from articles.json so adding an article cannot leave a gap here.
+EXTRA_REDIRECTS = [
+    # /wfh was an early vanity path; 302 because it may become a real page later.
+    {"source": "/wfh", "destination": "/", "permanent": False},
+]
+
+
+def build_redirects(articles):
+    """Rewrite only the `redirects` key of vercel.json; headers stay hand-edited."""
+    path = os.path.join(ROOT, 'vercel.json')
+    doc = json.load(open(path, encoding='utf-8'))
+
+    rules = [{
+        "source": "/article.html",
+        # Left unescaped on purpose: a literal dot matches under both a literal and
+        # a regex reading of `value`, so this works whichever way Vercel treats it.
+        "has": [{"type": "query", "key": "data", "value": a['data']}],
+        "destination": "/" + a['url'],
+        "permanent": True,
+    } for a in articles]
+    rules += EXTRA_REDIRECTS
+
+    if doc.get('redirects') == rules:
+        print(f"vercel.json redirects already current ({len(rules)} rules).")
+        return
+    doc['redirects'] = rules
+    open(path, 'w', encoding='utf-8').write(
+        json.dumps(doc, ensure_ascii=False, indent=2) + '\n')
+    print(f"Built vercel.json redirects ({len(rules)} rules).")
+
+
 def main():
     global PRICE_IDS, GROUP_PAGES
     articles = json.load(open(os.path.join(ROOT, 'articles.json'), encoding='utf-8'))
@@ -1517,6 +1560,7 @@ def main():
         print("Built index.html (categories + article grid).")
     build_sitemap(articles, built_groups, built_pages, built_tools)
     build_feed(articles)
+    build_redirects(articles)
     build_llms_txt(articles, cats, built_groups, built_pages, built_tools)
     if missing_images:
         print("WARNING missing image files:")

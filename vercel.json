@@ -2,6 +2,390 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/wireless-mouse.json"
+        }
+      ],
+      "destination": "/wireless-mouse-under-500",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/keyboard-mechanical.json"
+        }
+      ],
+      "destination": "/keyboard-mechanical-500-1500",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/headphone-wfh.json"
+        }
+      ],
+      "destination": "/headphone-wfh-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/monitor-2k-4k.json"
+        }
+      ],
+      "destination": "/monitor-2k-4k",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/desk-standing.json"
+        }
+      ],
+      "destination": "/desk-standing-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/chair-ergonomic.json"
+        }
+      ],
+      "destination": "/chair-ergonomic-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/desk-lamp.json"
+        }
+      ],
+      "destination": "/desk-lamp-ergonomic-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/usb-hub.json"
+        }
+      ],
+      "destination": "/usb-hub-type-c",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/gan-charger.json"
+        }
+      ],
+      "destination": "/gan-charger-30w-45w-65w",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/power-strip.json"
+        }
+      ],
+      "destination": "/power-strip-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/cable-management.json"
+        }
+      ],
+      "destination": "/cable-management-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/desk-mat.json"
+        }
+      ],
+      "destination": "/desk-mat-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/pomodoro-timer.json"
+        }
+      ],
+      "destination": "/pomodoro-focus-timer-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/laptop-cooling-pad.json"
+        }
+      ],
+      "destination": "/laptop-cooling-pad-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/ergonomic-mouse.json"
+        }
+      ],
+      "destination": "/ergonomic-mouse-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/monitor-arm.json"
+        }
+      ],
+      "destination": "/monitor-arm-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/headphone-stand.json"
+        }
+      ],
+      "destination": "/headphone-stand-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/bluetooth-speaker.json"
+        }
+      ],
+      "destination": "/bluetooth-desk-speaker-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/bluetooth-version.json"
+        }
+      ],
+      "destination": "/bluetooth-5-3-vs-5-4-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/laptop-monitor-stand.json"
+        }
+      ],
+      "destination": "/laptop-monitor-stand-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/gan-charger-guide.json"
+        }
+      ],
+      "destination": "/gan-charger-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/usb-hub-4k-stutter.json"
+        }
+      ],
+      "destination": "/usb-c-hub-4k-stutter-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/usb-foot-pedal.json"
+        }
+      ],
+      "destination": "/usb-foot-pedal-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/split-ergonomic-keyboard.json"
+        }
+      ],
+      "destination": "/split-ergonomic-keyboard-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/ergonomic-office-chair.json"
+        }
+      ],
+      "destination": "/ergonomic-office-chair-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/adjustable-standing-desk.json"
+        }
+      ],
+      "destination": "/adjustable-standing-desk-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/wireless-charging-station.json"
+        }
+      ],
+      "destination": "/wireless-charging-station-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/wfh-video-call-gear.json"
+        }
+      ],
+      "destination": "/wfh-video-call-gear-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/portable-monitor.json"
+        }
+      ],
+      "destination": "/portable-monitor-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/neck-shoulder-pain.json"
+        }
+      ],
+      "destination": "/neck-shoulder-pain-desk-setup-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/power-strip-overheating.json"
+        }
+      ],
+      "destination": "/power-strip-overheating-2026",
+      "permanent": true
+    },
+    {
+      "source": "/article.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "data",
+          "value": "data/wireless-mouse-lag.json"
+        }
+      ],
+      "destination": "/wireless-mouse-lag-fix-2026",
+      "permanent": true
+    },
+    {
       "source": "/wfh",
       "destination": "/",
       "permanent": false
