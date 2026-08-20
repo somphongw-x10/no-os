@@ -9,7 +9,7 @@ JavaScript still see the full content.
 
 Idempotent: safe to run repeatedly. Run before committing:  python3 build.py
 """
-import json, re, os, sys
+import json, re, os, sys, hashlib
 from html import escape
 from urllib.parse import quote
 
@@ -1312,45 +1312,95 @@ def build_noindex_legacy():
 
 # ---------- sitemap ----------
 
-def build_sitemap(articles, built_groups, built_pages, built_tools):
-    """Regenerate sitemap.xml from articles.json + the category pages.
+SITEMAP_STATE = '.sitemap-state.json'
 
-    Existing <lastmod> values are carried over per URL. Stamping everything with
-    today's date on every build would be a false freshness signal, so only URLs
-    that are genuinely new get today's date.
+
+def build_sitemap(articles, built_groups, built_pages, built_tools):
+    """Regenerate sitemap.xml, with <lastmod> driven by the page's actual content.
+
+    The previous version carried every <lastmod> over from the old sitemap and only
+    dated URLs it had never seen. The intent was to avoid faking freshness; the
+    effect was the opposite failure — a page could be rewritten completely and the
+    sitemap would still tell Google it had not changed since the day it was first
+    published. Search Console showed exactly that: the whole site was pre-rendered
+    on 14 July, yet /keyboard-mechanical-500-1500 still advertised lastmod
+    2026-06-29 and Google had not re-crawled it since 29 June.
+
+    So: hash each built file and keep the hash alongside its date in
+    .sitemap-state.json. Same hash -> keep the stored date. Different hash -> the
+    page really did change, and lastmod becomes the file's mtime (i.e. this build).
+    That file must be committed; without it every clone would re-date the world.
+
+    Caveat: the hash covers the whole file, so a site-wide template edit — adding
+    one <link> tag to every head — re-dates all 46 URLs even though no prose moved.
+    Correct in the literal sense, but do not read a mass re-date as 46 rewrites.
     """
     from datetime import date
     path = os.path.join(ROOT, 'sitemap.xml')
+    state_path = os.path.join(ROOT, SITEMAP_STATE)
     today = date.today().isoformat()
 
-    previous = {}
-    if os.path.exists(path):
-        old = open(path, encoding='utf-8').read()
-        for loc, mod in re.findall(r'<loc>([^<]+)</loc>\s*<lastmod>([^<]+)</lastmod>', old):
-            previous[loc] = mod
+    state = {}
+    if os.path.exists(state_path):
+        try:
+            state = json.load(open(state_path, encoding='utf-8'))
+        except ValueError:
+            print(f"  !! {SITEMAP_STATE} is not valid JSON — every URL will be re-dated")
 
-    entries = [(BASE, '1.0', 'weekly')]
-    entries += [(BASE + f'category/{g["slug"]}', '0.9', 'weekly') for g, _ in built_groups]
-    entries += [(BASE + a['url'], '0.8', 'weekly') for a in articles]
+    # (url, priority, changefreq, file that backs it)
+    entries = [(BASE, '1.0', 'weekly', 'index.html')]
+    entries += [(BASE + f'category/{g["slug"]}', '0.9', 'weekly',
+                 f'category/{g["slug"]}.html') for g, _ in built_groups]
+    entries += [(BASE + a['url'], '0.8', 'weekly', a['url'] + '.html') for a in articles]
     if built_tools:
-        entries.append((BASE + 'tools', '0.9', 'monthly'))
-        entries += [(BASE + 'tools/' + t['slug'], '0.9', 'monthly') for t in built_tools]
+        entries.append((BASE + 'tools', '0.9', 'monthly', 'tools/index.html'))
+        entries += [(BASE + 'tools/' + t['slug'], '0.9', 'monthly',
+                     f'tools/{t["slug"]}.html') for t in built_tools]
     # Trust pages change rarely and are not what we want ranking, but they must be
     # crawlable — they are what a reviewer checks before trusting the rest.
-    entries += [(BASE + p['slug'], '0.4', 'yearly') for p in built_pages]
+    entries += [(BASE + p['slug'], '0.4', 'yearly', p['slug'] + '.html')
+                for p in built_pages]
 
+    new_state = {}
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for loc, priority, freq in entries:
+    fresh, missing = [], []
+    for loc, priority, freq, rel in entries:
+        fp = os.path.join(ROOT, rel)
+        if os.path.exists(fp):
+            digest = hashlib.sha256(open(fp, 'rb').read()).hexdigest()[:16]
+            mtime = date.fromtimestamp(os.path.getmtime(fp)).isoformat()
+        else:
+            # Should not happen: every entry above is a file this build just wrote.
+            digest, mtime = '', today
+            missing.append(rel)
+
+        prev = state.get(loc)
+        if prev and prev.get('hash') == digest and prev.get('lastmod'):
+            lastmod = prev['lastmod']
+        else:
+            lastmod = mtime
+            fresh.append(loc)
+
+        new_state[loc] = {'hash': digest, 'lastmod': lastmod}
         lines += ['  <url>',
                   f'    <loc>{loc}</loc>',
-                  f'    <lastmod>{previous.get(loc, today)}</lastmod>',
+                  f'    <lastmod>{lastmod}</lastmod>',
                   f'    <changefreq>{freq}</changefreq>',
                   f'    <priority>{priority}</priority>',
                   '  </url>']
     lines.append('</urlset>')
+
     open(path, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
-    print(f"Built sitemap.xml ({len(entries)} URLs).")
+    open(state_path, 'w', encoding='utf-8').write(
+        json.dumps(new_state, ensure_ascii=False, indent=1, sort_keys=True) + '\n')
+
+    for rel in missing:
+        print(f"  !! sitemap: {rel} does not exist — lastmod stamped today")
+    if fresh:
+        print(f"Built sitemap.xml ({len(entries)} URLs, {len(fresh)} re-dated).")
+    else:
+        print(f"Built sitemap.xml ({len(entries)} URLs, no content changed).")
 
 
 # ---------- llms.txt ----------
